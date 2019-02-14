@@ -1,5 +1,5 @@
 console.log('priver') ; 
-setInterval('func1()',1000) ; 
+//setInterval('func1()',1000) ; 
 
 var caunt=0 ; 
 
