@@ -1,0 +1,23 @@
+
+
+	$name=$_POST['name'];
+	$lastname=$_POST['lastname'] ; 
+	$email=$_POST['email'] ; 
+	
+if(isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['email'])){
+	 $sql = "INSERT INTO first (name, lastname, email) VALUES ('$name','$lastname','$email')";
+if (mysqli_query($link, $sql)) {
+      echo "ZDELANO";
+     	unset($_POST['name']) ; 
+ 		unset($_POST['lastname']); 
+ 		unset($_POST['email']);
+ } else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($link);
+ }
+ mysqli_close($link); 
+
+}
+else{
+
+	echo 'POLYA PUSTI' ; 
+}

@@ -1,0 +1,24 @@
+body{
+	background-color: silver ; 
+}
+.fornIn{
+	
+	width: 300px;
+	height: 50px;
+}
+
+
+table{
+font-size: 20px ;
+
+}
+
+td{
+	padding: 10px;
+}
+#btn{
+	display: none;
+}
+#btn2{
+	display: none;
+}
