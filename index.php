@@ -1,4 +1,4 @@
-v6
+
 <?php
  require_once 'php/connection.php' ; 
 // $dbconnect = mysql_connect ($dbhost, $dbusername, $dbpass);
@@ -39,14 +39,6 @@ if (isset($_GET['red_id'])) {
     }
 
 
-
-
-
-
-
-
-
-
   if (isset($_GET['del_id'])) { //проверяем, есть ли переменная
     //удаляем строку из таблицы
     $sql = mysqli_query($link, "DELETE FROM `first` WHERE `uid` = {$_GET['del_id']}");
@@ -75,9 +67,11 @@ if (isset($_GET['red_id'])) {
     <title>Hello, world!</title>
   </head>
   <body>
-
+   
 <?php 
-require_once 'pages/header.php'
+require_once 'pages/header.php' ; 
+
+
 ?>
 
 
@@ -112,49 +106,61 @@ while ($result=mysqli_fetch_array($sql)){
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-<form action="" method="post">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        	
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+  <form action="" method="post">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
 
-    <table>
-      <tr>
-        <td>NAME:</td>
-        <td><input type="text" name="name" value="<?= isset($_GET['red_id']) ? $userInfo['name'] : ''; ?>"></td>
-      </tr>
-      <tr>
-        <td>LASTNAME:</td>
-        <td><input type="text" name="lastname"  value="<?= isset($_GET['red_id']) ? $userInfo['lastname'] : ''; ?>"> </td>
-      </tr>
-      <tr>
-        <td>EMAIL:</td>
-        <td><input type="text" name="email"  value="<?= isset($_GET['red_id']) ? $userInfo['email'] : ''; ?>"> </td>
-      </tr>
-     <!--  <tr>
-        <td colspan="2"><input type="submit" value="OK" class="btn btn-outline-primary fornIn"></td>
-      </tr> -->
-    </table>
-  
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary" value="Send message">
+              <table>
+                <tr>
+                  <td>NAME:</td>
+                  <td><input type="text" name="name" value="<?= isset($_GET['red_id']) ? $userInfo['name'] : ''; ?>"></td>
+                </tr>
+                <tr>
+                  <td>LASTNAME:</td>
+                  <td><input type="text" name="lastname"  value="<?= isset($_GET['red_id']) ? $userInfo['lastname'] : ''; ?>"> </td>
+                </tr>
+                <tr>
+                  <td>EMAIL:</td>
+                  <td><input type="text" name="email"  value="<?= isset($_GET['red_id']) ? $userInfo['email'] : ''; ?>"> </td>
+                </tr>
+              <!--  <tr>
+                  <td colspan="2"><input type="submit" value="OK" class="btn btn-outline-primary fornIn"></td>
+                </tr> -->
+              </table>
+            
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <input type="submit" class="btn btn-primary" value="Send message">
+                </div>
+              </div>
+            </div>
       </div>
-    </div>
-  </div>
-</form>
+  </form>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script> 
+ 
+
+
+<?php 
+
+require_once 'pages/ajax.php' ; 
+
+?>
+    
 <script src='js/myjs.js'></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+
   </body>
 </html>
