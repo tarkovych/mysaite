@@ -1,5 +1,5 @@
-<div id="carouselExampleInterval" class="carousel slide " data-ride="carousel">
-        <div class="carousel-inner" id="innerIMG">
+<div id="carouselExampleInterval" class="carousel slide text-center mx-auto" data-ride="carousel">
+        <div class="carousel-inner mx-auto text-center" id="innerIMG" style="width:800px; height:400px ; background-color:silver;">
 
    <!-- ***************************************** -->
   

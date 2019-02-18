@@ -216,40 +216,56 @@ var messageId=document.getElementById('massResult') ;
 
 }
 
- function funImageFilter(){return window.arrArr} ;
+ function funImageFilter(){
+     return window.arrArr
+    } ;
+
+
+    function carusele(mass, first=0){
+        var innerIMG='' ;
+        for(let i=0 ; i<mass.length ; i++){
+            
+            if(i==first){
+            innerIMG+= ` <div class="carousel-item active" data-interval="100000">
+                          <img src="img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
+                            </div>` ;
+            }else{
+                innerIMG+= `
+                            <div class="carousel-item" data-interval="100000">
+                                <img src="img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
+                            </div>
+                ` ; 
+            }
+            
+         }
+        return innerIMG ; 
+    }
+
+function scroll(mass){
+    var innerIMG='' ; 
+    let ymass=mass ; 
+    for(let i=0 ; i<mass.length ; i++){
+        innerIMG+= ` <img src="img/${mass[i]}.png" class="dinline" alt="${mass[i]}" onclick="caruseleReset(${ymass},${mass[i]})">` ;
+    }
+    return innerIMG ; 
+}
  
  function result(){
-     if(funImageFilter()==undefined){
+
+    if(funImageFilter()==undefined){
        alert( "Вы должны указать настоики поиска")  ; 
      }else{ 
-    var innerIMG='' ; 
-    var innerIMG2='' ; 
-
-    for(let i=0 ; i<funImageFilter().length ; i++){
-        innerIMG2+= ` <img src="img/${funImageFilter()[i]}.png" class="dinline" alt="${funImageFilter()[i]}">` ;
-
-        if(i==0){
-        innerIMG+= ` <div class="carousel-item active" data-interval="100000">
-                      <img src="img/${funImageFilter()[i]}.png" class="d-block w-600" alt="${funImageFilter()[i]}">
-                        </div>` ;
-        }else{
-            innerIMG+= `
-                        <div class="carousel-item" data-interval="100000">
-                            <img src="img/${funImageFilter()[i]}.png" class="d-block w-600" alt="${funImageFilter()[i]}">
-                        </div>
-            ` ; 
-        }
-        
-
-     }
-
-    document.getElementById('innerIMG').innerHTML=innerIMG ; 
-    document.getElementById('sl_image').innerHTML=innerIMG2 ; 
+    document.getElementById('innerIMG').innerHTML=carusele(funImageFilter()); 
+    document.getElementById('sl_image').innerHTML=scroll(funImageFilter()) ; 
      }
  	
 	
  }
-
+ function caruseleReset(mass,index){
+    document.getElementById('innerIMG').innerHTML=carusele(mass,index); 
+    alert(mass) ; 
+    alert(index) ; 
+ }
 
  $('.carousel').carousel()
 
