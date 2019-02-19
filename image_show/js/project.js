@@ -38,8 +38,9 @@ buildTable () ;
 //-----кнопка ресет
 function nazat() {	
 buildTable () ;
+clearImageBlock() ; 
 document.getElementById("massResult").innerHTML="";
-document.getElementById('mainDiv').innerHTML='' }
+}
 
 //-----кнопка результат
 
@@ -145,14 +146,9 @@ function massiv(id){
 		}
 		 
 	}
-	
-	//alert(aspenArrAll) ; 
+
 	var arrTt=[] ; 
-	
-	
-	//alert("arrOll="+arrOll) ; 
-	//alert("arrOllv="+arrOllv) ;
-	//alert("notMass(arrOll)="+notMass(arrOll)) ; 
+
 	
 	BildList(arrOll,arrOllv,notMass(arrOll));
 	
@@ -184,8 +180,7 @@ function BildList(arrName,arrValue,arrNonName){
 		}
 
 	}
-	//document.getElementById('massResult').innerHTML='<b>НАЙДЕНО '+arrIdALL[1].length+' СОВПАДЕНИЙ</b>'+arrIdALL;
-	 //resultIMG() ; 
+
 	resultIMG(arrName,arrValue) ; 
 }
 function clearResult(){document.getElementById('massResult').innerHTML=' '  ;}
@@ -221,18 +216,29 @@ var messageId=document.getElementById('massResult') ;
     } ;
 
 
-    function carusele(mass, first=0){
-        var innerIMG='' ;
+    function carusele(mass, first=mass[0]){
+        let innerIMG='' ;
         for(let i=0 ; i<mass.length ; i++){
             
-            if(i==first){
+            if(mass[i]==first){
             innerIMG+= ` <div class="carousel-item active" data-interval="100000">
                           <img src="img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
-                            </div>` ;
+                          <figcaption>${mass[i]}.png</figcaption>
+                          <div class="panelka ">
+                             <a href="img/${mass[i]}.png"  download><img src="icon/down.svg"></a>
+                             <a href="img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search.svg"></a>
+                             </div> 
+                        </div>` ;
             }else{
-                innerIMG+= `
-                            <div class="carousel-item" data-interval="100000">
+                innerIMG+= ` 
+                            <div class="carousel-item " data-interval="100000">
                                 <img src="img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
+                                <figcaption>${mass[i]}.png</figcaption>
+                                <div class="panelka">
+                                     <a href="img/${mass[i]}.png"  download><img src="icon/down.svg"></a>
+                                     <a href="img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search.svg"></a>
+                                 </div> 
+                                
                             </div>
                 ` ; 
             }
@@ -245,16 +251,22 @@ function scroll(mass){
     var innerIMG='' ; 
     let ymass=mass ; 
     for(let i=0 ; i<mass.length ; i++){
-        innerIMG+= ` <img src="img/${mass[i]}.png" class="dinline" alt="${mass[i]}" onclick="caruseleReset(${ymass},${mass[i]})">` ;
+        innerIMG+= ` <div class=' dinline'>
+                    <img src="img/${mass[i]}.png"  alt="${mass[i]}" onclick="caruseleReset(funImageFilter(),${mass[i]})" >
+                    </div>
+                   ` ;
     }
     return innerIMG ; 
 }
  
  function result(){
+    if(funImageFilter()==undefined || funImageFilter().length==0){
+       alert( "Вы должны указать настоики поиска , либо настройки поиска нулевые") ; 
+       clearImageBlock() ; 
+       
 
-    if(funImageFilter()==undefined){
-       alert( "Вы должны указать настоики поиска")  ; 
      }else{ 
+    document.getElementById('ShowImage').style.display="inline" ;   
     document.getElementById('innerIMG').innerHTML=carusele(funImageFilter()); 
     document.getElementById('sl_image').innerHTML=scroll(funImageFilter()) ; 
      }
@@ -262,58 +274,16 @@ function scroll(mass){
 	
  }
  function caruseleReset(mass,index){
-    document.getElementById('innerIMG').innerHTML=carusele(mass,index); 
-    alert(mass) ; 
-    alert(index) ; 
+    document.getElementById('innerIMG').innerHTML='';
+    document.getElementById('innerIMG').innerHTML=carusele(mass,index);   
  }
 
- $('.carousel').carousel()
 
 
+function clearImageBlock() {
+    document.getElementById('ShowImage').style.display="none" ;
+    document.getElementById('innerIMG').innerHTML='';
+    document.getElementById('sl_image').innerHTML='';
+}
 
-
-// var count;
-// 		function loadimg(iter){
-			
-// 			var ul = document.getElementById('lightgallery');
-//             for (var i=1;i<iter.length;i++){
-// 				var li = document.createElement('li');
-// 				//	li.setAttribute('class','col-xs-6 col-sm-4 col-md-3' );					
-// 					li.setAttribute('id','IMG_'+iter[i]);
-// 					li.setAttribute('data-responsive','img/1-375.jpg 375, img/1-480.jpg 480, img/1.jpg 800' );
-// 					li.setAttribute('data-src','[% GraphicsPath() %]image/img/'+iter[i]+'.png' );
-// 					li.setAttribute('data-sub-html','<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>' );
-// 					li.setAttribute('data-pinterest-text','Pin it1' );
-// 					li.setAttribute('data-tweet-text','share on twitter 1' );
-// 					li.innerHTML=' <a href="">  <img class="img-responsive" src="[% GraphicsPath() %]image/img/'+iter[i]+'.png" alt="IMG_'+i+'"> </a>';
-// 				ul.appendChild(li);
-// 				}
-// 				//count=iter+20;
-// 				lightGallery(document.getElementById('lightgallery'));
-// 				}
-// 					function heightDiv(count) {
-// 					loadimg(count);
-// 					var h = document.getElementById('mainDiv').clientHeight;
-// 					var nextH=h+600;
-// 					document.getElementById('mainDiv').style.height=h+'px';
-							
-// 									$( "#mainDiv" ).animate({
-// 								    	  height: nextH
-// 								  }, 1500, function() {
-// 								    // Animation complete.
-// 								  });
-								
-	            								
-// 					}
-
-
-
-//materilayzer
-
-//  document.addEventListener('DOMContentLoaded', function() {
-// var elems = document.querySelectorAll('select');
-// var instances = M.FormSelect.init(elems, options);
-// });
-// $(document).ready(function(){
-//  $('select').formSelect();
-// });
+$('.carousel').carousel()  ; 
