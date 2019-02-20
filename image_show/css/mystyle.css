@@ -58,3 +58,14 @@ display:inline ;
 	bottom: -200px; /* Положение от нижнего края */
      /* Положение от правого края right: -100px; */ 
 }
+
+
+
+img {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+ 
+img[data-src] {
+  opacity: 0;
+}

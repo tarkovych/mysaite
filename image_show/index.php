@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>IMAGE</title>
-		<link rel="stylesheet" href="css/mystyle.css">
-		<!-- materilaze -->
-		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
-		
-		  <!-- Bootstrap CSS -->
-			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-     
-
-
-</head>
-<body>
-    
 <?php 
-require_once 'pages/header.php'
+$page_Name='ГОЛОВНА'  ; 
+require_once 'pages/header.php' ; 
 ?>
 
 
@@ -69,22 +50,13 @@ require_once 'pages/header.php'
 </div>
 
 
-<a href="img/1.png" rel="lightbox" align="Center" border="0">rrrrrrr</a>
+<!-- <a href="img/1.png" rel="lightbox" align="Center" border="0">rrrrrrr</a> -->
+<?php require_once 'pages/footerJS.php' ; ?>
 
-<style type="text/css">
 
-</style>
 
-<script  src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="		crossorigin="anonymous">
-</script>
-
-<!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script  src="js/myArray.js"></script>
-<script  src="js/spisok.js"></script>
-<script  src="js/project.js"></script>
 <script>
-<script  src="js/lightbox.js"></script>
+
 
 function temaVision(){
 	
@@ -100,7 +72,6 @@ temaVision() ;
 
 
 </script>
-
 
 
 

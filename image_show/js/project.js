@@ -217,33 +217,36 @@ var messageId=document.getElementById('massResult') ;
 
 
     function carusele(mass, first=mass[0]){
+		let caunt=0 ; 
         let innerIMG='' ;
         for(let i=0 ; i<mass.length ; i++){
             
-            if(mass[i]==first){
-            innerIMG+= ` <div class="carousel-item active" data-interval="100000">
+            if(mass[i]===first && caunt==0){
+            innerIMG+= ` <div class="carousel-item active" >
                           <img src="img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
                           <figcaption>${mass[i]}.png</figcaption>
                           <div class="panelka ">
-                             <a href="img/${mass[i]}.png"  download><img src="icon/down.svg"></a>
-                             <a href="img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search.svg"></a>
+                             <a href="img/${mass[i]}.png"  download><img src="icon/down1.svg"></a>
+                             <a href="img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search1.svg"></a>
                              </div> 
-                        </div>` ;
+						</div>` ;
+						caunt++ ; 
+						
             }else{
                 innerIMG+= ` 
-                            <div class="carousel-item " data-interval="100000">
+                            <div class="carousel-item " >
                                 <img src="img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
                                 <figcaption>${mass[i]}.png</figcaption>
                                 <div class="panelka">
-                                     <a href="img/${mass[i]}.png"  download><img src="icon/down.svg"></a>
-                                     <a href="img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search.svg"></a>
+                                     <a href="img/${mass[i]}.png"  download><img src="icon/down1.svg"></a>
+                                     <a href="img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search1.svg"></a>
                                  </div> 
-                                
                             </div>
                 ` ; 
             }
             
-         }
+		 }
+		
         return innerIMG ; 
     }
 
@@ -255,7 +258,8 @@ function scroll(mass){
                     <img src="img/${mass[i]}.png"  alt="${mass[i]}" onclick="caruseleReset(funImageFilter(),${mass[i]})" >
                     </div>
                    ` ;
-    }
+	}
+	
     return innerIMG ; 
 }
  
@@ -268,14 +272,15 @@ function scroll(mass){
      }else{ 
     document.getElementById('ShowImage').style.display="inline" ;   
     document.getElementById('innerIMG').innerHTML=carusele(funImageFilter()); 
-    document.getElementById('sl_image').innerHTML=scroll(funImageFilter()) ; 
+	document.getElementById('sl_image').innerHTML=scroll(funImageFilter()) ; 
+
      }
  	
-	
  }
  function caruseleReset(mass,index){
     document.getElementById('innerIMG').innerHTML='';
-    document.getElementById('innerIMG').innerHTML=carusele(mass,index);   
+	document.getElementById('innerIMG').innerHTML=carusele(mass,index);   
+
  }
 
 
@@ -286,4 +291,8 @@ function clearImageBlock() {
     document.getElementById('sl_image').innerHTML='';
 }
 
-$('.carousel').carousel()  ; 
+$('.carousel').carousel({
+	interval: 200000
+  })
+
+
