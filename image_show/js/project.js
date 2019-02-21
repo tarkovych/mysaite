@@ -223,11 +223,11 @@ var messageId=document.getElementById('massResult') ;
             
             if(mass[i]===first && caunt==0){
             innerIMG+= ` <div class="carousel-item active" >
-                          <img src="img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
+                          <img src="img/img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
                           <figcaption>${mass[i]}.png</figcaption>
                           <div class="panelka ">
-                             <a href="img/${mass[i]}.png"  download><img src="icon/down1.svg"></a>
-                             <a href="img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search1.svg"></a>
+                             <a href="img/img/${mass[i]}.png"  download><img src="icon/down1.svg"></a>
+                             <a href="img/img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search1.svg"></a>
                              </div> 
 						</div>` ;
 						caunt++ ; 
@@ -235,11 +235,11 @@ var messageId=document.getElementById('massResult') ;
             }else{
                 innerIMG+= ` 
                             <div class="carousel-item " >
-                                <img src="img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
+                                <img src="img/img/${mass[i]}.png" class="d-block rounded mx-auto " alt="${mass[i]}">
                                 <figcaption>${mass[i]}.png</figcaption>
                                 <div class="panelka">
-                                     <a href="img/${mass[i]}.png"  download><img src="icon/down1.svg"></a>
-                                     <a href="img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search1.svg"></a>
+                                     <a href="img/img/${mass[i]}.png"  download><img src="icon/down1.svg"></a>
+                                     <a href="img/img/${mass[i]}.png" rel="lightbox" align="Center"><img src="icon/search1.svg"></a>
                                  </div> 
                             </div>
                 ` ; 
@@ -255,7 +255,7 @@ function scroll(mass){
     let ymass=mass ; 
     for(let i=0 ; i<mass.length ; i++){
         innerIMG+= ` <div class=' dinline'>
-                    <img src="img/${mass[i]}.png"  alt="${mass[i]}" onclick="caruseleReset(funImageFilter(),${mass[i]})" >
+                    <img src="img/img/${mass[i]}.png"  alt="${mass[i]}" onclick="caruseleReset(funImageFilter(),${mass[i]})" >
                     </div>
                    ` ;
 	}

@@ -3,19 +3,6 @@
 $page_Name='ПРОГРАМА' ; 
 require_once 'pages/header.php'  ; 
 ?>
-<div id="admin">444</div>
-<script>
-var adminPass =roboto ;  //prompt('Пароль Админа');
-var php='?php' ; 
-document.getElementById('admin').innerHTML=`<${php} echo 'hello'.${adminPass} ; ?>`; 
-
-
-
-</script>
-
-
-
-
 <?php 
 if(empty($_GET['admin'])){
   echo "<h1>Вы не админ </h1>" ;
@@ -27,8 +14,6 @@ else{
      exit() ; 
    }
 }
-
-
 ?>
 
 
@@ -64,8 +49,6 @@ else{
 <?php require_once 'pages/footerJS.php' ; ?>
 
 <script>
-
-
 function startt(){
 
   let x= document.getElementById("aa").value ; 

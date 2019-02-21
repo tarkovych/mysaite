@@ -1,48 +1,17 @@
-
-
-	$name=$_POST['name'];
-	$lastname=$_POST['lastname'] ; 
-	$email=$_POST['email'] ; 
-	
-if(isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['email'])){
-	 $sql = "INSERT INTO first (name, lastname, email) VALUES ('$name','$lastname','$email')";
-if (mysqli_query($link, $sql)) {
-      echo "ZDELANO";
-     	unset($_POST['name']) ; 
- 		unset($_POST['lastname']); 
- 		unset($_POST['email']);
- } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($link);
- }
- mysqli_close($link); 
-
-}
-else{
-
-	echo 'POLYA PUSTI' ; 
-}
-
-
-
-function funcBefore(){
-    $('#information').html('Загрузка') ; 
-}
-function funcSucces(data){
-    $('#information').html(data) ; 
-} 
-
-$(document).ready (function(){
-    $('#load').bind('click',function(){
-    var $admin='Admin'  ; 
-        $.ajax({
-            url:'pages/content.php',
-            type:'POST',
-            data:({name:$admin , number:5}), 
-            dataType:'html',
-            beforeSend:funcBefore,
-            success:funcSucces
-
-        });
-    });
-
-});
+1	Первое блюдо (бульоны / супы / борщ)
+2	Мясо и птица
+3	Рыба и морепродукты
+4	Гарниры и вторые блюда (включая каши, блюда из яиц, блинчики, вареники и т.д.)
+5	Салаты и овощи
+6	Молочные продукты и блюда из них
+7	Закуски (мясные нарезки, колбасы, сыры, холодцы / заливное)
+8	Бутерброды / бургеры / пироги / пицца / фастфуд / суши
+9	Снеки соленые (чипсы, сухарики, орешки, попкорн, семечки)
+10	Сухие завтраки / хлопья / мюсли / полуфабрикаты
+11	Фрукты, сухофрукты, орехи
+12	Десерты / сладкое
+13	Безалкогольные напитки
+14	Горячие напитки
+15	Алкогольные напитки
+16	Свежий хлеб и сухари
+17	Детское питание

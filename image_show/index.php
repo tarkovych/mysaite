@@ -7,10 +7,7 @@ require_once 'pages/header.php' ;
 
 
 <div class="container-fluid" >
-
-						<!-- <table  cellpadding="0" cellspacing="0" width="360px" id="tableBuild" class='bord'></table>  -->
 	<div class="row " >
-
 		<div  class="col-4 " >
 				<div id="tableBuild" class="" ></div>	
 				<div id="massResult" ></div>
@@ -29,9 +26,6 @@ require_once 'pages/header.php' ;
  					 <label class="custom-control-label" for="customRadio2">Горизонтальная прокрутка</label>
 				</div>	
 				<!-- ************************* -->
-
-
-
 		</div>	
 		<div class="col-8 dblock"  id="ShowImage" style="display:none">
 					<div class="row dblock " ><?php require_once 'pages/galerea.php';?></div>  
@@ -47,34 +41,22 @@ require_once 'pages/header.php' ;
 </div>
 
 
-</div>
 
-
-<!-- <a href="img/1.png" rel="lightbox" align="Center" border="0">rrrrrrr</a> -->
-<?php require_once 'pages/footerJS.php' ; ?>
-
-
-
-<script>
-
-
-function temaVision(){
-	
-	if(document.getElementById("customRadio1").checked){
-		document.getElementById("sl_image").className="temaVision1" ; 
-		
-	}else{
-		document.getElementById("sl_image").className="temaVision2" ; 
-		
-	}
-}
-temaVision() ; 
-
-
-</script>
-
-
-
+	<?php require_once 'pages/footerJS.php' ; ?>
+	<script  src="js/project.js"></script>
+	<script>
+		function temaVision(){
+			
+			if(document.getElementById("customRadio1").checked){
+				document.getElementById("sl_image").className="temaVision1" ; 
+				
+			}else{
+				document.getElementById("sl_image").className="temaVision2" ; 
+				
+			}
+		}
+		temaVision() ; 
+	</script>
 </body>
 </html>
 
