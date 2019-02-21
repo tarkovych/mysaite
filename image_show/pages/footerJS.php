@@ -46,8 +46,8 @@
     <!-- Footer Elements -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-2">© 2018 Copyright:
-    <a href="callMsg.php"> Написать в центр поддержки</a>
+    <div class="footer-copyright text-center py-2" >© 2018 Copyright:
+    <a id="call_id" href="callMsg.php"> Написать в центр поддержки</a>
     </div>
     <!-- Copyright -->
 
