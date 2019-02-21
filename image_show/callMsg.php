@@ -9,29 +9,30 @@ require_once 'pages/header.php' ;
 <div class="container-fluid" >
 
 <form class="was-validated">
-<div class="d-flex justify-content-center">  
-     
-            <div class="col-md-6 mb-3">
-                <label for="validationServer01">First name</label>
-                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
-                <div class="valid-feedback">
-                Looks good!
-                </div>
-            </div>
 
-            <div class="col-md-6 mb-3">
-                <label for="validationServer01">First name</label>
-                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
-            <div class="valid-feedback">
-                Looks good!
+        <div class="row p-2">
+            <div class="col-4"></div>
+            <div class="col-4 ">
+                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Ваше имя" value="" required>
             </div>
-            </div>
-
-        <div class="col-md-6 mb-3">
-            <label for="validationTextarea">Textarea</label>
-            <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+           <div class="col-4"></div>
         </div>
-
+     
+        <div class="row p-2">
+            <div class="col-4"></div>
+            <div class="col-4 ">
+                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Укажите ваш email" value="" required>
+            </div>
+           <div class="col-4"></div>
+        </div>
+        <div class="row p-2">
+            <div class="col-4"></div>
+            <div class=" col-4 ">
+                <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Укажите неисправность" style="height:100px" required></textarea>
+                <button type="button " class="btn btn-primary btn-lg text-center">Large button</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
 </div> 
 </form> 
 

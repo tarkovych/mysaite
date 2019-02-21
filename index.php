@@ -46,6 +46,7 @@ if (isset($_GET['red_id'])) {
       echo "<p>Товар удален.</p>";
     } else {
       echo '<p>Произошла ошибка: ' . mysqli_error($link) . '</p>';
+
     }
   }
 
@@ -151,7 +152,7 @@ while ($result=mysqli_fetch_array($sql)){
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script> 
  
 
-
+<div></div>
 <?php 
 
 require_once 'pages/ajax.php' ; 
