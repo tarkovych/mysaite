@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="referrer" content="origin">
+  <!-- base href="https://www.dropbox.com/" -->
+  <style type="text/css">
+html, body, pre {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 12px;
+}
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+#code .syntaxhighlighter {
+    overflow: visible !important;
+    margin: 0 !important;
+}
+.add-padding #code {
+    padding: 10px;
+}
+</style>
+  <link rel="stylesheet" href="p_data/preview_html_rams.css">
+  <script src="p_data/jquery-1.js"></script>
+  <script src="p_data/frame_messenger_client.js"></script>
+  <script src="p_data/preview_html_rams.js"></script>
+  <script type="text/javascript">
+    var lastPostedHeight = -1;
+    function postHeight() {
+        var currentHeight = document.body.scrollHeight;
+        if (currentHeight != lastPostedHeight) {
+            lastPostedHeight = currentHeight;
+            parent.postMessage(currentHeight, 'https://www.dropbox.com');
+        }
+    }
+    function postHeightRepeat(n) {
+        if (!n) return;
+
+        postHeight();
+        window.setTimeout(function() { postHeightRepeat(n-1) }, 250);
+    }
+    function onload() { 
+            var elm = document.getElementById('code');
+            SyntaxHighlighter.defaults['toolbar'] = false;
+            SyntaxHighlighter.defaults['quick-code'] = false;
+            SyntaxHighlighter.defaults['auto-links'] = false;
+            SyntaxHighlighter.highlight(elm);
+         }
+  </script>
+  
+            <script type="text/javascript" src="p_data/syntax.js"></script>
+            <link href="p_data/syntax.css" type="text/css" rel="stylesheet">
+        
+ </head>
+ <body class="add-padding" onload="onload(); postHeightRepeat(20);">
+  <div id="code"><div id="highlighter_332809" class="syntaxhighlighter  php"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">&lt;?php</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="php comments">/* https://api.telegram.org/botXXXXXXXXXXXXXXXXXXXXXXX/getUpdates,</code></div><div class="line number4 index3 alt1"><code class="php comments">где, XXXXXXXXXXXXXXXXXXXXXXX - токен вашего бота, полученный ранее */</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="php variable">$name</code> <code class="php plain">= </code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">'user_name'</code><code class="php plain">];</code></div><div class="line number7 index6 alt2"><code class="php variable">$phone</code> <code class="php plain">= </code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">'user_phone'</code><code class="php plain">];</code></div><div class="line number8 index7 alt1"><code class="php variable">$email</code> <code class="php plain">= </code><code class="php variable">$_POST</code><code class="php plain">[</code><code class="php string">'user_email'</code><code class="php plain">];</code></div><div class="line number9 index8 alt2"><code class="php variable">$token</code> <code class="php plain">= </code><code class="php string">""</code><code class="php plain">;</code></div><div class="line number10 index9 alt1"><code class="php variable">$chat_id</code> <code class="php plain">= </code><code class="php string">""</code><code class="php plain">;</code></div><div class="line number11 index10 alt2"><code class="php variable">$arr</code> <code class="php plain">= </code><code class="php keyword">array</code><code class="php plain">(</code></div><div class="line number12 index11 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php string">'Имя пользователя: '</code> <code class="php plain">=&gt; </code><code class="php variable">$name</code><code class="php plain">,</code></div><div class="line number13 index12 alt2"><code class="php spaces">&nbsp;&nbsp;</code><code class="php string">'Телефон: '</code> <code class="php plain">=&gt; </code><code class="php variable">$phone</code><code class="php plain">,</code></div><div class="line number14 index13 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php string">'Email'</code> <code class="php plain">=&gt; </code><code class="php variable">$email</code></div><div class="line number15 index14 alt2"><code class="php plain">);</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="php keyword">foreach</code><code class="php plain">(</code><code class="php variable">$arr</code> <code class="php keyword">as</code> <code class="php variable">$key</code> <code class="php plain">=&gt; </code><code class="php variable">$value</code><code class="php plain">) {</code></div><div class="line number18 index17 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php variable">$txt</code> <code class="php plain">.= </code><code class="php string">"&lt;b&gt;"</code><code class="php plain">.</code><code class="php variable">$key</code><code class="php plain">.</code><code class="php string">"&lt;/b&gt; "</code><code class="php plain">.</code><code class="php variable">$value</code><code class="php plain">.</code><code class="php string">"%0A"</code><code class="php plain">;</code></div><div class="line number19 index18 alt2"><code class="php plain">};</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="php variable">$sendToTelegram</code> <code class="php plain">= </code><code class="php functions">fopen</code><code class="php plain">(</code><code class="php string">"https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&amp;parse_mode=html&amp;text={$txt}"</code><code class="php plain">,</code><code class="php string">"r"</code><code class="php plain">);</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$sendToTelegram</code><code class="php plain">) {</code></div><div class="line number24 index23 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php plain">header(</code><code class="php string">'Location: thank-you.html'</code><code class="php plain">);</code></div><div class="line number25 index24 alt2"><code class="php plain">} </code><code class="php keyword">else</code> <code class="php plain">{</code></div><div class="line number26 index25 alt1"><code class="php spaces">&nbsp;&nbsp;</code><code class="php functions">echo</code> <code class="php string">"Error"</code><code class="php plain">;</code></div><div class="line number27 index26 alt2"><code class="php plain">}</code></div><div class="line number28 index27 alt1"><code class="php plain">?&gt;</code></div></div></td></tr></tbody></table></div></div>
+ 
+
+</body></html>

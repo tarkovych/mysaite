@@ -6,7 +6,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 		<title><?php  echo $page_Name ; ?></title>
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+     <link href="css/mdb.min.css" rel="stylesheet">  
 	
 		<link rel="stylesheet" type="text/css" href="css/lightbox.css">
        <!-- Font Awesome -->

@@ -19,7 +19,7 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
 $mail->setFrom('puluppp@yandex.ru'); // от кого будет уходить письмо?
-$mail->addAddress('puluppp@yandex.ru');     // Кому будет уходить письмо 
+$mail->addAddress('tarkovychne@gmail.com');     // Кому будет уходить письмо 
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
@@ -35,7 +35,32 @@ $mail->AltBody = '';
 if(!$mail->send()) {
     echo 'Error';
 } else {
-    echo 'QOOD' ; 
-    header('location: ../index.php');
+    $token = "668464308:AAHZp4NCzUhVPgYL1DlFITbaELhMZ3E5qww" ; 
+    $chat_id = "222761607";
+    $arr = array(
+        'Имя пользователя: ' => $name,
+         'Mail: ' => $email,
+        'Проблема:' => $msg
+    );
+
+    foreach($arr as $key => $value) {
+     $txt .= "<b>".$key."</b> ".$value."%0A";
+    };
+
+    $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
+
+      if ($sendToTelegram) {
+             header('Location: ../index.php');
+        } else {
+        echo "Error";
+    }
+
+
+
+
 }
+
+
+
+
 ?>

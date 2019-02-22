@@ -31,8 +31,8 @@ require_once 'pages/header.php' ;
                 <div class=" col-4 ">
                     <textarea name='call_msg' class="form-control is-invalid" id="validationTextarea" placeholder="Укажите неисправность" style="height:100px" required></textarea>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" > 
-                        <label class="custom-file-label mt-2" for="validatedCustomFile" name="upload">Choose file...1</label>
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="upload"> 
+                        <label class="custom-file-label mt-2" for="validatedCustomFile" >Choose file...1</label>
                     </div>        
                 </div>
                 <div class="col-4"></div>

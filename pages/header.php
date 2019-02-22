@@ -9,7 +9,7 @@
         <a class="nav-link" href="#">Дома<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="ajax.php">Ajax</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
