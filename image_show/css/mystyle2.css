@@ -1,0 +1,12 @@
+.BOX-SELECT{
+    width: 500px ; 
+    text-align: right ; 
+}
+.SELECT{
+    width:400px;
+    height: 30px;
+}
+.OPTION{
+    width:400px;
+    height: 30px;
+}

@@ -18,12 +18,12 @@ require_once 'pages/header.php' ;
 				<!-- ************************* -->
 				<br><br>
 				<div class="custom-control custom-radio" >
-  						<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"  onclick="temaVision() " >
- 						 <label class="custom-control-label" for="customRadio1">Вертикальная прокрутка</label>
+  						<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input"  onclick="temaVision() " checked>
+ 						 <label class="custom-control-label" for="customRadio1">Горизонтальная прокрутка</label>
 				</div>
 				<div class="custom-control custom-radio">
  					 <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" onclick="temaVision()">
- 					 <label class="custom-control-label" for="customRadio2">Горизонтальная прокрутка</label>
+ 					 <label class="custom-control-label" for="customRadio2">Вертикальная прокрутка</label>
 				</div>	
 				<!-- ************************* -->
 		</div>	

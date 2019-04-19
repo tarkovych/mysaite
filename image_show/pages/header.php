@@ -15,6 +15,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="css/mystyle.css">
+  <link rel="stylesheet" href="css/mystyle2.css">
 
 
 </head>
