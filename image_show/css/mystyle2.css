@@ -1,12 +1,32 @@
-.BOX-SELECT{
-    width: 500px ; 
-    text-align: right ; 
-}
+ .BOX-SELECT{
+    
+} 
 .SELECT{
-    width:400px;
-    height: 30px;
+    display: block;
+    width: 700px ; 
+    height: 300px;
+    overflow-x: scroll  ;
+    overflow-y: scroll  ;
+    text-align: left ; 
+    /* border:solid 1px black ;  */
 }
 .OPTION{
-    width:400px;
-    height: 30px;
+    
+    /* display: block; */
+    /* border:solid 1px silver ; */
+    /* width:700px; */
+    
+}
+td{
+    /* border:solid 1px black ;   */
+}
+tr{
+    height: 40px;
+    /* border:solid 1px red ;   */
+}
+.SELECT-CLICK{
+    width: 700px ; 
+    height: 40px;
+    border: solid red 2px ; 
+
 }

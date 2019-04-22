@@ -1,32 +1,51 @@
+
+//alert(ObjValue.C1[0]) ; 
+
+
+
 class Buld {
-	constructor(objLabel,objValue){
-    this.ObjLabel=objLabel ;
-    this.ObjValue=objValue ;
+	constructor(objlabel,oblvalue,ArrName){
+    this.ObjLabel=objlabel ;
+	this.ObjValue=oblvalue ;
+	this.ArrName=ArrName ; 
 		this.arr=function (){let arr=[] ; for(let id in this.ObjLabel){arr.push(id);} return arr;}
 		this.mass=this.arr();	//["C1","C2"]
 		}
 	buldOption(mass,id){
-		let option=`<option value="0" class="OPTION">ALL</option>` ; 
+		let option=`
+				<tr>
+					<td><input type="checkbox" value="0"  name="${id}_0" id="${id}_0"></td>
+					<td><label for="${id}_0">ALL</label></div></td>
+				</tr>` ; 
 		for(let i=0 ; i<mass.length;i++){
-			option+=`<option value="${i+1}" id="${id}_${i+1}" class="OPTION">
-                      	                 ${mass[i]} 
+			option+=`<tr>
+						<td><input type="checkbox" value="${i+1}" id="${id}_${i+1}" name="${id}_${i+1}"></td>
+						<td><label for="${id}_${i+1}"> ${mass[i]} 
                         <span id="${id}_${i+1}_cap">//${id}_${i+1}//</span>
-                      </option>` ; 
+						</label></td>
+					</tr>` ; 
 		}
-		return option ; 
+		return option  ; 
 	}
 	buldSelect(){
 		let select=`` ;
+		let caunt=0 ; 
 		for(let mass in this.ObjLabel){
 			select+=`<div class="BOX-SELECT">
-                            <label for="${mass}">
-                                ${mass}
-                            </label>
-                            <select id="${mass}" class="SELECT" onChange="OnChange(this.id)">
-                                ${this.buldOption(this.ObjLabel[mass],mass)}
-                            </select>
-                     </div>` ; 
+							<div id="${mass}" class="SELECT-CLICK" onClick="OnClick(this.id)">
+								${this.ArrName[caunt]}
+							</div>
+							<div id="${mass}_select" class="SELECT">
+								<table class="">
+									${this.buldOption(this.ObjLabel[mass],mass)}
+								</table>
+							</div>
+
+                            
+					 </div>` ; 
+			caunt++;
 		}
+		
 		return select ; 
 	}
 	buldInner(id){
@@ -35,16 +54,37 @@ class Buld {
 
 }  
 
-var buld= new Buld(ObjLabel,ObjValue) ; 
+var buld= new Buld(ObjLabel,ObjValue,ArrName) ; 
 
 
 
 buld.buldInner("tableBuild") ; 
 
-function OnChange(x){
+function OnClick(x){
 alert(x) ; 
 }
 
+// function CSV(){
+// 	let mass=buld.mass;
+// 	mass.push('IMG') ; 
+// 	alert(mass); 
+// 	alert(mass.length); 
+// 	let textCSV='' ; 
+// 	for(let i=0 ; i<mass.length ; i++){	
+// 		for(let j=0 ; j<ObjValue[mass[i]].length ; j++){
+// 		if(ObjValue[mass[i]].length!=(j-1)){textCSV+=`"${ObjValue[mass[i]][j]}",`;}
+// 		else{textCSV+=`"${ObjValue[mass[i]][j]}"\n` ;} 
+// 	}
+// }
+
+// if(textCSV.length==0){alert("STOP")}else{alert(textCSV)}
+//         var type = 'data:application/octet-stream;base64, ';
+//         var text = textCSV;
+//         var base = btoa(text);
+//         var res = type + base;
+//         document.getElementById("CSV").href = res;
+// }
+// CSV() ; 
 
 // //--------------Списки у фильтр первоначальный
 // function createOption (mass, idName) {
