@@ -23,11 +23,15 @@ require_once 'pages/header.php' ;
 <div class="container-fluid" >
 	<div class="row " >
 		<div  class="col-4 " >
+			<form action="" method="get">
+
 				<div id="tableBuild" class="" ></div>	
 				<div id="massResult" ></div>
-				<input type="button" class="btn btn-outline-primary btnMY" onclick="result()" id="searchBtn" value="ПОКАЗАТЬ"> 
+				<!-- <input type="button" class="btn btn-outline-primary btnMY" onclick="result()" id="searchBtn" value="ПОКАЗАТЬ"> 
+				<input type="button" class="btn btn-outline-primary btnMY" onclick="nazat()" id="resetBtn" value="СБРОС"> -->
+				<input type="submit" class="btn btn-outline-primary btnMY" onclick="result()" id="searchBtn" value="ПОКАЗАТЬ"> 
 				<input type="button" class="btn btn-outline-primary btnMY" onclick="nazat()" id="resetBtn" value="СБРОС">
-			
+				</form>
 				
 				<!-- ************************* -->
 				<br><br>
