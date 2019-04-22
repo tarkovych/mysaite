@@ -3,10 +3,10 @@
 } 
 .SELECT{
     display: block;
-    width: 700px ; 
-    height: 300px;
-    overflow-x: scroll  ;
-    overflow-y: scroll  ;
+    width: 100% ; 
+    max-height: 300px;
+    overflow-x: auto  ;
+    overflow-y: auto  ;
     text-align: left ; 
     /* border:solid 1px black ;  */
 }
@@ -18,15 +18,46 @@
     
 }
 td{
-    /* border:solid 1px black ;   */
+    /* border-bottom: solid silver 1px ; 
+    height: 40px; 
+    background-color:silver ;  */
+    height: 40px;
+}
+td:hover{
+    border-bottom: solid silver 1px ; 
+    /* height: 40px;  */
+    background-color:silver ; 
 }
 tr{
-    height: 40px;
+    /* border-bottom: solid silver 1px ;  */
+    /* height: 40px; */
     /* border:solid 1px red ;   */
 }
+td:hover{
+    /* border-bottom: solid silver 1px ; 
+    height: 40px; 
+    background-color:silver ;  */
+}
 .SELECT-CLICK{
-    width: 700px ; 
+    padding: 5px ; 
+    width: 100% ; 
     height: 40px;
-    border: solid red 2px ; 
+    border: solid silver 1px ; 
 
+}
+.showOFF{
+display:none ; 
+}
+.showON{
+display:inline ; 
+}
+.select-icon{
+width: 35px ; 
+height: 35px;
+float: right
+}
+label{
+/* border: solid 1px black ;  */
+width: 100% ; 
+height: 100% ; 
 }

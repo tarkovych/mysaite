@@ -14,12 +14,12 @@ class Buld {
 	buldOption(mass,id){
 		let option=`
 				<tr>
-					<td><input type="checkbox" value="0"  name="${id}_0" id="${id}_0"></td>
+					<td><input type="checkbox" value="0"  name="${id}" id="${id}_0" onclick="buld.All('${id}',0)"></td>
 					<td><label for="${id}_0">ALL</label></div></td>
 				</tr>` ; 
 		for(let i=0 ; i<mass.length;i++){
 			option+=`<tr>
-						<td><input type="checkbox" value="${i+1}" id="${id}_${i+1}" name="${id}_${i+1}"></td>
+						<td><input type="checkbox" value="${i+1}" id="${id}_${i+1}" name="${id}" onclick="buld.All('${id}',${i+1})"></td>
 						<td><label for="${id}_${i+1}"> ${mass[i]} 
                         <span id="${id}_${i+1}_cap">//${id}_${i+1}//</span>
 						</label></td>
@@ -32,16 +32,17 @@ class Buld {
 		let caunt=0 ; 
 		for(let mass in this.ObjLabel){
 			select+=`<div class="BOX-SELECT">
-							<div id="${mass}" class="SELECT-CLICK" onClick="OnClick(this.id)">
+							<div id="${mass}" class="SELECT-CLICK" onClick="buld.OnShow(this.id)">
 								${this.ArrName[caunt]}
+								<div class="select-icon" id="${mass}_icon">&#9660</div>
 							</div>
-							<div id="${mass}_select" class="SELECT">
+							<div id="${mass}_select"  class="SELECT">
+							<div class="showOFF" id="${mass}_show">
 								<table class="">
 									${this.buldOption(this.ObjLabel[mass],mass)}
 								</table>
 							</div>
-
-                            
+							</div>     
 					 </div>` ; 
 			caunt++;
 		}
@@ -51,7 +52,38 @@ class Buld {
 	buldInner(id){
         document.getElementById(id).innerHTML=this.buldSelect() ;
 	}
-
+	All(id,val){
+		let all=document.getElementById(id+"_0")  ;
+		if(val==0){
+		if(all.checked){
+			for(let i=0 ; i<this.ObjLabel[id].length;i++){
+				document.getElementById(id+"_"+(i+1)).checked=true; 
+			}
+			}else{
+				for(let i=0 ; i<this.ObjLabel[id].length;i++){
+					document.getElementById(id+"_"+(i+1)).checked=false; 
+				}
+			}
+		}else{
+			all.checked=false ; 	
+		}
+		}
+		
+	
+	OnShow(id){
+		let show =document.getElementById(id+'_show').className ; 
+		let show2=document.getElementById(id+'_show') ; 
+		let icon=document.getElementById(id+'_icon') ;
+		
+		if(show=="showOFF"){
+			show2.className="showON";
+			icon.innerHTML="&#9650"; 
+		}else{
+			show2.className="showOFF";
+			icon.innerHTML="&#9660";
+		}
+		
+		}
 }  
 
 var buld= new Buld(ObjLabel,ObjValue,ArrName) ; 
@@ -60,9 +92,7 @@ var buld= new Buld(ObjLabel,ObjValue,ArrName) ;
 
 buld.buldInner("tableBuild") ; 
 
-function OnClick(x){
-alert(x) ; 
-}
+// function 
 
 // function CSV(){
 // 	let mass=buld.mass;
