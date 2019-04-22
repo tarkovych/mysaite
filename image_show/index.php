@@ -23,7 +23,7 @@ require_once 'pages/header.php' ;
 <div class="container-fluid" >
 	<div class="row " >
 		<div  class="col-4 " >
-			<form action="" method="get">
+			<form action="second.php" method="get">
 
 				<div id="tableBuild" class="" ></div>	
 				<div id="massResult" ></div>

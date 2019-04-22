@@ -14,12 +14,12 @@ class Buld {
 	buldOption(mass,id){
 		let option=`
 				<tr>
-					<td><input type="checkbox" value="0"  name="${id}" id="${id}_0" onclick="buld.All('${id}',0)"></td>
+					<td><input type="checkbox" value="0"  name="${id}[]" id="${id}_0" onclick="buld.All('${id}',0)"></td>
 					<td><label for="${id}_0">ALL</label></div></td>
 				</tr>` ; 
 		for(let i=0 ; i<mass.length;i++){
 			option+=`<tr>
-						<td><input type="checkbox" value="${i+1}" id="${id}_${i+1}" name="${id}" onclick="buld.All('${id}',${i+1})"></td>
+						<td><input type="checkbox" value="${i+1}" id="${id}_${i+1}" name="${id}[]" onclick="buld.All('${id}',${i+1})"></td>
 						<td><label for="${id}_${i+1}"> ${mass[i]} 
                         <span id="${id}_${i+1}_cap">//${id}_${i+1}//</span>
 						</label></td>
