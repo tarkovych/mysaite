@@ -43,9 +43,14 @@ if (!$link) {
 $query = "SELECT * FROM `ObjValue` WHERE $Res" ; 
  $result = mysqli_query($link,$query);
 $arrLength=[] ; 
-while($row = mysqli_fetch_assoc($result)){
-    array_push($arrLength,$row["uid"]) ; 
+//while($row = mysqli_fetch_assoc($result)){
+  //  array_push($arrLength,$row["uid"]) ; 
+//}
+  //echo count($arrLength) ; 
+  $row_set= array();   
+while($row = mysqli_fetch_assoc($result))
+{
+    $row_set[] = $row;
 }
-  echo count($arrLength) ; 
-     
-    
+
+echo json_encode($row_set);

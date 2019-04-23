@@ -1,8 +1,3 @@
-
-//alert(ObjValue.C1[0]) ; 
-
-
-
 class Buld {
 	constructor(objlabel,oblvalue,ArrName){
     this.ObjLabel=objlabel ;
@@ -56,7 +51,7 @@ class Buld {
         document.getElementById(id).innerHTML=this.buldSelect() ;
 	}
 	All(id,val){
-		this.AJAX(id,val) ;
+		this.AJAX() ;
 		let all=document.getElementById(id+"_0")  ;
 		if(val==0){
 		if(all.checked){
@@ -89,15 +84,31 @@ class Buld {
 		} 
 		
 		}
-	AJAX(id,val){
+	AJAX(){
 		let postOld=$("#FormAction").serialize() ; 
-		//for(let i in this.ObjLabel){
-			//for(let j=1 ; j<=this.ObjLabel[i].length ; j++){}
-		//let postNew=`${postOld}&${i}%5B%5D=${j}`  ;
-				//console.log(postNew)  ;
-				$.post('last.php',postOld,function(request){
-					document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
+		$.post('last.php',postOld,function(request){
+			console.log(JSON.parse(request)) ; 
+			//document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
+		});
+			//	$.post('last.php',postOld,function(request){
+			//		document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
+			///	});
+
+			async function retro(id,val){
+				let postNew=`${postOld}&${id}%5B%5D=${val}`  ;
+				await $.get('last.php',postNew,function(request){
+					if(request==0){
+						document.getElementById(`${id}_${val}`).disabled=true ; 
+					}else{
+						document.getElementById(`${id}_${val}`).disabled=false ;
+					}
 				});
+			}
+
+			for(let i in this.ObjLabel){
+			for(let j=1 ; j<=this.ObjLabel[i].length ; j++){
+				//retro(i,j).then() ; 
+			}	
 			
 		}
 	
@@ -108,7 +119,7 @@ class Buld {
 			//let result ; 
 				//$.post('second.php',{data:data},function(reque;st){
 
-		
+	}	
 		
 }  
 
