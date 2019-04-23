@@ -18,12 +18,15 @@ class Buld {
 					<td><label for="${id}_0">ALL</label></div></td>
 				</tr>` ; 
 		for(let i=0 ; i<mass.length;i++){
-			option+=`<tr>
-						<td><input type="checkbox" value="${i+1}" id="${id}_${i+1}" name="${id}[]" onclick="buld.All('${id}',${i+1})"></td>
-						<td><label for="${id}_${i+1}"> ${mass[i]} 
-                        <span id="${id}_${i+1}_cap">//${id}_${i+1}//</span>
-						</label></td>
-					</tr>` ; 
+			if(mass[i]!=0){
+				option+=`<tr>
+				<td><input type="checkbox" value="${i+1}" id="${id}_${i+1}" name="${id}[]" onclick="buld.All('${id}',${i+1})"></td>
+				<td><label for="${id}_${i+1}"> ${mass[i]} 
+				<span id="${id}_${i+1}_cap">//${id}_${i+1}//</span>
+				</label></td>
+			</tr>` ; 
+			}
+			
 		}
 		return option  ; 
 	}
@@ -53,6 +56,7 @@ class Buld {
         document.getElementById(id).innerHTML=this.buldSelect() ;
 	}
 	All(id,val){
+		this.AJAX(id,val) ;
 		let all=document.getElementById(id+"_0")  ;
 		if(val==0){
 		if(all.checked){
@@ -67,6 +71,7 @@ class Buld {
 		}else{
 			all.checked=false ; 	
 		}
+		 
 		}
 		
 	
@@ -81,16 +86,49 @@ class Buld {
 		}else{
 			show2.className="showOFF";
 			icon.innerHTML="&#9660";
-		}
+		} 
 		
 		}
+	AJAX(id,val){
+		let postOld=$("#FormAction").serialize() ; 
+		//for(let i in this.ObjLabel){
+			//for(let j=1 ; j<=this.ObjLabel[i].length ; j++){}
+		//let postNew=`${postOld}&${i}%5B%5D=${j}`  ;
+				//console.log(postNew)  ;
+				$.post('last.php',postOld,function(request){
+					document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
+				});
+			
+		}
+	
+			
+			
+		
+			
+			//let result ; 
+				//$.post('second.php',{data:data},function(reque;st){
+
+		
+		
 }  
 
 var buld= new Buld(ObjLabel,ObjValue,ArrName) ; 
 
-
-
 buld.buldInner("tableBuild") ; 
+
+
+
+function RESULT(){
+let arrImg=[] ; 
+	//$.post('second.php',{data:data},function(reque;st){
+	$.post('image.php',$("#FormAction").serialize(),function(request){
+	arrImg=request.split(","); 
+	arrImg.pop() ; 
+	alert(arrImg) ;
+});
+
+}
+
 
 // function 
 
@@ -343,7 +381,7 @@ buld.buldInner("tableBuild") ;
 //   }
 // }
 
-// function funImageFilter () {
+// function arrImg {
 //   return window.arrArr;
 // }
 
@@ -392,15 +430,15 @@ buld.buldInner("tableBuild") ;
 // }
 
 // function result () {
-//   if (funImageFilter () == undefined || funImageFilter ().length == 0) {
+//   if (arrImg == undefined || arrImg.length == 0) {
 //     alert ('Вы должны указать настоики поиска , либо настройки поиска нулевые');
 //     clearImageBlock ();
 //   } else {
 //     document.getElementById ('ShowImage').style.display = 'inline';
 //     document.getElementById ('innerIMG').innerHTML = carusele (
-//       funImageFilter ()
+//       arrImg
 //     );
-//     document.getElementById ('sl_image').innerHTML = scroll (funImageFilter ());
+//     document.getElementById ('sl_image').innerHTML = scroll (arrImg);
 //   }
 // }
 // function caruseleReset (mass, index) {
