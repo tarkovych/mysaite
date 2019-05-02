@@ -7,12 +7,12 @@ class Buld {
 		}
 	buldOption(massLab,massVal,id){
 		let option=`
-				<tr>
+				<tr style="display:none">
 					<td><input type="checkbox" value="0"  name="${id}[]" id="${id}_0" onclick="buld.All('${id}',0)"></td>
 					<td><label for="${id}_0">ALL</label></div></td>
 				</tr>` ; 
 		for(let i=0 ; i<massLab.length;i++){
-				option+=`<tr>
+				option+=`<tr id="${id}_${massVal[i]}_table">
 				<td><input type="checkbox" value="${massVal[i]}" id="${id}_${massVal[i]}" name="${id}[]" onclick="buld.All('${id}',${massVal[i]})"></td>
 				<td><label for="${id}_${massVal[i]}"> ${massLab[i]} 
 				<span id="${id}_${massVal[i]}_cap">//${id}_${massVal[i]}//</span>
@@ -84,42 +84,35 @@ class Buld {
 		let arrJSON ; 
 		let postOld=$("#FormAction").serialize() ; 
 		$.post('last.php',postOld,function(request){
-
 			try{
 				arrJSON=JSON.parse(request) ; 
 				document.getElementById('massResult').innerHTML= `<b>Найдено ${arrJSON.length} результатов</b>`;
-				console.log(arrJSON[0]) ; 
-
 			}catch {
 				console.log("NE RABOTAET") ; 
 				console.log(request) ; 
 			}
-			 
-			
 		});
 			//	$.post('last.php',postOld,function(request){
 			//		document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
 			///	});
-
 			 function retro(id,val){
 				let postNew=`${postOld}&${id}%5B%5D=${val}`  ;
-				 $.get('last.php',postNew,function(request){
-					if(request==0){
-						document.getElementById(`${id}_${val}`).disabled=true ; 
+				 $.post('last1.php',postNew,function(request){
+					if(request*1==0){
+						document.getElementById(`${id}_${val}_table`).style.display="none" ; 
 					}else{
-						document.getElementById(`${id}_${val}`).disabled=false ;
+						document.getElementById(`${id}_${val}_table`).style.display=""; 
 					}
 				});
 			}
-
 			for(let i in this.ObjLabel){
-			for(let j=0 ; j<this.ObjLabel[i]['val'].length ; j++){
-			//	retro(i,this.ObjLabel[i]['val'][j]); 
-			}	
+				for(let j=0 ; j<this.ObjLabel[i]['val'].length ; j++){
+				//	retro(i,this.ObjLabel[i]['val'][j]); 
+					}			
+				}
 			
-		}
-	
-			console.log("good") ; 
+				console.log("version 3 ") ; 
+
 			
 		
 			

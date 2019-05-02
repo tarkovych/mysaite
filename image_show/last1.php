@@ -13,7 +13,6 @@ if (!$link) {
     exit;
 } 
 
-
     $C1  =  ((isset($_POST['C1']))  ? implode(",", $_POST['C1'] ) : 0);
     $C1a =  ((isset($_POST['C1a'])) ? implode(",", $_POST['C1a']) : 0);
     $C2  =  ((isset($_POST['C2']))  ? implode(",", $_POST['C2'] ) : 0);
@@ -46,16 +45,12 @@ if (!$link) {
     }
  if($Res==''){$Res="1";}
 $query = "SELECT * FROM `ObjValue` WHERE $Res" ; 
- $result = mysqli_query($link,$query);
+$result = mysqli_query($link,$query);
 $arrLength=[] ; 
-//while($row = mysqli_fetch_assoc($result)){
-  //  array_push($arrLength,$row["uid"]) ; 
-//}
-  //echo count($arrLength) ; 
-  $row_set= array();   
+$row_set= array();   
 while($row = mysqli_fetch_assoc($result))
 {
     $row_set[] = $row;
 }
 
-echo json_encode($row_set);
+echo count($row_set);
