@@ -1,26 +1,24 @@
 class Buld {
-	constructor(objlabel,oblvalue,ArrName){
+	constructor(objlabel,oblvalue){
     this.ObjLabel=objlabel ;
-	this.ObjValue=oblvalue ;
-	this.ArrName=ArrName ; 
+	this.ObjValue=oblvalue ; 
 		this.arr=function (){let arr=[] ; for(let id in this.ObjLabel){arr.push(id);} return arr;}
 		this.mass=this.arr();	//["C1","C2"]
 		}
-	buldOption(mass,id){
+	buldOption(massLab,massVal,id){
 		let option=`
 				<tr>
 					<td><input type="checkbox" value="0"  name="${id}[]" id="${id}_0" onclick="buld.All('${id}',0)"></td>
 					<td><label for="${id}_0">ALL</label></div></td>
 				</tr>` ; 
-		for(let i=0 ; i<mass.length;i++){
-			if(mass[i]!=0){
+		for(let i=0 ; i<massLab.length;i++){
 				option+=`<tr>
-				<td><input type="checkbox" value="${i+1}" id="${id}_${i+1}" name="${id}[]" onclick="buld.All('${id}',${i+1})"></td>
-				<td><label for="${id}_${i+1}"> ${mass[i]} 
-				<span id="${id}_${i+1}_cap">//${id}_${i+1}//</span>
+				<td><input type="checkbox" value="${massVal[i]}" id="${id}_${massVal[i]}" name="${id}[]" onclick="buld.All('${id}',${massVal[i]})"></td>
+				<td><label for="${id}_${massVal[i]}"> ${massLab[i]} 
+				<span id="${id}_${massVal[i]}_cap">//${id}_${massVal[i]}//</span>
 				</label></td>
 			</tr>` ; 
-			}
+			
 			
 		}
 		return option  ; 
@@ -31,13 +29,13 @@ class Buld {
 		for(let mass in this.ObjLabel){
 			select+=`<div class="BOX-SELECT">
 							<div id="${mass}" class="SELECT-CLICK" onClick="buld.OnShow(this.id)">
-								${this.ArrName[caunt]}
+								${this.ObjLabel[mass]['name']}
 								<div class="select-icon" id="${mass}_icon">&#9660</div>
 							</div>
 							<div id="${mass}_select"  class="SELECT">
 							<div class="showOFF" id="${mass}_show">
 								<table class="">
-									${this.buldOption(this.ObjLabel[mass],mass)}
+									${this.buldOption(this.ObjLabel[mass]['cat'],this.ObjLabel[mass]['val'],mass)}
 								</table>
 							</div>
 							</div>     
@@ -55,12 +53,12 @@ class Buld {
 		let all=document.getElementById(id+"_0")  ;
 		if(val==0){
 		if(all.checked){
-			for(let i=0 ; i<this.ObjLabel[id].length;i++){
-				document.getElementById(id+"_"+(i+1)).checked=true; 
+			for(let i=0 ; i<this.ObjLabel[id]['val'].length;i++){
+				document.getElementById(id+"_"+this.ObjLabel[id]['val'][i]).checked=true; 
 			}
 			}else{
-				for(let i=0 ; i<this.ObjLabel[id].length;i++){
-					document.getElementById(id+"_"+(i+1)).checked=false; 
+				for(let i=0 ; i<this.ObjLabel[id]['val'].length;i++){
+					document.getElementById(id+"_"+this.ObjLabel[id]['val'][i]).checked=false; 
 				}
 			}
 		}else{
@@ -68,8 +66,6 @@ class Buld {
 		}
 		 
 		}
-		
-	
 	OnShow(id){
 		let show =document.getElementById(id+'_show').className ; 
 		let show2=document.getElementById(id+'_show') ; 
@@ -85,18 +81,29 @@ class Buld {
 		
 		}
 	AJAX(){
+		let arrJSON ; 
 		let postOld=$("#FormAction").serialize() ; 
 		$.post('last.php',postOld,function(request){
-			console.log(JSON.parse(request)) ; 
-			//document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
+
+			try{
+				arrJSON=JSON.parse(request) ; 
+				document.getElementById('massResult').innerHTML= `<b>Найдено ${arrJSON.length} результатов</b>`;
+				console.log(arrJSON[0]) ; 
+
+			}catch {
+				console.log("NE RABOTAET") ; 
+				console.log(request) ; 
+			}
+			 
+			
 		});
 			//	$.post('last.php',postOld,function(request){
 			//		document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
 			///	});
 
-			async function retro(id,val){
+			 function retro(id,val){
 				let postNew=`${postOld}&${id}%5B%5D=${val}`  ;
-				await $.get('last.php',postNew,function(request){
+				 $.get('last.php',postNew,function(request){
 					if(request==0){
 						document.getElementById(`${id}_${val}`).disabled=true ; 
 					}else{
@@ -106,13 +113,13 @@ class Buld {
 			}
 
 			for(let i in this.ObjLabel){
-			for(let j=1 ; j<=this.ObjLabel[i].length ; j++){
-				//retro(i,j).then() ; 
+			for(let j=0 ; j<this.ObjLabel[i]['val'].length ; j++){
+			//	retro(i,this.ObjLabel[i]['val'][j]); 
 			}	
 			
 		}
 	
-			
+			console.log("good") ; 
 			
 		
 			
@@ -123,7 +130,7 @@ class Buld {
 		
 }  
 
-var buld= new Buld(ObjLabel,ObjValue,ArrName) ; 
+var buld= new Buld(ObjLabel,ObjValue) ; 
 
 buld.buldInner("tableBuild") ; 
 
