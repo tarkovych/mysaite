@@ -107,11 +107,11 @@ class Buld {
 			}
 			for(let i in this.ObjLabel){
 				for(let j=0 ; j<this.ObjLabel[i]['val'].length ; j++){
-				//	retro(i,this.ObjLabel[i]['val'][j]); 
+					retro(i,this.ObjLabel[i]['val'][j]); 
 					}			
 				}
 			
-				console.log("version 3 ") ; 
+				console.log("version 5") ; 
 
 			
 		
