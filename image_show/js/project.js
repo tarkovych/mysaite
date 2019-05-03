@@ -149,60 +149,92 @@ buld.buldInner("tableBuild") ;
 
 
 
-function RESULT(){
-let arrImg; 
+function RESULT(){ 
 	//$.post('second.php',{data:data},function(reque;st){
-	$.post('image.php',$("#FormAction").serialize(),function(request){
+		IMAGE  = $.post('image.php',$("#FormAction").serialize(),function(request){
 		try{
-			arrImg=JSON.parse(request) ; 
-			alert(arrImg) ;
-			console.log(arrImg) ; 
+		let arrImg=JSON.parse(request) ; 
+		GRID(arrImg) ; 
+		//	console.log(arrImg) ; 
+			return arrImg  ; 
 		}
 		catch(e){
 			console.log(e) ; 
 		}
 
 });
+ 
+// ;
 
-	function GRID(){
-	let col = `
-					<div class="col border">
-						<table class="table table-sm">
-							<tr>
-								<td scope="col">
-									<img src="img/img/1.png" width="200px" style="max-width:100%">
-								</td>
-							</tr>
-							<tr>
-								<d scope="col">
-									1.png
-								</td>
-							</tr>
-						</table>
+	function GRID(ArrImage){
+		let R=10 ; 
+		let C=5 ; 
+		let RR=0 ; 
+		let cell = Math.ceil(ArrImage.length/(R*C)) ;
+		console.log(cell)  ; 
+		console.log(ArrImage.length/(R*C));
+	//let col =  ; 
+
+
+let DIV=`` ; 
+
+	for(let list=1 ;  list<=cell; list++){
+		let first ; 
+		if(list==1){first='inline';}else{first='none';}
+		DIV+=`<div id="LIST_${list}" style="display:${first}">
+				${Row(ArrImage,list,R,C)}
+				</div>
+				`;
+	}
+
+
+
+function Row(ArrImage,list,R,C){
+	let Row = `` ;  
+	for(let row=1 ;  row<=R ; row++){
+if((list-1)*R*C+(row-1)*C <=ArrImage.length){
+		Row+=`<div class="row">
+				${Col(ArrImage,list,row,R,C)}	
 					</div>` ; 
-
-
-
-
-
-let result= '' ; 
-let list =`<li class="page-item"><a class="page-link" href="#">1</a></li>` ; 
-for(let list=1 ; list<=20 ; list++){}
-for(let row=1 ;  row<=20 ; row++){}
-for(let col=1 ;  col<=6 ; col++){}
-			
-
-		result+=`<div class="row"></div>`	;
-
-
-
-
-
-
-	document.getElementById("PICTURE").innerHTML=result ; 
+		}	 ; 
+		
+	}
+	return Row ; 
 }
 
-	GRID() ; 
+
+function Col(ArrImage,list,row,R,C){
+	let Col = `` ; 
+
+	for(let col=1 ;  col<=C ; col++){
+	if(	(list-1)*R*C + (row-1)*C +(col)<=ArrImage.length){
+	let t = (list-1)*R*C + (row-1)*C +(col) ;  
+	if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
+		RR++ ; 
+		Col+=`
+							<div class="col border m-1" style="height:100px;background-image:url(img/img/${ArrImage[t]})">
+								<table class="table table-sm">
+									<tr>
+										<td scope="col" >
+										<!--	<img src="img/img/${ArrImage[t]}"  height="100" style="widht-max=100%">-->
+										</td>
+									</tr>
+									<tr>
+										<td scope="col" style="font-size:8px">
+										${ArrImage[t]}
+										</td>
+									</tr>
+								</table>
+							</div>` ; 
+		}
+		
+		}	 ; 
+		return Col ;
+	}
+//	console.log(DIV);
+document.getElementById("PICTURE").innerHTML=DIV; 
+}
+
 
 }
 

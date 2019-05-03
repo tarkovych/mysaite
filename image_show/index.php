@@ -28,18 +28,29 @@ require_once 'pages/header.php' ;
 
 
 	<div class="row">
-    	<div class="col-xl-4 col-lg-6">
+    	<div class="col-xl-4 col-lg-6" >
 				<form action="" id="FormAction" method="post">
 					<div id="tableBuild" class="" ></div>	
 					<div id="massResult" ></div>
 					<!-- <input type="button" class="btn btn-outline-primary btnMY" onclick="result()" id="searchBtn" value="ПОКАЗАТЬ"> 
 					<input type="button" class="btn btn-outline-primary btnMY" onclick="nazat()" id="resetBtn" value="СБРОС"> -->
 					<div class="row">
-						<div class="col-6">
-							<input type="button" class="btn btn-outline-primary " onclick="RESULT()" id="searchBtn" value="ПОКАЗАТЬ" style="width:250px"">
+						<div class="col-6 border">
+							<input 
+							type="button" 
+							class="btn btn-outline-primary " 
+							onclick="RESULT()" id="searchBtn" 
+							value="ПОКАЗАТЬ" 
+							style="width:200px">
 						</div>
-						<div class="col-6">
-							<input type="button" class="btn btn-outline-primary " onclick="" id="resetBtn" value="RERERE" style="width:250px">
+						<div class="col-6 border">
+							<input 
+							type="button" 
+							class="btn btn-outline-primary " 
+							onclick="" 
+							id="resetBtn" 
+							value="RERERE" 
+							style="width:200px">
 						</div>
 					</div>
 					
@@ -47,7 +58,8 @@ require_once 'pages/header.php' ;
 				</form>
 		</div>
     	<div class="col-xl-8 col-lg-6">
-			<div id="PICTURE"  class=''></div>
+			<div id="PICTURE"  class=''>
+			</div>
 			<div class="align-bottom" >
 			<!-- *************** -->
 								<nav aria-label="Page navigation example">
