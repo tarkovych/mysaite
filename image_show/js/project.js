@@ -212,10 +212,10 @@ function Col(ArrImage,list,row,R,C){
 	if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
 		RR++ ; 
 		Col+=`
-							<div class="col border m-1" style="height:100px;background-image:url(img/img/${ArrImage[t]})">
+							<div class="col border">
 								<table class="table table-sm">
 									<tr>
-										<td scope="col" >
+										<td scope="col" style="height:100px;background-image:url(img/img/${ArrImage[t]})">
 										<!--	<img src="img/img/${ArrImage[t]}"  height="100" style="widht-max=100%">-->
 										</td>
 									</tr>
