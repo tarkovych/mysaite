@@ -1,7 +1,6 @@
 class Buld {
-	constructor(objlabel,oblvalue){
+	constructor(objlabel){
     this.ObjLabel=objlabel ;
-	this.ObjValue=oblvalue ; 
 		this.arr=function (){let arr=[] ; for(let id in this.ObjLabel){arr.push(id);} return arr;}
 		this.mass=this.arr();	//["C1","C2"]
 		}
@@ -111,7 +110,7 @@ class Buld {
 					}			
 				}
 			
-				console.log("version 5") ; 
+				console.log("version 6") ; 
 
 			
 		
@@ -123,7 +122,7 @@ class Buld {
 		
 }  
 
-var buld= new Buld(ObjLabel,ObjValue) ; 
+var buld= new Buld(ObjLabel) ; 
 
 buld.buldInner("tableBuild") ; 
 
