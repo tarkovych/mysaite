@@ -35,7 +35,7 @@ require_once 'pages/header.php' ;
 					<!-- <input type="button" class="btn btn-outline-primary btnMY" onclick="result()" id="searchBtn" value="ПОКАЗАТЬ"> 
 					<input type="button" class="btn btn-outline-primary btnMY" onclick="nazat()" id="resetBtn" value="СБРОС"> -->
 					<div class="row">
-						<div class="col-6 border">
+						<div class="col-6 ">
 							<input 
 							type="button" 
 							class="btn btn-outline-primary " 
@@ -43,7 +43,7 @@ require_once 'pages/header.php' ;
 							value="ПОКАЗАТЬ" 
 							style="width:200px">
 						</div>
-						<div class="col-6 border">
+						<div class="col-6 ">
 							<input 
 							type="button" 
 							class="btn btn-outline-primary " 
@@ -64,9 +64,9 @@ require_once 'pages/header.php' ;
 			<!-- *************** -->
 								<nav aria-label="Page navigation example">
 									<ul class="pagination" id="PAGIN" >
-										<!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+										 <li class="page-item"><a class="page-link" href="#">Previous</a></li> 
 										
-										<!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+										<li class="page-item"><a class="page-link" href="#">Next</a></li> 
 									</ul>
 								</nav>
 			<!-- *************** -->

@@ -17,8 +17,6 @@ class Buld {
 				<span id="${id}_${massVal[i]}_cap">//${id}_${massVal[i]}//</span>
 				</label></td>
 			</tr>` ; 
-			
-			
 		}
 		return option  ; 
 	}
@@ -150,95 +148,78 @@ buld.buldInner("tableBuild") ;
 
 
 function RESULT(){ 
-	//$.post('second.php',{data:data},function(reque;st){
 		IMAGE  = $.post('image.php',$("#FormAction").serialize(),function(request){
 		try{
-		let arrImg=JSON.parse(request) ; 
-		GRID(arrImg) ; 
-		//	console.log(arrImg) ; 
-			return arrImg  ; 
+				let arrImg=JSON.parse(request) ; 
+					GRID(arrImg) ; 
 		}
 		catch(e){
-			console.log(e) ; 
+				console.log(e) ; 
 		}
-
 });
- 
-// ;
 
 	function GRID(ArrImage){
 		let R=10 ; 
 		let C=5 ; 
 		let RR=0 ; 
 		let cell = Math.ceil(ArrImage.length/(R*C)) ;
-		console.log(cell)  ; 
-		console.log(ArrImage.length/(R*C));
-	//let col =  ; 
-
-
-let DIV=`` ; 
-
+		let DIV=`` ;
+		let PAG=`` ;
 	for(let list=1 ;  list<=cell; list++){
 		let first ; 
 		if(list==1){first='inline';}else{first='none';}
 		DIV+=`<div id="LIST_${list}" style="display:${first}">
-				${Row(ArrImage,list,R,C)}
-				</div>
-				`;
+				  ${Row(ArrImage,list,R,C)}
+					 </div>`;
+		PAG+=`<li class="page-item"><a class="page-link" href="#">${list}</a></li>`	;	 
 	}
-
-
 
 function Row(ArrImage,list,R,C){
 	let Row = `` ;  
 	for(let row=1 ;  row<=R ; row++){
-if((list-1)*R*C+(row-1)*C <=ArrImage.length){
-		Row+=`<div class="row">
-				${Col(ArrImage,list,row,R,C)}	
-					</div>` ; 
-		}	 ; 
-		
+			if((list-1)*R*C+(row-1)*C <=ArrImage.length){
+					Row+=`<div class="row">
+										${Col(ArrImage,list,row,R,C)}	
+								</div>` ; 
+			}	 ; 
 	}
 	return Row ; 
 }
-
 
 function Col(ArrImage,list,row,R,C){
 	let Col = `` ; 
 
 	for(let col=1 ;  col<=C ; col++){
-	if(	(list-1)*R*C + (row-1)*C +(col)<=ArrImage.length){
-	let t = (list-1)*R*C + (row-1)*C +(col) ;  
-	if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
-		RR++ ; 
+		let t = (list-1)*R*C + (row-1)*C +(col) ;
+		if(t<=ArrImage.length){
+			if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
+			RR++ ; 
 		Col+=`
-							<div class="col border">
-								<table class="table table-sm">
-									<tr>
-										<td scope="col" style="height:100px;background-image:url(img/img/${ArrImage[t]})">
-										<!--	<img src="img/img/${ArrImage[t]}"  height="100" style="widht-max=100%">-->
-										</td>
-									</tr>
-									<tr>
-										<td scope="col" style="font-size:8px">
-										${ArrImage[t]}
-										</td>
-									</tr>
-								</table>
-							</div>` ; 
+				<div class="col" style="max-width:210px">
+					<table class="table table-sm">
+						<tr>
+							<td scope="col" 
+									style="height:200px;background:url(img/imgsm/${ArrImage[t]}) 100% 100% no-repeat;
+									background-size:cover">
+							</td>
+						</tr>
+						<tr>
+							<td scope="col" style="font-size:7px">
+								${ArrImage[t]}
+							</td>
+						</tr>
+					</table>
+				</div>` ; 
 		}
-		
-		}	 ; 
+	}	 ; 
 		return Col ;
-	}
-//	console.log(DIV);
+}
+
 document.getElementById("PICTURE").innerHTML=DIV; 
+document.getElementById("PAGIN").innerHTML=PAG; 
 }
 
-
 }
-
-
 
 // function 
 
