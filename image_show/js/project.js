@@ -6,7 +6,7 @@ class Buld {
 		}
 	buldOption(massLab,massVal,id){
 		let option=`
-				<tr style="display:none">
+				<tr style="">
 					<td><input type="checkbox" value="0"  name="${id}[]" id="${id}_0" onclick="buld.All('${id}',0)"></td>
 					<td><label for="${id}_0">ALL</label></div></td>
 				</tr>` ; 
@@ -48,7 +48,7 @@ class Buld {
         document.getElementById(id).innerHTML=this.buldSelect() ;
 	}
 	All(id,val){
-		this.AJAX() ;
+		this.AJAX(id) ;
 		let all=document.getElementById(id+"_0")  ;
 		if(val==0){
 		if(all.checked){
@@ -79,44 +79,65 @@ class Buld {
 		} 
 		
 		}
-	AJAX(){
+	AJAX(ID){
 		let arrJSON ; 
-		let postOld=$("#FormAction").serialize() ; 
+		let postOld=$("#FormAction").serialize() ;
+
+		for(let mass in this.ObjLabel){
+			for(let i=0 ; i<this.ObjLabel[mass]['val'].length;i++){
+				if(ID!=mass){
+					//document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.color="silver";
+					document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.display="none";
+				}
+				
+			} 
+		} 
 		$.post('last.php',postOld,function(request){
 			try{
 				arrJSON=JSON.parse(request) ; 
-				document.getElementById('massResult').innerHTML= `<b>Найдено ${arrJSON.length} результатов</b>`;
-			}catch {
-				console.log("NE RABOTAET") ; 
-				console.log(request) ; 
-			}
-		});
-			//	$.post('last.php',postOld,function(request){
-			//		document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
-			///	});
-			 function retro(id,val){
-				let postNew=`${postOld}&${id}%5B%5D=${val}`  ;
-				 $.post('last1.php',postNew,function(request){
-					if(request*1==0){
-						document.getElementById(`${id}_${val}_table`).style.display="none" ; 
-					}else{
-						document.getElementById(`${id}_${val}_table`).style.display=""; 
-					}
-				});
-			}
-			for(let i in this.ObjLabel){
-				for(let j=0 ; j<this.ObjLabel[i]['val'].length ; j++){
-					retro(i,this.ObjLabel[i]['val'][j]); 
-					}			
+				//console.log(arrJSON) ; 
+				for(let mass in arrJSON){
+					for(let key in arrJSON[mass]){
+						let div = document.getElementById(`${mass}_${arrJSON[mass][key]}_table`) ; 
+						if(div!=null){
+						//	div.style.color="black";
+							div.style.display="";
+						}
+						else{
+						}
+					} 
 				}
+				
+			}catch(e){
+				console.log("NE RABOTAET") ; 
+				console.log(e) ; 
+				console.log(request) ;
+			}
 			
-				console.log("version 6") ; 
+		});
 
-			
 		
+				$.post('last1.php',postOld,function(request){
+					document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
+				});
+			//  function retro(id,val){
+			// 	let postNew=`${postOld}&${id}%5B%5D=${val}`  ;
+			// 	 $.post('last1.php',postNew,function(request){
+			// 		if(request*1==0){
+			// 			document.getElementById(`${id}_${val}_table`).style.display="none" ; 
+			// 		}else{
+			// 			document.getElementById(`${id}_${val}_table`).style.display=""; 
+			// 		}
+			// 	});
+			// }
+			// for(let i in this.ObjLabel){
+			// 	for(let j=0 ; j<this.ObjLabel[i]['val'].length ; j++){
+			// 		retro(i,this.ObjLabel[i]['val'][j]); 
+			// 		}			
+			// 	}
 			
-			//let result ; 
-				//$.post('second.php',{data:data},function(reque;st){
+			 	console.log("version 7") ; 
+
 
 	}	
 		
@@ -129,13 +150,59 @@ buld.buldInner("tableBuild") ;
 
 
 function RESULT(){
-let arrImg=[] ; 
+let arrImg; 
 	//$.post('second.php',{data:data},function(reque;st){
 	$.post('image.php',$("#FormAction").serialize(),function(request){
-	arrImg=request.split(","); 
-	arrImg.pop() ; 
-	alert(arrImg) ;
+		try{
+			arrImg=JSON.parse(request) ; 
+			alert(arrImg) ;
+			console.log(arrImg) ; 
+		}
+		catch(e){
+			console.log(e) ; 
+		}
+
 });
+
+	function GRID(){
+	let col = `
+					<div class="col border">
+						<table class="table table-sm">
+							<tr>
+								<td scope="col">
+									<img src="img/img/1.png" width="200px" style="max-width:100%">
+								</td>
+							</tr>
+							<tr>
+								<d scope="col">
+									1.png
+								</td>
+							</tr>
+						</table>
+					</div>` ; 
+
+
+
+
+
+let result= '' ; 
+let list =`<li class="page-item"><a class="page-link" href="#">1</a></li>` ; 
+for(let list=1 ; list<=20 ; list++){}
+for(let row=1 ;  row<=20 ; row++){}
+for(let col=1 ;  col<=6 ; col++){}
+			
+
+		result+=`<div class="row"></div>`	;
+
+
+
+
+
+
+	document.getElementById("PICTURE").innerHTML=result ; 
+}
+
+	GRID() ; 
 
 }
 

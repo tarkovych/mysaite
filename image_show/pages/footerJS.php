@@ -25,6 +25,7 @@
                 </div>
         </div>
     </div> -->
+     <!-- <link href="css/mdb.min.css" rel="stylesheet">    -->
     <div class="footer-copyright text-center py-2" >© 2018 Copyright:
              <a id="call_id" href="callMsg.php"> Написать в центр поддержки</a>
     </div>

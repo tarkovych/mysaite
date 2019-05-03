@@ -48,10 +48,13 @@ if (!$link) {
     }
  
 $query = "SELECT * FROM `ObjValue` WHERE $Res" ; 
- $result = mysqli_query($link,$query);
+$result = mysqli_query($link,$query);
+$aRR=[] ;
+ 
  while($row = mysqli_fetch_assoc($result)){
- echo $row["IMG"]."," ; 
+        $aRR[]=$row["IMG"] ; 
 }
-    
-     
+
+
+echo json_encode($aRR);  
     

@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title><?php  echo $page_Name ; ?></title>
-  <link href="css/mdb.min.css" rel="stylesheet">  
-	<link rel="stylesheet" type="text/css" href="css/lightbox.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"> 
+
+	<!-- <link rel="stylesheet" type="text/css" href="css/lightbox.css"> -->
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">  -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/mystyle.css">
   <link rel="stylesheet" href="css/mystyle2.css">
   <link rel="stylesheet" href="css/ipsos.css">
+    
 </head>
 <body>
 

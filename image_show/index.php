@@ -14,6 +14,7 @@ if (!$link) {
 } 
 
 
+
 $page_Name='ГОЛОВНА'  ; 
 require_once 'pages/header.php' ; 
 ?>
@@ -21,15 +22,47 @@ require_once 'pages/header.php' ;
 
 
 <div class="container-fluid" >
-			<form action="" id="FormAction" method="post">
 
-				<div id="tableBuild" class="" ></div>	
-				<div id="massResult" ></div>
-				<!-- <input type="button" class="btn btn-outline-primary btnMY" onclick="result()" id="searchBtn" value="ПОКАЗАТЬ"> 
-				<input type="button" class="btn btn-outline-primary btnMY" onclick="nazat()" id="resetBtn" value="СБРОС"> -->
-				<input type="button" class="btn btn-outline-primary btnMY" onclick="RESULT()" id="searchBtn" value="ПОКАЗАТЬ"> 
-				<input type="button" class="btn btn-outline-primary btnMY" onclick="" id="resetBtn" value="RE">
-			</form>
+
+
+
+
+	<div class="row">
+    	<div class="col-xl-4 col-lg-6">
+				<form action="" id="FormAction" method="post">
+					<div id="tableBuild" class="" ></div>	
+					<div id="massResult" ></div>
+					<!-- <input type="button" class="btn btn-outline-primary btnMY" onclick="result()" id="searchBtn" value="ПОКАЗАТЬ"> 
+					<input type="button" class="btn btn-outline-primary btnMY" onclick="nazat()" id="resetBtn" value="СБРОС"> -->
+					<div class="row">
+						<div class="col-6">
+							<input type="button" class="btn btn-outline-primary " onclick="RESULT()" id="searchBtn" value="ПОКАЗАТЬ" style="width:250px"">
+						</div>
+						<div class="col-6">
+							<input type="button" class="btn btn-outline-primary " onclick="" id="resetBtn" value="RERERE" style="width:250px">
+						</div>
+					</div>
+					
+					
+				</form>
+		</div>
+    	<div class="col-xl-8 col-lg-6">
+			<div id="PICTURE"  class=''></div>
+			<div class="align-bottom" >
+			<!-- *************** -->
+								<nav aria-label="Page navigation example">
+									<ul class="pagination" id="PAGIN" >
+										<!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+										
+										<!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+									</ul>
+								</nav>
+			<!-- *************** -->
+			</div>
+		</div>
+  	</div>
+
+			
 				
 </div>
 
