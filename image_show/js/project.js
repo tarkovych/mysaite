@@ -145,13 +145,12 @@ var buld= new Buld(ObjLabel) ;
 
 buld.buldInner("tableBuild") ; 
 
-
-
 function RESULT(){ 
 		IMAGE  = $.post('image.php',$("#FormAction").serialize(),function(request){
 		try{
 				let arrImg=JSON.parse(request) ; 
-					GRID(arrImg) ; 
+					GRID(arrImg) ;
+					console.log(arrImg) ;
 		}
 		catch(e){
 				console.log(e) ; 
@@ -159,25 +158,32 @@ function RESULT(){
 });
 
 	function GRID(ArrImage){
+
 		let R=10 ; 
 		let C=5 ; 
 		let RR=0 ; 
-		let cell = Math.ceil(ArrImage.length/(R*C)) ;
+		let cell = Math.ceil(ArrImage['uid'].length/(R*C)) ;
 		let DIV=`` ;
 		let PAG=`` ;
 	for(let list=1 ;  list<=cell; list++){
 		let first ; 
+		let ten;
 		if(list==1){first='inline';}else{first='none';}
 		DIV+=`<div id="LIST_${list}" style="display:${first}">
-				  ${Row(ArrImage,list,R,C)}
+				  ${Row(ArrImage['uid'],list,R,C)}
 					 </div>`;
-		PAG+=`<li class="page-item"><a class="page-link" href="#">${list}</a></li>`	;	 
-	}
+		if(list>=1 && list<=10){ten='inline';}else{ten='none';}
+			PAG+=`<li class="page-item" style="display:${ten}" id="PAGIN_${list}"  value="${list}" onclick="FunPAG(this.value,${cell})">
+								<span class="page-link" id="PAGNAM_${list}">${list}</span>
+						</li>`
+		}
+	;	 
+	
 
-function Row(ArrImage,list,R,C){
+function Row(MassImd,list,R,C){
 	let Row = `` ;  
 	for(let row=1 ;  row<=R ; row++){
-			if((list-1)*R*C+(row-1)*C <=ArrImage.length){
+			if((list-1)*R*C+(row-1)*C <=MassImd.length){
 					Row+=`<div class="row">
 										${Col(ArrImage,list,row,R,C)}	
 								</div>` ; 
@@ -186,29 +192,31 @@ function Row(ArrImage,list,R,C){
 	return Row ; 
 }
 
-function Col(ArrImage,list,row,R,C){
+function Col(MassJson,list,row,R,C){
 	let Col = `` ; 
 
 	for(let col=1 ;  col<=C ; col++){
 		let t = (list-1)*R*C + (row-1)*C +(col) ;
-		if(t<=ArrImage.length){
+		if(t<=MassJson['uid'].length){
 			if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
 			RR++ ; 
 		Col+=`
 				<div class="col" style="max-width:210px">
+				<a href="picture.php?IMAGESHOW=${MassJson['uid'][t]}" target="_blank">
 					<table class="table table-sm">
 						<tr>
 							<td scope="col" 
-									style="height:200px;background:url(img/imgsm/${ArrImage[t]}) 100% 100% no-repeat;
+									style="height:200px;background:url(img/imgsm/${MassJson['IMG'][t]}) 100% 100% no-repeat;
 									background-size:cover">
 							</td>
 						</tr>
 						<tr>
 							<td scope="col" style="font-size:7px">
-								${ArrImage[t]}
+							${MassJson['uid'][t]} :	${MassJson['IMG'][t]}
 							</td>
 						</tr>
 					</table>
+					</a>
 				</div>` ; 
 		}
 	}	 ; 
@@ -216,9 +224,59 @@ function Col(ArrImage,list,row,R,C){
 }
 
 document.getElementById("PICTURE").innerHTML=DIV; 
-document.getElementById("PAGIN").innerHTML=PAG; 
+document.getElementById("PAGIN").innerHTML=`
+									<li class="page-item" onclick="NEXT(${cell},'pre')"><span class="page-link">Previous</span></li>
+										${PAG}
+									<li class="page-item" onclick="NEXT(${cell},'next')" ><span class="page-link" >Next(${cell})</span></li>`
+					; 
 }
-
+}
+function FunPAG(val,cell){
+	for(let i=1;i<=cell ; i++){
+		if(i==val){
+			document.getElementById(`LIST_${i}`).style.display='inline';
+			document.getElementById(`PAGNAM_${i}`).style.color="black" ; 
+			document.getElementById(`PAGNAM_${i}`).style.fontWeight="bold" ; 
+		}else{
+			document.getElementById(`LIST_${i}`).style.display='none';
+			document.getElementById(`PAGNAM_${i}`).style.color="" ; 
+			document.getElementById(`PAGNAM_${i}`).style.fontWeight="" ; 
+		}
+	}
+}
+function NEXT(cell,next){
+if(next=='next'){
+	for(let i=cell ; i>=1 ; i--){
+		let next=document.getElementById(`PAGIN_${i}`) ; 
+		if(next.style.display=="inline" && i!=cell){
+		document.getElementById(`PAGIN_${i+1}`).style.display="inline" ; 
+		break
+		}
+	 }
+	 for(let i=1 ; i<=cell ; i++){
+		let next=document.getElementById(`PAGIN_${i}`) ; 
+		if(next.style.display=="inline" && i<=cell-10){
+			next.style.display="none" ; 
+			break
+		}
+}
+}
+if(next=='pre'){
+	for(let i=cell ; i>=1 ; i--){
+		let next=document.getElementById(`PAGIN_${i}`) ; 
+		if(next.style.display=="inline" && i>10){
+		document.getElementById(`PAGIN_${i}`).style.display="none" ; 
+		break
+		}
+	 }
+	 for(let i=1 ; i<=cell ; i++){
+		let next=document.getElementById(`PAGIN_${i}`) ; 
+		if(next.style.display=="inline" && i>1){
+			document.getElementById(`PAGIN_${i-1}`).style.display="inline" ; 
+			break
+		}
+}
+}
 }
 
 // function 

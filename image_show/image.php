@@ -52,7 +52,8 @@ $result = mysqli_query($link,$query);
 $aRR=[] ;
  
  while($row = mysqli_fetch_assoc($result)){
-        $aRR[]=$row["IMG"] ; 
+        $aRR["uid"][]=$row["uid"] ; 
+        $aRR["IMG"][]=$row["IMG"] ; 
 }
 
 

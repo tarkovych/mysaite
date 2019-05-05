@@ -1,4 +1,4 @@
-<footer class="page-footer font-small cyan darken-3 fixed-bottom">
+<footer class="page-footer font-small cyan darken-3 ">  <!--fixed-bottom-->
     <!-- <div class="container">
         <div class="row">
                 <div class="col-md-12 py-3">

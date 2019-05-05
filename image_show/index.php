@@ -63,10 +63,7 @@ require_once 'pages/header.php' ;
 			<div class="align-bottom" >
 			<!-- *************** -->
 								<nav aria-label="Page navigation example">
-									<ul class="pagination" id="PAGIN" >
-										 <li class="page-item"><a class="page-link" href="#">Previous</a></li> 
-										
-										<li class="page-item"><a class="page-link" href="#">Next</a></li> 
+									<ul class="pagination" id="PAGIN" > 
 									</ul>
 								</nav>
 			<!-- *************** -->
