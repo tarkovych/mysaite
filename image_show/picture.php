@@ -11,6 +11,7 @@ if(!isset($_GET['IMAGESHOW'])){
 // if(@mysql_select_db($dbname)) { echo "Подключение к базе $dbname установлено!"; }
 // else die ("Не могу подключиться к базе данных $dbname!"); 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
+mysqli_query($link ,'SET NAMES utf8');
 
 if (!$link) {
     echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
@@ -26,7 +27,8 @@ $ROW=[] ;
  
  while($row = mysqli_fetch_assoc($result)){
         $ROW[]=$row; 
- }     
+ }  
+
  $JSROW=json_encode($ROW); 
 $page_Name=''  ; 
 require_once 'pages/header.php' ; 
@@ -34,10 +36,11 @@ require_once 'pages/header.php' ;
 
 
 
-<div class="container-fluid" >
+
+<div class="container" >
     <div id="Pic" style=""></div>
     <span style="color:blue;cursor:pointer" onclick="Transform()"><a>Развернуть на 90</a></span>
-    <div id="Lab" style="width:70% ;" ></div>
+    <div id="Lab" style="" ></div>
 
 </div>
 
@@ -54,6 +57,7 @@ let ObjRow=$JSROW;
 <script src="js/picture.js"></script>
 EON;
 ?>
+
 <style>
 .transform{
     transform: rotate(720deg);
@@ -67,10 +71,10 @@ function Transform(){
    document.getElementById("imageTran").style.transform=`rotate(${proc}deg)` ; 
    proc+=90 ; 
 }
+//header('Content-type: text/html; charset=windows-1251');
 </script>
 </body>
 </html>
-
 
 
 

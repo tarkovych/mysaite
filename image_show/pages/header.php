@@ -27,7 +27,7 @@
     ADMIN
   </a> 
 
-<div class="flag-ua" id="FLAG_ID" >
+<div class="flag-ua" id="FLAG_ID" style="cursor:pointer">
 </div>
 
 </nav>

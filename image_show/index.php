@@ -5,7 +5,7 @@
 // if(@mysql_select_db($dbname)) { echo "Подключение к базе $dbname установлено!"; }
 // else die ("Не могу подключиться к базе данных $dbname!"); 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
-
+mysqli_query($link ,'SET NAMES utf8');
 if (!$link) {
     echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
     echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
@@ -40,7 +40,7 @@ require_once 'pages/header.php' ;
 							type="button" 
 							class="btn btn-outline-primary " 
 							onclick="RESULT()" id="searchBtn" 
-							value="ПОКАЗАТЬ" 
+							value="SHOW" 
 							style="width:200px">
 						</div>
 						<div class="col-6 ">
@@ -75,7 +75,7 @@ require_once 'pages/header.php' ;
 				
 </div>
 
-<div style="width:100% ; height:200px"></div>
+<!-- <div style="width:100% ; height:200px"></div> -->
 
 	<?php require_once 'pages/footerJS.php' ; ?>
 	<script  src="js/project.js"></script>

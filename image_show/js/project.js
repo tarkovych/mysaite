@@ -11,10 +11,10 @@ class Buld {
 					<td><label for="${id}_0">ALL</label></div></td>
 				</tr>` ; 
 		for(let i=0 ; i<massLab.length;i++){
-				option+=`<tr id="${id}_${massVal[i]}_table">
+				option+=`<tr id="${id}_${massVal[i]}_table" style="background-color:#F8F8FF">
 				<td><input type="checkbox" value="${massVal[i]}" id="${id}_${massVal[i]}" name="${id}[]" onclick="buld.All('${id}',${massVal[i]})"></td>
 				<td><label for="${id}_${massVal[i]}"> ${massLab[i]} 
-				<span id="${id}_${massVal[i]}_cap">//${id}_${massVal[i]}//</span>
+				<span id="${id}_${massVal[i]}_cap"> /${id}_${massVal[i]}/</span>
 				</label></td>
 			</tr>` ; 
 		}
@@ -26,7 +26,7 @@ class Buld {
 		for(let mass in this.ObjLabel){
 			select+=`<div class="BOX-SELECT">
 							<div id="${mass}" class="SELECT-CLICK" onClick="buld.OnShow(this.id)">
-								${this.ObjLabel[mass]['name']}
+								${this.ObjLabel[mass]['name']}  /${mass}/
 								<div class="select-icon" id="${mass}_icon">&#9660</div>
 							</div>
 							<div id="${mass}_select"  class="SELECT">
@@ -197,22 +197,22 @@ function Col(MassJson,list,row,R,C){
 
 	for(let col=1 ;  col<=C ; col++){
 		let t = (list-1)*R*C + (row-1)*C +(col) ;
-		if(t<MassJson['uid'].length){
+		if(t<=MassJson['uid'].length){
 			if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
 			RR++ ; 
 		Col+=`
 				<div class="col" style="max-width:210px ">
-				<a href="picture.php?IMAGESHOW=${MassJson['uid'][t]}" target="_blank">
+				<a href="picture.php?IMAGESHOW=${MassJson['uid'][t-1]}" target="_blank">
 					<table class="table table-sm">
 						<tr>
 							<td scope="col" 
-									style="height:200px;background:url(img/imgsm/${MassJson['IMG'][t]}) 100% 100% no-repeat;
+									style="height:200px;background:url('img/imgsm/${MassJson['IMG'][t-1]}') 100% 100% no-repeat;
 									background-size:cover">
 							</td>
 						</tr>
 						<tr>
 							<td scope="col" style="font-size:10px ; ">
-							${MassJson['uid'][t]} 
+							${MassJson['uid'][t-1]} 
 							</td>
 						</tr>
 					</table>

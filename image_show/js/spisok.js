@@ -1,7 +1,7 @@
 var ObjLabel={
     C1 :{
         name:"<span class='ru'>Категория блюд</span><span class='ua'>Категорія страв</span><span class='en'>Macrocategory</span>",
-        cat:["Первое блюдо (бульоны / супы / борщ)","Мясо и птица","Рыба и морепродукты","Гарниры и вторые блюда (включая каши, блюда из яиц, блинчики","Салаты и овощи","Молочные продукты и блюда из них","Закуски (мясные нарезки, колбасы, сыры, холодцы / заливное)","Бутерброды / бургеры / пироги / пицца / фастфуд / суши","Снеки соленые (чипсы, сухарики, орешки, попкорн, семечки)","Сухие завтраки / хлопья / мюсли / полуфабрикаты","Фрукты, сухофрукты, орехи","Десерты / сладкое","Безалкогольные напитки","Горячие напитки","Алкогольные напитки","Свежий хлеб и сухари","Детское питание","ДРУГОЕ БЛЮДО","Витамины / Протеины / Пробиотики / БАДы","Кетчуп / майонез / горчица / хрен","Соусы / уксусы / лимонный сок","Семечки / сухари","Травы / приправы","Лекарства"],
+        cat:["<span class='ru'>Первое блюдо (бульоны / супы / борщ)</span><span class='ua'>Перша страва (бульйони / супи / борщ)</span><span class='en'>Soups</span>","<span class='ru'>Мясо и птица</span><span class='ua'>М'ясо та птиця</span><span class='en'>Meat & poultry</span>","<span class='ru'>Рыба и морепродукты</span><span class='ua'>Риба та морепродукти</span><span class='en'>Fish & seafood</span>","<span class='ru'>Гарниры и вторые блюда (включая каши, блюда из яиц, блинчики</span><span class='ua'>Гарніри та другі страви (вкл. каші, страви з яєць, млинці, вареники і т.д.)</span><span class='en'>Garnishes & main courses</span>","<span class='ru'>Салаты и овощи</span><span class='ua'>Салати та овочі</span><span class='en'>Salads & vegetables</span>","<span class='ru'>Молочные продукты и блюда из них</span><span class='ua'>Молочні продукти та страви з них</span><span class='en'>Dairy products</span>","<span class='ru'>Закуски (мясные нарезки, колбасы, сыры, холодцы / заливное)</span><span class='ua'>Закуски (мясні нарізки, ковбаси, сири, холодці / заливне)</span><span class='en'>Starters</span>","<span class='ru'>Бутерброды / бургеры / пироги / пицца / фастфуд / суши</span><span class='ua'>Бутерброди / бургери / пироги / піца / фастфуд / суші</span><span class='en'>Sandwiches/ burgers/ pies/ pizza/ sushi / fastfood</span>","<span class='ru'>Снеки соленые (чипсы, сухарики, орешки, попкорн, семечки)</span><span class='ua'>Cнеки солоні  (чіпси, сухарики, горішки, попкорн, насіння)</span><span class='en'>Salty snacks</span>","<span class='ru'>Сухие завтраки / хлопья / мюсли / полуфабрикаты</span><span class='ua'>Сухі сніданки / пластівці / мюслі / напівфабрикати</span><span class='en'>Dry breakfasts / muesli</span>","<span class='ru'>Фрукты, сухофрукты, орехи</span><span class='ua'>Фрукти, сухофрукти, горіхи</span><span class='en'>Fruits & nuts</span>","<span class='ru'>Десерты / сладкое</span><span class='ua'>Десерти / солодке</span><span class='en'>Desserts / sweets</span>","<span class='ru'>Безалкогольные напитки</span><span class='ua'>Безалкогольні напої</span><span class='en'>Soft drinks</span>","<span class='ru'>Горячие напитки</span><span class='ua'>Гарячі напої</span><span class='en'>Hot drinks</span>","<span class='ru'>Алкогольные напитки</span><span class='ua'>Алкогольні напої</span><span class='en'>Spirits</span>","<span class='ru'>Свежий хлеб и сухари</span><span class='ua'>Свіжий хліб та сухарі</span><span class='en'>Bread & crisps</span>","<span class='ru'>Детское питание</span><span class='ua'>Дитяче харчування</span><span class='en'>Baby food</span>","<span class='ru'>ДРУГОЕ БЛЮДО</span><span class='ua'>Інша страва</span><span class='en'>Other</span>","<span class='ru'>Витамины / Протеины / Пробиотики / БАДы</span><span class='ua'>Протеїнові коктейлі та вітаміни</span><span class='en'>Protein shakes & vitamins</span>","<span class='ru'>Кетчуп / майонез / горчица / хрен</span><span class='ua'>Кетчуп / майонез / горчица / хрен</span><span class='en'>Кетчуп / майонез / горчица / хрен</span>","<span class='ru'>Соусы / уксусы / лимонный сок</span><span class='ua'>Соусы / уксусы / лимонный сок</span><span class='en'>Соусы / уксусы / лимонный сок</span>","<span class='ru'>Семечки / сухари</span><span class='ua'>Семечки / сухари</span><span class='en'>Семечки / сухари</span>","<span class='ru'>Травы / приправы</span><span class='ua'>Травы / приправы</span><span class='en'>Травы / приправы</span>","<span class='ru'>Лекарства</span><span class='ua'>Лекарства</span><span class='en'>Лекарства</span>"],
         val:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,24,25,26,27,999]} , 
 
     C1a :{
@@ -17,88 +17,88 @@ var ObjLabel={
     },
     C4  :{
         name:"<span class='ru'>Приготовлено / куплено</span><span class='ua'>Приготовано / куплене</span><span class='en'>Where prepared</span>",
-        cat:["Приготовлено дома","Куплено /заказано в кафе / ресторане и т.д.","Куплено в магазине упакованным, в готовом к употреблению вид","Приготовлено {0}","ПУСТО"],
+        cat:["<span class='ru'>Приготовлено дома</span><span class='ua'>Приготована вдома</span><span class='en'>Homemade</span>","<span class='ru'>Куплено /заказано в кафе / ресторане и т.д.</span><span class='ua'>Придбано в магазині упакованим, в готовому до вживання вигляді</span><span class='en'>Bought ready-to-eat</span>","<span class='ru'>Куплено в магазине упакованным, в готовом к употреблению вид</span><span class='ua'>Придбано / замовлено в кафе / ресторані і т.д.</span><span class='en'>Bought at HORECA</span>","<span class='ru'>Приготовлено {0}</span><span class='ua'>Приготована в офісі </span><span class='en'>Prepared at work / in the office</span>","<span class='ru'>ПУСТО</span><span class='ua'>ПУСТО</span><span class='en'>ПУСТО</span>"],
         val:[1,3,2,4,88888]
     },
     S7x1:{
-        name:"Питательный",
-        cat:["Питательный"] ,
+        name:"<span class='ru'>Питательный</span><span class='ua'>Поживний</span><span class='en'>Nutritional</span>",
+        cat:["<span class='ru'>Питательный</span><span class='ua'>Поживний</span><span class='en'>Nutritional</span>"] ,
         val:[1]
     },
     S7x2:{
-        name:"Обеспечивает достаточным количеством энергии",
-        cat:["Обеспечивает достаточным количеством энергии"],
+        name:"<span class='ru'>Обеспечивает достаточным количеством энергии</span><span class='ua'>Забезпечує достатньою кількість енергії</span><span class='en'>Provides energy</span>",
+        cat:["<span class='ru'>Обеспечивает достаточным количеством энергии</span><span class='ua'>Забезпечує достатньою кількість енергії</span><span class='en'>Provides energy</span>"],
         val:[2]
     },
      
     S7x3:{
-        name:"Сбалансированный",
-        cat:["Сбалансированный"] ,
+        name:"<span class='ru'>Сбалансированный</span><span class='ua'>Збалансований</span><span class='en'>Well-balanced</span>",
+        cat:["<span class='ru'>Сбалансированный</span><span class='ua'>Збалансований</span><span class='en'>Well-balanced</span>"] ,
         val:[3]
     },
     S7x4:{
-        name:"Полезный",
-        cat:["Полезный"] ,
+        name:"<span class='ru'>Полезный</span><span class='ua'>Корисний</span><span class='en'>Useful</span>",
+        cat:["<span class='ru'>Полезный</span><span class='ua'>Корисний</span><span class='en'>Useful</span>"] ,
         val:[4]
     },
     
     S7x5:{
-        name:"Вкусный",
-        cat: ["Вкусный"] ,
+        name:"<span class='ru'>Вкусный</span><span class='ua'>Смачний</span><span class='en'>Tasty</span>",
+        cat: ["<span class='ru'>Вкусный</span><span class='ua'>Смачний</span><span class='en'>Tasty</span>"] ,
         val:[5]
     },
    
     S7x6:{
-        name:"Включает в себя различные / разнообразные продукты",
-        cat:["Включает в себя различные / разнообразные продукты"] ,
+        name:"<span class='ru'>Включает в себя различные / разнообразные продукты</span><span class='ua'>Включає в себе різні / різноманітні продукти</span><span class='en'>Different products</span>",
+        cat:["<span class='ru'>Включает в себя различные / разнообразные продукты</span><span class='ua'>Включає в себе різні / різноманітні продукти</span><span class='en'>Different products</span>"] ,
         val:[6]
     },
     
     S7x7:{
-        name:"Из натуральных продуктов",
-        cat:["Из натуральных продуктов"] ,
+        name:"<span class='ru'>Из натуральных продуктов</span><span class='ua'>Із натуральних продуктів</span><span class='en'>Natural products</span>",
+        cat:["<span class='ru'>Из натуральных продуктов</span><span class='ua'>Із натуральних продуктів</span><span class='en'>Natural products</span>"] ,
         val:[7]
     },
     
     D2 :{
         name:"<span class='ru'>Прием пищи</span><span class='ua'>Споживання</span><span class='en'>Meal</span>",
-        cat:["Перекус до завтрака / сразу после того, как я проснусь ","Завтрак","Второй завтрак","Перекус в первой половине дня / между завтраком и обедом","Обед","Перекус после обеда / Полдник","Перекус перед ужином","Ужин","Перекус после ужина / перед тем, как пойти спать","Ночной перекус / после того как лег спать","Перекус на протяжении целого дня (только для воды)","Другое"],
+        cat:["<span class='ru'>Перекус до завтрака / сразу после того, как я проснусь </span><span class='ua'>Перекус до сніданку / відразу після того, як я прокинусь</span><span class='en'>When I get up (before breakfast)</span>","<span class='ru'>Завтрак</span><span class='ua'>Сніданок</span><span class='en'>Main breakfast</span>","<span class='ru'>Второй завтрак</span><span class='ua'>Другий сніданок</span><span class='en'>Second or additional breakfast</span>","<span class='ru'>Перекус в первой половине дня / между завтраком и обедом</span><span class='ua'>Перекус в першій половині дня / між сніданком і обідом</span><span class='en'>During the morning / Snack before lunch/matinee</span>","<span class='ru'>Обед</span><span class='ua'>Обід</span><span class='en'>Lunch</span>","<span class='ru'>Перекус после обеда / Полдник</span><span class='ua'>Перекус після обіду / Підвечірок</span><span class='en'>During the afternoon /  Afternoon snack</span>","<span class='ru'>Перекус перед ужином</span><span class='ua'>Перекус перед вечерею</span><span class='en'>Just before dinner</span>","<span class='ru'>Ужин</span><span class='ua'>Вечеря</span><span class='en'>Dinner</span>","<span class='ru'>Перекус после ужина / перед тем, как пойти спать</span><span class='ua'>Перекус після вечері / перед тим, як піти спати</span><span class='en'>After dinner/before going to bed</span>","<span class='ru'>Ночной перекус / после того как лег спать</span><span class='ua'>Нічний перекус / після того як ліг спати</span><span class='en'>During the night (getting out of bed)</span>","<span class='ru'>Перекус на протяжении целого дня (только для воды)</span><span class='ua'>Перекус протягом цілого дня (тільки для води)</span><span class='en'>Along the day (only for water)</span>","<span class='ru'>Другое</span><span class='ua'>Інше</span><span class='en'>Other</span>"],
         val:[1,2,3,4,5,6,7,8,9,10,11,12]
     },
     
     D3 :{
         name:"<span class='ru'>Место</span><span class='ua'>Місце</span><span class='en'>Place</span>",
-        cat:["Дома","У друга / родственника дома","На работе / на учебе","В ресторане","В столовой, которая находиться на работе / учебе","В кафе, кофейне, булочной","В баре / пабе, ночном клубе","В торгово-развлекательном центре / во время закупок, шоппинга","В сети быстрого питания (McDonalds, KFC) ","В спортзале / спорт комплексе/ на тренировке","В местах для отдыха (кинотеатр, тематический парк, стадион, пр.)","В супермаркете / гипермаркет","В машине ","В общественном транспорте","На ходу / на улице","В другом месте"],
+        cat:["<span class='ru'>Дома</span><span class='ua'>Вдома</span><span class='en'>At home</span>","<span class='ru'>У друга / родственника дома</span><span class='ua'>У приятеля / у родича вдома</span><span class='en'>At a friend or family member's house</span>","<span class='ru'>На работе / на учебе</span><span class='ua'>На роботі / на навчанні</span><span class='en'>Where I work or study (not in the canteen/bar)</span>","<span class='ru'>В ресторане</span><span class='ua'>В ресторані</span><span class='en'>In a restaurant</span>","<span class='ru'>В столовой, которая находиться на работе / учебе</span><span class='ua'>У їдальні, яка знаходиться на роботі / навчанні</span><span class='en'>In a canteen/bar where I work or study</span>","<span class='ru'>В кафе, кофейне, булочной</span><span class='ua'>У кафе, кав'ярні, булочній</span><span class='en'>In a bar, cafeteria, bakery</span>","<span class='ru'>В баре / пабе, ночном клубе</span><span class='ua'>У барі / пабі, нічному клубі</span><span class='en'>In a pub, night club etc.</span>","<span class='ru'>В торгово-развлекательном центре / во время закупок, шоппинга</span><span class='ua'>У торгово-розважальному центрі / під час закупівель, шопінгу</span><span class='en'>In a shopping centre or doing the shopping</span>","<span class='ru'>В сети быстрого питания (McDonalds, KFC) </span><span class='ua'>У мережі швидкого харчування (McDonalds, KFC)</span><span class='en'>In a fast-food establishment (e.g. McDonald's)</span>","<span class='ru'>В спортзале / спорт комплексе/ на тренировке</span><span class='ua'>У спортзалі / спорт комплексі / на тренуванні</span><span class='en'>In a gym or other sports complex</span>","<span class='ru'>В местах для отдыха (кинотеатр, тематический парк, стадион, пр.)</span><span class='ua'>У місцях для відпочинку (кінотеатр, тематичний парк, стадіон, пр.)</span><span class='en'>In a leisure area (cinema, theme park, sports stadium etc.)</span>","<span class='ru'>В супермаркете / гипермаркет</span><span class='ua'>У супермаркеті / гіпермаркеті</span><span class='en'>Supermarkets / hypermarkets</span>","<span class='ru'>В машине </span><span class='ua'>В машині</span><span class='en'>In a car</span>","<span class='ru'>В общественном транспорте</span><span class='ua'>У громадському транспорті</span><span class='en'>On public transport</span>","<span class='ru'>На ходу / на улице</span><span class='ua'>На ходу / на вулиці</span><span class='en'>In the street</span>","<span class='ru'>В другом месте</span><span class='ua'>В іншому місці</span><span class='en'>Somewhere else</span>"],
         val:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,98]
     },
     
     S2 :{
         name:"<span class='ru'>С кем потребляли еду</span><span class='ua'>З ким споживали їжу</span><span class='en'>With whom consumed</span>",
-        cat:["Сам (-а)","С друзьями, знакомыми","С родственниками","С коллегами по работе","Другое"],
+        cat:["<span class='ru'>Сам (-а)</span><span class='ua'>Сам (-а)</span><span class='en'>Alone</span>","<span class='ru'>С друзьями, знакомыми</span><span class='ua'>З друзями, знайомими</span><span class='en'>With friends</span>","<span class='ru'>С родственниками</span><span class='ua'>З родичами</span><span class='en'>With family</span>","<span class='ru'>С коллегами по работе</span><span class='ua'>З колегами по роботі</span><span class='en'>With colleagues</span>","<span class='ru'>Другое</span><span class='ua'>Інше</span><span class='en'>Other</span>"],
         val:[1,2,3,4,5]
     },
     
     D1 :{
         name:"<span class='ru'>День</span><span class='ua'>День</span><span class='en'>Day</span>",
-        cat: ["Рабочий / будний день","Выходной / праздничный день"],
+        cat: ["<span class='ru'>Рабочий / будний день</span><span class='ua'>Робочий / будній день</span><span class='en'>Working day</span>","<span class='ru'>Выходной / праздничный день</span><span class='ua'>Вихідний / святковий день</span><span class='en'>Weekend / Holiday</span>"],
         val:[1,2]
     },
    
     GDR:{
         name:"<span class='ru'>Пол</span><span class='ua'>Стать</span><span class='en'>Gender</span>",
-        cat:["Мужчины","Женщины","ПУСТО"],
+        cat:["<span class='ru'>Мужчины</span><span class='ua'>Чоловіки</span><span class='en'>Male</span>","<span class='ru'>Женщины</span><span class='ua'>Жінки</span><span class='en'>Female</span>"],
         val:[1,2,88888]
     },
     
     AGE:{
         name:"<span class='ru'>Возраст</span><span class='ua'>Вік</span><span class='en'>Age</span>",
-        cat:["01-03","04-06","07-10","11-14","15 - 18","19 - 24","25 - 30","31 - 39","40 - 49","50 - 60"],
+        cat:["<span class='ru'>1-3 лет</span><span class='ua'>1-3 роки</span><span class='en'>1-3 y.o.</span>","<span class='ru'>4-6 лет</span><span class='ua'>4-6 років</span><span class='en'>4-6 y.o.</span>","<span class='ru'>7-10 лет</span><span class='ua'>7-10 років</span><span class='en'>7-10 y.o.</span>","<span class='ru'>11-14 лет</span><span class='ua'>11-14 років</span><span class='en'>11-14 y.o.</span>","<span class='ru'>15-18 лет</span><span class='ua'>15-18 років</span><span class='en'>15-18 y.o.</span>","<span class='ru'>19-24 года</span><span class='ua'>19-24 роки</span><span class='en'>19-24 y.o.</span>","<span class='ru'>25-30 лет</span><span class='ua'>25-30 років</span><span class='en'>25-30 y.o.</span>","<span class='ru'>31-39 лет</span><span class='ua'>31-39 років</span><span class='en'>31-39 y.o.</span>","<span class='ru'>40-49 лет</span><span class='ua'>40-49 років</span><span class='en'>40-49 y.o.</span>","<span class='ru'>50-60 лет</span><span class='ua'>50-60 років</span><span class='en'>50-60 y.o.</span>"],
         val:[1,2,3,4,5,6,7,8,9,10]
     },
     
     BMI:{
         name:"<span class='ru'>Индекс массы тела (ИМТ)</span><span class='ua'>Індекс маси тіла (ІМТ)</span><span class='en'>Body Mass Index (BMI)</span>",
-        cat:["Недостаточный вес (<18.5)","Нормальный вес (18.5-25)","Избыточный вес (25-30)","Ожирение (>30)"] ,
+        cat:["<span class='ru'>Недостаточный вес (<18.5)</span><span class='ua'>Недостатня вага (<18.5)</span><span class='en'>Underweight (<18.5)</span>","<span class='ru'>Нормальный вес (18.5-25)</span><span class='ua'>Нормальна вага (18.5-25)</span><span class='en'>Normal (18.5-25)</span>","<span class='ru'>Избыточный вес (25-30)</span><span class='ua'>Надлишкова вага (25-30)</span><span class='en'>Overweight (25-30)</span>","<span class='ru'>Ожирение (>30)</span><span class='ua'>Ожиріння (>30)</span><span class='en'>Obese (>30)</span>"],
         val:[1,2,3,4]
     },
     

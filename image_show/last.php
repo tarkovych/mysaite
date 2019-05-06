@@ -6,6 +6,7 @@
 // else die ("Не могу подключиться к базе данных $dbname!"); 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
 ini_set('memory_limit', '1024M');
+mysqli_query($link ,'SET NAMES utf8');
 if (!$link) {
     echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
     echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;

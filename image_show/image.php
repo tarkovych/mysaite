@@ -5,7 +5,7 @@
 // if(@mysql_select_db($dbname)) { echo "Подключение к базе $dbname установлено!"; }
 // else die ("Не могу подключиться к базе данных $dbname!"); 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
-
+mysqli_query($link ,'SET NAMES utf8');
 if (!$link) {
     echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
     echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
