@@ -86,7 +86,7 @@ var ObjLabel={
    
     GDR:{
         name:"<span class='ru'>Пол</span><span class='ua'>Стать</span><span class='en'>Gender</span>",
-        cat:["<span class='ru'>Мужчины</span><span class='ua'>Чоловіки</span><span class='en'>Male</span>","<span class='ru'>Женщины</span><span class='ua'>Жінки</span><span class='en'>Female</span>"],
+        cat:["<span class='ru'>Мужчины</span><span class='ua'>Чоловіки</span><span class='en'>Male</span>","<span class='ru'>Женщины</span><span class='ua'>Жінки</span><span class='en'>Female</span>","ПУСТО"],
         val:[1,2,88888]
     },
     

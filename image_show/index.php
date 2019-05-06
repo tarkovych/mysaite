@@ -75,9 +75,11 @@ require_once 'pages/header.php' ;
 				
 </div>
 
-<!-- <div style="width:100% ; height:200px"></div> -->
 
 	<?php require_once 'pages/footerJS.php' ; ?>
+
+
+
 	<script  src="js/project.js"></script>
 	<script>
 
