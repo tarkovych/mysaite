@@ -27,7 +27,7 @@ $ROW=[] ;
  while($row = mysqli_fetch_assoc($result)){
         $ROW[]=$row; 
  }     
-var_dump($ROW[0]['IMG']) ; 
+ $JSROW=json_encode($ROW); 
 $page_Name=''  ; 
 require_once 'pages/header.php' ; 
 ?>
@@ -35,29 +35,39 @@ require_once 'pages/header.php' ;
 
 
 <div class="container-fluid" >
+    <div id="Pic" style=""></div>
+    <span style="color:blue;cursor:pointer" onclick="Transform()"><a>Развернуть на 90</a></span>
+    <div id="Lab" style="width:70% ;" ></div>
 
-<?php 
-$img=$ROW[0]['IMG']; 
-echo "<img src=\"img/img/$img\">" ; 
-?>
-
-
-
-	
-			
-				
 </div>
 
 
 
 	<?php require_once 'pages/footerJS.php' ; ?>
 
-	<script>
+<?php 
 
+echo <<<EON
+<script>
+let ObjRow=$JSROW; 
+</script>
+<script src="js/picture.js"></script>
+EON;
+?>
+<style>
+.transform{
+    transform: rotate(720deg);
+}
+</style>
+<script>
+let proc=90 ; 
+function Transform(){
+    let x = document.getElementById("imageTran").style ; 
 
-
-
-	</script>
+   document.getElementById("imageTran").style.transform=`rotate(${proc}deg)` ; 
+   proc+=90 ; 
+}
+</script>
 </body>
 </html>
 

@@ -23,7 +23,7 @@
   <a class="navbar-brand" href="index.php">
     ГОЛОВНА
   </a>
-  <a class="navbar-brand" href="program.php">
+  <a class="navbar-brand" href="program.php" style="display:none">
     ADMIN
   </a> 
 

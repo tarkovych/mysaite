@@ -45,11 +45,11 @@ require_once 'pages/header.php' ;
 						</div>
 						<div class="col-6 ">
 							<input 
-							type="button" 
+							type="submit" 
 							class="btn btn-outline-primary " 
 							onclick="" 
 							id="resetBtn" 
-							value="RERERE" 
+							value="RESET" 
 							style="width:200px">
 						</div>
 					</div>
@@ -75,7 +75,7 @@ require_once 'pages/header.php' ;
 				
 </div>
 
-
+<div style="width:100% ; height:200px"></div>
 
 	<?php require_once 'pages/footerJS.php' ; ?>
 	<script  src="js/project.js"></script>

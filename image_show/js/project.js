@@ -6,7 +6,7 @@ class Buld {
 		}
 	buldOption(massLab,massVal,id){
 		let option=`
-				<tr style="">
+				<tr style="display:none">
 					<td><input type="checkbox" value="0"  name="${id}[]" id="${id}_0" onclick="buld.All('${id}',0)"></td>
 					<td><label for="${id}_0">ALL</label></div></td>
 				</tr>` ; 
@@ -160,7 +160,7 @@ function RESULT(){
 	function GRID(ArrImage){
 
 		let R=10 ; 
-		let C=5 ; 
+		let C=6 ; 
 		let RR=0 ; 
 		let cell = Math.ceil(ArrImage['uid'].length/(R*C)) ;
 		let DIV=`` ;
@@ -197,11 +197,11 @@ function Col(MassJson,list,row,R,C){
 
 	for(let col=1 ;  col<=C ; col++){
 		let t = (list-1)*R*C + (row-1)*C +(col) ;
-		if(t<=MassJson['uid'].length){
+		if(t<MassJson['uid'].length){
 			if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
 			RR++ ; 
 		Col+=`
-				<div class="col" style="max-width:210px">
+				<div class="col" style="max-width:210px ">
 				<a href="picture.php?IMAGESHOW=${MassJson['uid'][t]}" target="_blank">
 					<table class="table table-sm">
 						<tr>
@@ -211,8 +211,8 @@ function Col(MassJson,list,row,R,C){
 							</td>
 						</tr>
 						<tr>
-							<td scope="col" style="font-size:7px">
-							${MassJson['uid'][t]} :	${MassJson['IMG'][t]}
+							<td scope="col" style="font-size:10px ; ">
+							${MassJson['uid'][t]} 
 							</td>
 						</tr>
 					</table>
@@ -227,7 +227,7 @@ document.getElementById("PICTURE").innerHTML=DIV;
 document.getElementById("PAGIN").innerHTML=`
 									<li class="page-item" onclick="NEXT(${cell},'pre')"><span class="page-link">Previous</span></li>
 										${PAG}
-									<li class="page-item" onclick="NEXT(${cell},'next')" ><span class="page-link" >Next(${cell})</span></li>`
+									<li class="page-item" onclick="NEXT(${cell},'next')"><span class="page-link">Next(${cell})</span></li>`
 					; 
 }
 }
