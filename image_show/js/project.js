@@ -1,4 +1,5 @@
-console.log("version 7") ; 
+console.log($('#version').html()) ; 
+
 class Buld {
 	constructor(objlabel){
     this.ObjLabel=objlabel ;
@@ -9,7 +10,7 @@ class Buld {
 		let option=`
 				<tr style="display:none">
 					<td><input type="checkbox" value="0"  name="${id}[]" id="${id}_0" onclick="buld.All('${id}',0)"></td>
-					<td><label for="${id}_0">ALL</label></div></td>
+					<td><label for="${id}_0">ALL</label></td>
 				</tr>` ; 
 		for(let i=0 ; i<massLab.length;i++){
 				option+=`<tr id="${id}_${massVal[i]}_table" style="background-color:#F8F8FF">
@@ -21,6 +22,14 @@ class Buld {
 				</label></td>
 			</tr>` ; 
 		}
+		/////////NEW
+		option+=`
+								<tr style="width:100%">
+									<td colspan="2" class="text-center  font-weight-bold" style="cursor:pointer">
+										<div id="${id}_plus" onclick="buld.Plus('${id}')" class="" style="width:100%">+</div>
+									</td>
+								</tr>` ;
+		/////////NEW
 		return option  ; 
 	}
 	buldSelect(){
@@ -80,6 +89,29 @@ class Buld {
 		} 
 		
 		}
+	Plus(ID){
+		let mass=this.ObjLabel[ID]['val'] ;
+		let div=document.getElementById(`${ID}_plus`) ; 
+		
+			if(div.innerHTML=='+'){
+				let caunt=0 ; 
+				for(let i=0 ; i<mass.length;i++){
+					if(document.getElementById(`${ID}_${mass[i]}_table`).style.color=="silver"){
+						document.getElementById(`${ID}_${mass[i]}_table`).style.display="" ; 
+						caunt++ ; 
+					}
+				}	
+				if(caunt!=0){div.innerHTML="-" ;}
+				
+			}else{
+				for(let i=0 ; i<mass.length;i++){
+					if(document.getElementById(`${ID}_${mass[i]}_table`).style.color=="silver"){
+						document.getElementById(`${ID}_${mass[i]}_table`).style.display="none" ; 
+					}
+				}	
+				div.innerHTML="+" ;
+			} 
+	}
 	AJAX(ID){
 		let arrJSON ; 
 		let postOld=$("#FormAction").serialize() ;
@@ -87,7 +119,7 @@ class Buld {
 			for(let i=0 ; i<this.ObjLabel[mass]['val'].length;i++){
 				if(ID!=mass ){
 					document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.color="silver";
-					//document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.display="none";
+					document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.display="none";
 				}
 			///////////////NEW
 				if(document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}`).checked==true){
@@ -96,6 +128,7 @@ class Buld {
 			///////////////NEW
 				
 			} 
+			document.getElementById(`${mass}_plus`).innerHTML='+' ; 
 		} 
 		$.post('last.php',postOld,function(request){
 			try{
@@ -106,7 +139,7 @@ class Buld {
 						let div = document.getElementById(`${mass}_${arrJSON[mass][key]}_table`) ; 
 						if(div!=null){
 							div.style.color="black";
-						//	div.style.display="";
+							div.style.display="";
 						}
 						else{
 						}
@@ -131,9 +164,6 @@ class Buld {
 					</b>`;
 				});
 
-			 	
-
-
 	}	
 		
 }  
@@ -151,7 +181,7 @@ function RESULT(){
 		}
 		catch(e){
 				console.log(e) ;
-				alert(`Превышено количество фотографий`)  ; 
+				alert(`Не верно указаны параметры поиска`)  ; 
 		}
 });
 

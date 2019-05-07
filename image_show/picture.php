@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if(!isset($_GET['IMAGESHOW'])){
 	echo "not faund" ; 
@@ -8,6 +9,7 @@ if(!isset($_GET['IMAGESHOW'])){
 require_once 'php/connection.php' ; 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
 mysqli_query($link ,'SET NAMES utf8');
+
 
 if (!$link) {
     echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
@@ -40,6 +42,33 @@ require_once 'pages/header.php' ;
     </span>
     <div id="Lab" style="" class="mx-auto"></div>
 </div>
+
+
+
+<?php 
+$prev='';
+$next='';
+if (!isset($_SESSION['picture'])) {
+    $_SESSION['picture'] = 0;
+  } else {
+   $arrRed=$_SESSION['picture'];
+  }
+  $val= $_GET['IMAGESHOW'] ; 
+  foreach($arrRed as $key=>$value){
+      if($val==$value){
+         if(isset($arrRed[$key-1])){$prev="<a href=\"picture.php?IMAGESHOW=".$arrRed[$key-1]."\"><<<<<<<".$arrRed[$key-1]."</a>";} 
+         if(isset($arrRed[$key+1])){$next= "<a href=\"picture.php?IMAGESHOW=".$arrRed[$key+1]."\">".$arrRed[$key+1].">>>>>></a>" ;}
+      }
+  }
+?>
+
+<div class="row">
+  <div class="col text-right"><?php echo  $prev;?></div>
+  <div class="col text-left"><?php echo $next;?></div>
+</div>
+
+
+
 	<?php require_once 'pages/footerJS.php' ; ?>
 <?php 
 

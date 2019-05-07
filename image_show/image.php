@@ -1,9 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['picture'])) {
+  $_SESSION['picture'] = 0;
+}
  require_once 'php/connection.php' ; 
-// $dbconnect = mysql_connect ($dbhost, $dbusername, $dbpass);
-// if (!$dbconnect) { echo ("Не могу подключиться к серверу базы данных!"); }
-// if(@mysql_select_db($dbname)) { echo "Подключение к базе $dbname установлено!"; }
-// else die ("Не могу подключиться к базе данных $dbname!"); 
+
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
 mysqli_query($link ,'SET NAMES utf8');
 if (!$link) {
@@ -58,4 +59,4 @@ $aRR=[] ;
 
 
 echo json_encode($aRR);  
-    
+$_SESSION['picture']=$aRR["uid"] ; 

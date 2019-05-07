@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+if (!isset($_SESSION['picture'])) {
+  $_SESSION['picture'] = 0;
+}
+
  require_once 'php/connection.php' ; 
 // $dbconnect = mysql_connect ($dbhost, $dbusername, $dbpass);
 // if (!$dbconnect) { echo ("Не могу подключиться к серверу базы данных!"); }
@@ -22,11 +28,7 @@ require_once 'pages/header.php' ;
 
 
 <div class="container-fluid" >
-
-
-
-
-
+<p class="text-secondary" id="version">version 1.1</p>
 	<div class="row">
     	<div class="col-xl-4 col-lg-6" >
 				<form action="" id="FormAction" method="post">
@@ -53,8 +55,6 @@ require_once 'pages/header.php' ;
 							style="width:200px">
 						</div>
 					</div>
-					
-					
 				</form>
 		</div>
     	<div class="col-xl-8 col-lg-6">
