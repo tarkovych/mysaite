@@ -5,11 +5,7 @@ if(!isset($_GET['IMAGESHOW'])){
 	exit ; 
 }
 
- require_once 'php/connection.php' ; 
-// $dbconnect = mysql_connect ($dbhost, $dbusername, $dbpass);
-// if (!$dbconnect) { echo ("Не могу подключиться к серверу базы данных!"); }
-// if(@mysql_select_db($dbname)) { echo "Подключение к базе $dbname установлено!"; }
-// else die ("Не могу подключиться к базе данных $dbname!"); 
+require_once 'php/connection.php' ; 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
 mysqli_query($link ,'SET NAMES utf8');
 
@@ -19,7 +15,6 @@ if (!$link) {
     echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
     exit;
 } 
-
 $uid=$_GET['IMAGESHOW'] ; 
 $query = "SELECT * FROM `ObjValue` WHERE uid=$uid" ; 
 $result = mysqli_query($link,$query);
@@ -34,20 +29,18 @@ $page_Name=''  ;
 require_once 'pages/header.php' ; 
 ?>
 
-
-
-
 <div class="container" >
     <div id="Pic" style=""></div>
-    <span style="color:blue;cursor:pointer" onclick="Transform()"><a>Развернуть на 90</a></span>
-    <div id="Lab" style="" ></div>
-
+    <span style="color:blue;cursor:pointer" onclick="Transform()" class="mx-auto">
+        <a>
+         <span class="ru">Развернуть на 90</span>
+         <span class="ua">Розгорнути на 90</span>
+         <span class="en">Expand by 90</span> 
+        </a>
+    </span>
+    <div id="Lab" style="" class="mx-auto"></div>
 </div>
-
-
-
 	<?php require_once 'pages/footerJS.php' ; ?>
-
 <?php 
 
 echo <<<EON
@@ -71,11 +64,8 @@ function Transform(){
    document.getElementById("imageTran").style.transform=`rotate(${proc}deg)` ; 
    proc+=90 ; 
 }
-//header('Content-type: text/html; charset=windows-1251');
 </script>
 </body>
 </html>
-
-
 
 

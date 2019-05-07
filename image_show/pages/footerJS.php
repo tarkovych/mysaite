@@ -29,7 +29,7 @@
     <!-- <div class="footer-copyright text-center py-2 " > -->
     <div style="width:100% ; height:100px"></div>
     <div class="footer-copyright text-center bg-light fixed-bottom" >
-    © 2018 Copyright:
+    © 2019 Copyright:
              <a id="call_id" href="callMsg.php"> Написать в центр поддержки</a>
     </div>
 </footer>

@@ -1,5 +1,10 @@
-document.getElementById('Pic').innerHTML=`<img src="img/img/${ObjRow[0]['IMG']}" class="img-thumbnail mx-auto d-block" id="imageTran" alt="..." style="max-width:900px">
-<a href="img/img/${ObjRow[0]['IMG']}" download>Скачать</a>`; 
+document.getElementById('Pic').innerHTML=`
+<img src="img/img/${ObjRow[0]['IMG']}" class="img-thumbnail mx-auto d-block" id="imageTran" alt="..." style="max-width:900px">
+<a href="img/img/${ObjRow[0]['IMG']}" download>
+	<span class="ru">Скачать</span>
+	<span class="ua">Скачати</span>
+	<span class="en">Download</span>
+	</a>`; 
 let Lable='';
 
 for(mass in ObjRow[0]){
@@ -33,10 +38,26 @@ let Table=`
 <table class="table table-hover table-sm" >
   <thead>
     <tr>
-      <th scope="col">Категория</th>
-			<th scope="col">Категория</th>
-			<th scope="col">y</th>
-			<th scope="col">y</th>
+			<th scope="col">
+				<span class="ru">Название категории</span>
+				<span class="ua">Назва категорії</span>
+				<span class="en">Name of category</span>
+			</th>
+			<th scope="col">
+				<span class="ru">Имя вопроса</span>
+				<span class="ua">Ім'я питання</span>
+				<span class="en">Question name</span>
+			</th>
+			<th scope="col">
+				<span class="ru">Категория</span>
+				<span class="ua">Категорія</span>
+				<span class="en">Category</span>
+			</th>
+			<th scope="col">
+				<span class="ru">Значение категории</span>
+				<span class="ua">Значення категорії</span>
+				<span class="en">Category value</span>
+			</th>
     </tr>
   </thead>
   <tbody>

@@ -1,3 +1,4 @@
+console.log("version 7") ; 
 class Buld {
 	constructor(objlabel){
     this.ObjLabel=objlabel ;
@@ -82,13 +83,17 @@ class Buld {
 	AJAX(ID){
 		let arrJSON ; 
 		let postOld=$("#FormAction").serialize() ;
-
 		for(let mass in this.ObjLabel){
 			for(let i=0 ; i<this.ObjLabel[mass]['val'].length;i++){
-				if(ID!=mass){
-					//document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.color="silver";
-					document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.display="none";
+				if(ID!=mass ){
+					document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.color="silver";
+					//document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.display="none";
 				}
+			///////////////NEW
+				if(document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}`).checked==true){
+					document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.color="black";
+					}
+			///////////////NEW
 				
 			} 
 		} 
@@ -100,8 +105,8 @@ class Buld {
 					for(let key in arrJSON[mass]){
 						let div = document.getElementById(`${mass}_${arrJSON[mass][key]}_table`) ; 
 						if(div!=null){
-						//	div.style.color="black";
-							div.style.display="";
+							div.style.color="black";
+						//	div.style.display="";
 						}
 						else{
 						}
@@ -118,10 +123,15 @@ class Buld {
 
 		
 				$.post('last1.php',postOld,function(request){
-					document.getElementById('massResult').innerHTML= `<b>Найдено ${request} результатов</b>`;
+					document.getElementById('massResult').innerHTML= `
+					<b>
+					<span class="ru">Найдено ${request}  результатов</span>
+					<span class="ua">Знайдено ${request} результатів</span>
+					<span class="en">Found  ${request}   results</span>
+					</b>`;
 				});
 
-			 	console.log("version 7") ; 
+			 	
 
 
 	}	
@@ -133,14 +143,15 @@ var buld= new Buld(ObjLabel) ;
 buld.buldInner("tableBuild") ; 
 
 function RESULT(){ 
-		IMAGE  = $.post('image.php',$("#FormAction").serialize(),function(request){
+		IMAGE = $.post('image.php',$("#FormAction").serialize(),function(request){
 		try{
 				let arrImg=JSON.parse(request) ; 
 					GRID(arrImg) ;
-					console.log(arrImg) ;
+				//	console.log(arrImg) ;
 		}
 		catch(e){
-				console.log(e) ; 
+				console.log(e) ;
+				alert(`Превышено количество фотографий`)  ; 
 		}
 });
 

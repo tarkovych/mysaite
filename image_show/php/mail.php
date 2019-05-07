@@ -47,13 +47,13 @@ if(!$mail->send()) {
      $txt .= "<b>".$key."</b> ".$value."%0A";
     };
 
-    $sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
+    //$sendToTelegram = fopen("https://api.telegram.org/bot{$token}/sendMessage?chat_id={$chat_id}&parse_mode=html&text={$txt}","r");
 
-      if ($sendToTelegram) {
+    //  if ($sendToTelegram) {
              header('Location: ../index.php');
-        } else {
-        echo "Error";
-    }
+    //   } else {
+    //   echo "Error";
+    // }
 
 
 
