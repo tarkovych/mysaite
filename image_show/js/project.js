@@ -113,8 +113,7 @@ class Buld {
 			} 
 	}
 	AJAX(ID){
-		let arrJSON ; 
-		let postOld=$("#FormAction").serialize() ;
+		let arrJSON ; 	
 		for(let mass in this.ObjLabel){
 			for(let i=0 ; i<this.ObjLabel[mass]['val'].length;i++){
 				if(ID!=mass ){
@@ -124,12 +123,15 @@ class Buld {
 			///////////////NEW
 				if(document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}`).checked==true){
 					document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.color="black";
+					document.getElementById(`${mass}_${this.ObjLabel[mass]['val'][i]}_table`).style.display="";
 					}
 			///////////////NEW
 				
 			} 
 			document.getElementById(`${mass}_plus`).innerHTML='+' ; 
 		} 
+///////////////////////////////
+		let postOld=$("#FormAction").serialize() ;
 		$.post('last.php',postOld,function(request){
 			try{
 				arrJSON=JSON.parse(request) ; 
@@ -171,9 +173,83 @@ class Buld {
 var buld= new Buld(ObjLabel) ; 
 
 buld.buldInner("tableBuild") ; 
+////////////////////////////////BUILDGOOGLE///////////////////
+let Time=["SBJNUM","IDR","IMG","uid"] ; 
+function buildGoogle(mass){
+		let option=`` ; 
+		for(let i=0 ; i<mass.length;i++){
+				option+=`<option value="${mass[i]}">${mass[i]}</option>` ; 
+		}
 
+		document.getElementById("SCAT").innerHTML= option ; 
+}
+buildGoogle(Time) ; 
+
+document.getElementById("WORD").oninput=document.getElementById("WORD").onipaste=function(){
+	SAJAX() ; 
+}
+function SAJAX(){
+	let word=document.getElementById("WORD").value ; 
+	
+	if(word){
+		
+		let postId=$("#FormGoogle").serialize() ;
+
+		$.post('search.php',postId,function(request){
+			try{
+				ArrSearch=JSON.parse(request) ; 	
+				let dropList='' ; 
+				for(i=0 ; i<ArrSearch.length ; i++){
+					dropList+=`<li class="dropdown-item"  onclick="DropDawn('${ArrSearch[i]}')">${ArrSearch[i]}</li>` ; 
+				}
+					document.getElementById('DROP').innerHTML=dropList ; 
+				// console.log(ArrSearch) ; 
+				}catch(e){
+				console.log("NE RABOTAET") ; 
+				console.log(e) ; 
+				console.log(request) ;
+			}	
+		});
+		///////
+		$.post('imageSearch.php',postId,function(request){
+			let result ; 
+			try{
+				let arrImg=JSON.parse(request) ; 
+			//	console.log(arrImg['uid']) ;
+				result=arrImg["uid"].length ; 
+				}catch(e){
+				result=0 ; 
+			}	
+			document.getElementById('AjaxResult').innerHTML= `
+					<b>
+					<span class="ru">Найдено 	${result}  результатов</span>
+					<span class="ua">Знайдено ${result} результатів</span>
+					<span class="en">Found  	${result}   results</span>
+					</b>`;
+		});
+		
+		//////
+	}
+}
+function RESULT2(){
+	let postId=$("#FormGoogle").serialize() ;
+	$.post('imageSearch.php',postId,function(request){
+		try{
+			let arrImg=JSON.parse(request) ; 
+			GRID(arrImg) ;
+			}catch(e){
+			console.log("NE RABOTAET") ; 
+			console.log(e) ; 
+			console.log(request) ;
+		}	
+	});
+}
+////////////////////////////////BUILDGOOGLE///////////////////
 function RESULT(){ 
-		IMAGE = $.post('image.php',$("#FormAction").serialize(),function(request){
+	let form  ; 
+
+		form=$("#FormAction").serializeArray() ; 
+		IMAGE = $.post('image.php',$("#FormAction").serializeArray(),function(request){
 		try{
 				let arrImg=JSON.parse(request) ; 
 					GRID(arrImg) ;
@@ -184,80 +260,9 @@ function RESULT(){
 				alert(`Не верно указаны параметры поиска`)  ; 
 		}
 });
+///////////////////////////////////////
 
-	function GRID(ArrImage){
-
-		let R=10 ; 
-		let C=6 ; 
-		let RR=0 ; 
-		let cell = Math.ceil(ArrImage['uid'].length/(R*C)) ;
-		let DIV=`` ;
-		let PAG=`` ;
-	for(let list=1 ;  list<=cell; list++){
-		let first ; 
-		let ten;
-		if(list==1){first='inline';}else{first='none';}
-		DIV+=`<div id="LIST_${list}" style="display:${first}">
-				  ${Row(ArrImage['uid'],list,R,C)}
-					 </div>`;
-		if(list>=1 && list<=10){ten='inline';}else{ten='none';}
-			PAG+=`<li class="page-item" style="display:${ten}" id="PAGIN_${list}"  value="${list}" onclick="FunPAG(this.value,${cell})">
-								<span class="page-link" id="PAGNAM_${list}">${list}</span>
-						</li>`
-		}
-	;	 
-	
-
-function Row(MassImd,list,R,C){
-	let Row = `` ;  
-	for(let row=1 ;  row<=R ; row++){
-			if((list-1)*R*C+(row-1)*C <=MassImd.length){
-					Row+=`<div class="row">
-										${Col(ArrImage,list,row,R,C)}	
-								</div>` ; 
-			}	 ; 
-	}
-	return Row ; 
-}
-
-function Col(MassJson,list,row,R,C){
-	let Col = `` ; 
-
-	for(let col=1 ;  col<=C ; col++){
-		let t = (list-1)*R*C + (row-1)*C +(col) ;
-		if(t<=MassJson['uid'].length){
-			if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
-			RR++ ; 
-		Col+=`
-				<div class="col" style="max-width:210px ">
-				<a href="picture.php?IMAGESHOW=${MassJson['uid'][t-1]}" target="_blank">
-					<table class="table table-sm">
-						<tr>
-							<td scope="col" 
-									style="height:200px;background:url('img/imgsm/${MassJson['IMG'][t-1]}') 100% 100% no-repeat;
-									background-size:cover">
-							</td>
-						</tr>
-						<tr>
-							<td scope="col" style="font-size:10px ; ">
-							${MassJson['uid'][t-1]} 
-							</td>
-						</tr>
-					</table>
-					</a>
-				</div>` ; 
-		}
-	}	 ; 
-		return Col ;
-}
-
-document.getElementById("PICTURE").innerHTML=DIV; 
-document.getElementById("PAGIN").innerHTML=`
-									<li class="page-item" onclick="NEXT(${cell},'pre')"><span class="page-link">Previous</span></li>
-										${PAG}
-									<li class="page-item" onclick="NEXT(${cell},'next')"><span class="page-link">Next(${cell})</span></li>`
-					; 
-}
+/////////////////////////////////
 }
 function FunPAG(val,cell){
 	for(let i=1;i<=cell ; i++){
@@ -271,6 +276,79 @@ function FunPAG(val,cell){
 			document.getElementById(`PAGNAM_${i}`).style.fontWeight="" ; 
 		}
 	}
+}
+function GRID(ArrImage){
+
+	let R=10 ; 
+	let C=6 ; 
+	let RR=0 ; 
+	let cell = Math.ceil(ArrImage['uid'].length/(R*C)) ;
+	let DIV=`` ;
+	let PAG=`` ;
+for(let list=1 ;  list<=cell; list++){
+	let first ; 
+	let ten;
+	if(list==1){first='inline';}else{first='none';}
+	DIV+=`<div id="LIST_${list}" style="display:${first}">
+				${Row(ArrImage['uid'],list,R,C)}
+				 </div>`;
+	if(list>=1 && list<=10){ten='inline';}else{ten='none';}
+		PAG+=`<li class="page-item" style="display:${ten}" id="PAGIN_${list}"  value="${list}" onclick="FunPAG(this.value,${cell})">
+							<span class="page-link" id="PAGNAM_${list}">${list}</span>
+					</li>`
+	}
+;	 
+
+
+function Row(MassImd,list,R,C){
+let Row = `` ;  
+for(let row=1 ;  row<=R ; row++){
+		if((list-1)*R*C+(row-1)*C <=MassImd.length){
+				Row+=`<div class="row">
+									${Col(ArrImage,list,row,R,C)}	
+							</div>` ; 
+		}	 ; 
+}
+return Row ; 
+}
+
+function Col(MassJson,list,row,R,C){
+let Col = `` ; 
+
+for(let col=1 ;  col<=C ; col++){
+	let t = (list-1)*R*C + (row-1)*C +(col) ;
+	if(t<=MassJson['uid'].length){
+		if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
+		RR++ ; 
+	Col+=`
+			<div class="col" style="max-width:210px ">
+			<a href="picture.php?IMAGESHOW=${MassJson['uid'][t-1]}" target="_blank">
+				<table class="table table-sm">
+					<tr>
+						<td scope="col" 
+								style="height:200px;background:url('img/imgsm/${MassJson['IMG'][t-1]}') 100% 100% no-repeat;
+								background-size:cover">
+						</td>
+					</tr>
+					<tr>
+						<td scope="col" style="font-size:10px ; ">
+						${MassJson['uid'][t-1]} 
+						</td>
+					</tr>
+				</table>
+				</a>
+			</div>` ; 
+	}
+}	 ; 
+	return Col ;
+}
+
+document.getElementById("PICTURE").innerHTML=DIV; 
+document.getElementById("PAGIN").innerHTML=`
+								<li class="page-item" onclick="NEXT(${cell},'pre')"><span class="page-link">Previous</span></li>
+									${PAG}
+								<li class="page-item" onclick="NEXT(${cell},'next')"><span class="page-link">Next(${cell})</span></li>`
+				; 
 }
 function NEXT(cell,next){
 if(next=='next'){

@@ -56,8 +56,8 @@ if (!isset($_SESSION['picture'])) {
   $val= $_GET['IMAGESHOW'] ; 
   foreach($arrRed as $key=>$value){
       if($val==$value){
-         if(isset($arrRed[$key-1])){$prev="<a href=\"picture.php?IMAGESHOW=".$arrRed[$key-1]."\"><<<<<<<".$arrRed[$key-1]."</a>";} 
-         if(isset($arrRed[$key+1])){$next= "<a href=\"picture.php?IMAGESHOW=".$arrRed[$key+1]."\">".$arrRed[$key+1].">>>>>></a>" ;}
+         if(isset($arrRed[$key-1])){$prev="<a href=\"picture.php?IMAGESHOW=".$arrRed[$key-1]."\"><<<<<".$arrRed[$key-1]."</a>";} 
+         if(isset($arrRed[$key+1])){$next= "<a href=\"picture.php?IMAGESHOW=".$arrRed[$key+1]."\">".$arrRed[$key+1].">>>></a>" ;}
       }
   }
 ?>
