@@ -17,7 +17,11 @@ var ObjLabel={
     },
     C4  :{
         name:"<span class='ru'>Приготовлено / куплено</span><span class='ua'>Приготовано / куплене</span><span class='en'>Where prepared</span>",
-        cat:["<span class='ru'>Приготовлено дома</span><span class='ua'>Приготована вдома</span><span class='en'>Homemade</span>","<span class='ru'>Куплено /заказано в кафе / ресторане и т.д.</span><span class='ua'>Придбано в магазині упакованим, в готовому до вживання вигляді</span><span class='en'>Bought ready-to-eat</span>","<span class='ru'>Куплено в магазине упакованным, в готовом к употреблению вид</span><span class='ua'>Придбано / замовлено в кафе / ресторані і т.д.</span><span class='en'>Bought at HORECA</span>","<span class='ru'>Приготовлено {0}</span><span class='ua'>Приготована в офісі </span><span class='en'>Prepared at work / in the office</span>","<span class='ru'>ПУСТО</span><span class='ua'>ПУСТО</span><span class='en'>ПУСТО</span>"],
+        cat:["<span class='ru'>Приготовлено дома</span><span class='ua'>Приготована вдома</span><span class='en'>Homemade</span>",
+        "<span class='ru'>Куплено /заказано в кафе / ресторане и т.д.</span><span class='ua'>Придбано / замовлено в кафе / ресторані і т.д.</span><span class='en'>Bought at HORECA</span>",
+        "<span class='ru'>Куплено в магазине упакованным, в готовом к употреблению вид</span><span class='ua'>Придбано в магазині упакованим, в готовому до вживання вигляді</span><span class='en'>Bought ready-to-eat</span>",
+        "<span class='ru'>Приготовлено {0}</span><span class='ua'>Приготована в офісі </span><span class='en'>Prepared at work / in the office</span>",
+        "<span class='ru'>ПУСТО</span><span class='ua'>ПУСТО</span><span class='en'>ПУСТО</span>"],
         val:[1,3,2,4,88888]
     },
     S7x1:{

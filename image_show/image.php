@@ -1,8 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['picture'])) {
-  $_SESSION['picture'] = 0;
-}
+
  require_once 'php/connection.php' ; 
 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
@@ -13,7 +10,6 @@ if (!$link) {
     echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
     exit;
 } 
-
 
     $C1  =  ((isset($_POST['C1']))  ? implode(",", $_POST['C1'] ) : 0);
     $C1a =  ((isset($_POST['C1a'])) ? implode(",", $_POST['C1a']) : 0);
@@ -57,6 +53,5 @@ $aRR=[] ;
         $aRR["IMG"][]=$row["IMG"] ; 
 }
 
-
 echo json_encode($aRR);  
-$_SESSION['picture']=$aRR["uid"] ; 
+

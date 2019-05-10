@@ -1,15 +1,5 @@
 <?php
-
-session_start();
-if (!isset($_SESSION['picture'])) {
-  $_SESSION['picture'] = 0;
-}
-
  require_once 'php/connection.php' ; 
-// $dbconnect = mysql_connect ($dbhost, $dbusername, $dbpass);
-// if (!$dbconnect) { echo ("Не могу подключиться к серверу базы данных!"); }
-// if(@mysql_select_db($dbname)) { echo "Подключение к базе $dbname установлено!"; }
-// else die ("Не могу подключиться к базе данных $dbname!"); 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
 mysqli_query($link ,'SET NAMES utf8');
 if (!$link) {
@@ -28,18 +18,18 @@ require_once 'pages/header.php' ;
 
 
 <div class="container-fluid" >
-<p class="text-secondary" id="version">version 1.1</p>
+<p class="text-secondary" id="version">version 1.2</p>
 	<div class="row">
 	
     	<div class="col-xl-4 col-lg-6" >
 <!-- //////////////////////////////new//////////////// -->
 
 							<div class="custom-control custom-switch">
-										<input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+										<input type="checkbox" class="custom-control-input" id="customSwitch1" >
 										<label class="custom-control-label" for="customSwitch1">
-											<span class="ru">По категориях</span>
-											<span class="ua">По категоріях</span>
-											<span class="en">By categories</span>
+											<span class="ru">Одиночный поиск</span>
+											<span class="ua">Одиночний пошук</span>
+											<span class="en">Single search</span>
 										</label>
 							</div>
 
@@ -57,7 +47,7 @@ require_once 'pages/header.php' ;
 									<!-- Example single danger button -->
 									<div class="btn-group">
 																<!-- <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-																<input type="text" class="w-100 dropdown-toggle" id="WORD" name="WORD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																<input type="text" class="form-control w-100 dropdown-toggle" id="WORD" name="WORD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 																<div class="dropdown-menu" id ="DROP">
 																
 																</div>
@@ -170,7 +160,10 @@ document.getElementById("FormGoogle").style.display="none" ;
 }
 }
 
-
+document.getElementById("SCAT").onchange=function (){
+	var event = new Event('input');
+	document.getElementById("WORD").dispatchEvent(event) ;
+}
 function DropDawn(value){
 	document.getElementById("WORD").value=value; 
 	var event = new Event('input');

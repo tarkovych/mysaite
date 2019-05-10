@@ -1,9 +1,5 @@
 <?php
  require_once 'php/connection.php' ; 
-// $dbconnect = mysql_connect ($dbhost, $dbusername, $dbpass);
-// if (!$dbconnect) { echo ("Не могу подключиться к серверу базы данных!"); }
-// if(@mysql_select_db($dbname)) { echo "Подключение к базе $dbname установлено!"; }
-// else die ("Не могу подключиться к базе данных $dbname!"); 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
 ini_set('memory_limit', '1024M');
 mysqli_query($link ,'SET NAMES utf8');

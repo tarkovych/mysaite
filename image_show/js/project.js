@@ -215,7 +215,7 @@ function SAJAX(){
 			let result ; 
 			try{
 				let arrImg=JSON.parse(request) ; 
-			//	console.log(arrImg['uid']) ;
+				//localStorage["picture"]=arrImg['uid'] ;
 				result=arrImg["uid"].length ; 
 				}catch(e){
 				result=0 ; 
