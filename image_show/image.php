@@ -31,8 +31,8 @@ if (!$link) {
     $BMI =  ((isset($_POST['BMI'])) ? implode(",", $_POST['BMI']) : 0);
     $IDR =  ((isset($_POST['IDR'])) ? implode(",", $_POST['IDR']) : 0);
    // $SBJNUM =  ((isset($_POST['SBJNUM'])) ? implode(",", $_POST['SBJNUM']) : 0);
+   $Obj= array($C1, $C1a, $C2, $C4,$S7x1,$S7x2,$S7x3,$S7x4,$S7x5,$S7x6,$S7x7, $D2, $D3, $S2, $D1 ,$GDR, $AGE, $BMI,$IDR) ;
     
-    $Obj=    array($C1, $C1a, $C2, $C4,$S7x1,$S7x2,$S7x3,$S7x4,$S7x5,$S7x6,$S7x7, $D2, $D3, $S2, $D1 ,$GDR, $AGE, $BMI,$IDR) ;
     $ObjKey= array("C1","C1a","C2","C4","S7x1","S7x2","S7x3","S7x4","S7x5","S7x6","S7x7","D2","D3","S2","D1","GDR","AGE","BMI","IDR") ;
     $Res="" ;
     $caunt=0 ; 

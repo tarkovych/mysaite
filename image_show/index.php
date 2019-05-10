@@ -10,7 +10,6 @@ if (!$link) {
 } 
 
 
-
 $page_Name='ГОЛОВНА'  ; 
 require_once 'pages/header.php' ; 
 ?>
