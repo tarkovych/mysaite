@@ -260,7 +260,26 @@ function RESULT(){
 				alert(`Не верно указаны параметры поиска`)  ; 
 		}
 });
-///////////////////////////////////////
+IMAGE = $.post('TEST.php',$("#FormAction").serializeArray(),function(request){
+	try{
+			let arrImg=JSON.parse(request) ; 
+
+				console.log(arrImg["IMG"].length) ;
+				console.log(arrImg["SBJNUM"].length) ;
+
+
+				console.log(arrImg["IMG"]) ;
+				console.log(arrImg["SBJNUM"]) ;
+
+
+	}
+	catch(e){
+			console.log(e) ;
+			alert(`Не верно указаны параметры поиска*****`)  ; 
+	}
+});
+/////////////new//////////////////////////
+
 
 /////////////////////////////////
 }
@@ -332,7 +351,7 @@ for(let col=1 ;  col<=C ; col++){
 					</tr>
 					<tr>
 						<td scope="col" style="font-size:10px ; ">
-						${MassJson['uid'][t-1]} 
+						${MassJson['SBJNUM'][t-1]} 
 						</td>
 					</tr>
 				</table>

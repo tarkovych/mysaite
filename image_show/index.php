@@ -1,5 +1,5 @@
 <?php
- require_once 'php/connection.php' ; 
+require_once 'php/connection.php' ; 
 $link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
 mysqli_query($link ,'SET NAMES utf8');
 if (!$link) {

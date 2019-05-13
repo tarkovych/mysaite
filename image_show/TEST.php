@@ -3,4 +3,4 @@
 require_once 'ClassImg.php' ; 
 
 
- $IMG->Search();
+$IMG->IMAGETest();
