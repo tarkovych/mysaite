@@ -36,39 +36,29 @@ public function  SqlCol(){
 
 /////////////////////////*****/IMAGE*****////////////////////////////////////////////////////
 public function IMAGE (){
-    $link=$this->link ;
-    if($link===0){
-        echo 'Установить переменную $IMG->setLink($link)';
-        return ;
-    }
     $SqlCol=$this->SqlCol() ; 
     $postArr=[] ;
-    
     foreach($SqlCol as $key=>$value){
        $postArr[$value]=((isset($_POST[$value])) ? implode(",", $_POST[$value] ) : 0);   
     }
     $Res="" ; 
     $caunt=0 ;
-    
     foreach($postArr as $key=>$value){
         if($caunt==0){$AND='';}else{$AND='AND';}
-        if($postArr[$key]!==0){
+        if(!empty($postArr[$key])){
             $Res.="$AND ($key in ($value))" ;
             $caunt++ ; 
         }
     }
     $query = "SELECT * FROM `ObjValue` WHERE $Res" ; 
-    $result = mysqli_query($link,$query);
+    $result = mysqli_query($this->link,$query);
     $aRR=[] ;
- 
  while($row = mysqli_fetch_assoc($result)){
         $aRR["uid"][]=$row["uid"] ; 
         $aRR["IMG"][]=$row["IMG"] ; 
         $aRR["SBJNUM"][]=$row["SBJNUM"] ; 
     }
-
 echo json_encode($aRR); 
-
 }
 /////////////////////////////////////////////
 public function ImageSearch(){
@@ -108,31 +98,24 @@ echo json_encode($row_set);
 }
 ///////////////////////////////////////////////////////
 public function IMAGETest(){
-    $link=$this->link ;
-    if($link===0){
-        echo 'Установить переменную $IMG->setLink($link)';
-        return ;
-    }
     $SqlCol=$this->SqlCol() ; 
     $postArr=[] ;
-    
     foreach($SqlCol as $key=>$value){
        $postArr[$value]=((isset($_POST[$value])) ? implode(",", $_POST[$value] ) : 0);   
     }
     $Res="" ; 
     $caunt=0 ;
-    
     foreach($postArr as $key=>$value){
         if($caunt==0){$AND='';}else{$AND='AND';}
-        if($postArr[$key]!==0){
+        if(!empty($postArr[$key])){
             $Res.="$AND ($key in ($value))" ;
             $caunt++ ; 
         }
     }
+
     $query = "SELECT * FROM `ObjValue` WHERE $Res" ; 
-    $result = mysqli_query($link,$query);
+    $result = mysqli_query($this->link,$query);
     $aRR=[] ;
- 
  while($row = mysqli_fetch_assoc($result)){
         $aRR["uid"][]=$row["uid"] ; 
         $aRR["IMG"][]=$row["IMG"] ; 
@@ -140,7 +123,6 @@ public function IMAGETest(){
     }
     $aRR["SBJNUM"]=array_unique($aRR["SBJNUM"]) ; 
     echo json_encode($aRR); 
-
 }
 }
 
