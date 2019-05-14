@@ -17,10 +17,10 @@ require_once 'pages/header.php' ;
          <span class="en">Expand by 90</span> 
         </a>
     </span>
-    <div id="Lab" style="" class="mx-auto"></div>
-</div>
-
-<div class="row">
+    <div id="Table1" style="" class="mx-auto"></div>
+    <div id="Table2" style="" class="mx-auto"></div>
+    <div id="Table3" style="" class="mx-auto"></div>
+    <div id="Table4" style="" class="mx-auto"></div>
 </div>
 
 <?php require_once 'pages/footerJS.php' ; ?>

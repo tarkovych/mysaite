@@ -18,7 +18,7 @@ class Buld {
 					<input type="checkbox" value="${massVal[i]}" id="${id}_${massVal[i]}" name="${id}[]" onclick="buld.All('${id}',${massVal[i]})">
 				</td>
 				<td><label for="${id}_${massVal[i]}"> ${massLab[i]} 
-				<span id="${id}_${massVal[i]}_cap"> /${id}_${massVal[i]}/</span>
+				<span id="${id}_${massVal[i]}_cap"> </span>
 				</label></td>
 			</tr>` ; 
 		}
@@ -38,7 +38,7 @@ class Buld {
 		for(let mass in this.ObjLabel){
 			select+=`<div class="BOX-SELECT">
 							<div id="${mass}" class="SELECT-CLICK" onClick="buld.OnShow(this.id)">
-								${this.ObjLabel[mass]['name']}  /${mass}/
+								${this.ObjLabel[mass]['name']}  
 								<div class="select-icon" id="${mass}_icon">&#9660</div>
 							</div>
 							<div id="${mass}_select"  class="SELECT">
