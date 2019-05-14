@@ -17,7 +17,7 @@ require_once 'pages/header.php' ;
 
 
 <div class="container-fluid" >
-<p class="text-secondary" id="version">version 1.2</p>
+<p class="text-secondary" id="version">version 1.3</p>
 	<div class="row">
 	
     	<div class="col-xl-4 col-lg-6" >

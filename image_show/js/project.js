@@ -73,7 +73,6 @@ class Buld {
 		}else{
 			all.checked=false ; 	
 		}
-		 
 		}
 	OnShow(id){
 		let show =document.getElementById(id+'_show').className ; 
@@ -135,7 +134,6 @@ class Buld {
 		$.post('last.php',postOld,function(request){
 			try{
 				arrJSON=JSON.parse(request) ; 
-				//console.log(arrJSON) ; 
 				for(let mass in arrJSON){
 					for(let key in arrJSON[mass]){
 						let div = document.getElementById(`${mass}_${arrJSON[mass][key]}_table`) ; 
@@ -174,17 +172,15 @@ var buld= new Buld(ObjLabel) ;
 
 buld.buldInner("tableBuild") ; 
 ////////////////////////////////BUILDGOOGLE///////////////////
-let Time=["SBJNUM","IDR","IMG","uid"] ; 
+let Time=["SBJNUM","IDR","IMG"] ; 
 function buildGoogle(mass){
 		let option=`` ; 
 		for(let i=0 ; i<mass.length;i++){
 				option+=`<option value="${mass[i]}">${mass[i]}</option>` ; 
 		}
-
 		document.getElementById("SCAT").innerHTML= option ; 
 }
 buildGoogle(Time) ; 
-
 document.getElementById("WORD").oninput=document.getElementById("WORD").onipaste=function(){
 	SAJAX() ; 
 }
@@ -210,7 +206,7 @@ function SAJAX(){
 				console.log(request) ;
 			}	
 		});
-		///////
+		///////////////////
 		$.post('imageSearch.php',postId,function(request){
 			let result ; 
 			try{
@@ -227,7 +223,6 @@ function SAJAX(){
 					<span class="en">Found  	${result}   results</span>
 					</b>`;
 		});
-		
 		//////
 	}
 }
@@ -247,41 +242,18 @@ function RESULT2(){
 ////////////////////////////////BUILDGOOGLE///////////////////
 function RESULT(){ 
 	let form  ; 
-
 		form=$("#FormAction").serializeArray() ; 
 		IMAGE = $.post('image.php',$("#FormAction").serializeArray(),function(request){
 		try{
 				let arrImg=JSON.parse(request) ; 
 					GRID(arrImg) ;
-				//	console.log(arrImg) ;
 		}
 		catch(e){
 				console.log(e) ;
 				alert(`Не верно указаны параметры поиска`)  ; 
 		}
 });
-IMAGE = $.post('TEST.php',$("#FormAction").serializeArray(),function(request){
-	try{
-			let arrImg=JSON.parse(request) ; 
 
-				console.log(arrImg["IMG"].length) ;
-				console.log(arrImg["SBJNUM"].length) ;
-
-
-				console.log(arrImg["IMG"]) ;
-				console.log(arrImg["SBJNUM"]) ;
-
-
-	}
-	catch(e){
-			console.log(e) ;
-			alert(`Не верно указаны параметры поиска*****`)  ; 
-	}
-});
-/////////////new//////////////////////////
-
-
-/////////////////////////////////
 }
 function FunPAG(val,cell){
 	for(let i=1;i<=cell ; i++){
@@ -297,11 +269,10 @@ function FunPAG(val,cell){
 	}
 }
 function GRID(ArrImage){
-
 	let R=10 ; 
 	let C=6 ; 
 	let RR=0 ; 
-	let cell = Math.ceil(ArrImage['uid'].length/(R*C)) ;
+	let cell = Math.ceil(ArrImage['SBJNUM'].length/(R*C)) ;
 	let DIV=`` ;
 	let PAG=`` ;
 for(let list=1 ;  list<=cell; list++){
@@ -309,7 +280,7 @@ for(let list=1 ;  list<=cell; list++){
 	let ten;
 	if(list==1){first='inline';}else{first='none';}
 	DIV+=`<div id="LIST_${list}" style="display:${first}">
-				${Row(ArrImage['uid'],list,R,C)}
+				${Row(ArrImage['SBJNUM'],list,R,C)}
 				 </div>`;
 	if(list>=1 && list<=10){ten='inline';}else{ten='none';}
 		PAG+=`<li class="page-item" style="display:${ten}" id="PAGIN_${list}"  value="${list}" onclick="FunPAG(this.value,${cell})">
@@ -317,7 +288,6 @@ for(let list=1 ;  list<=cell; list++){
 					</li>`
 	}
 ;	 
-
 
 function Row(MassImd,list,R,C){
 let Row = `` ;  
@@ -336,12 +306,12 @@ let Col = `` ;
 
 for(let col=1 ;  col<=C ; col++){
 	let t = (list-1)*R*C + (row-1)*C +(col) ;
-	if(t<=MassJson['uid'].length){
+	if(t<=MassJson['SBJNUM'].length){
 		if(RR!=(t-1)){console.log("RR="+RR+"T="+(t-1)) ;}	 
 		RR++ ; 
 	Col+=`
 			<div class="col" style="max-width:210px ">
-			<a href="picture.php?IMAGESHOW=${MassJson['uid'][t-1]}" target="_blank">
+			<a href="picture.php?IMAGESHOW=${MassJson['SBJNUM'][t-1]}" target="_blank">
 				<table class="table table-sm">
 					<tr>
 						<td scope="col" 

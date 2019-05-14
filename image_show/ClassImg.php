@@ -50,21 +50,48 @@ public function IMAGE (){
             $caunt++ ; 
         }
     }
-    $query = "SELECT * FROM `ObjValue` WHERE $Res" ; 
+    $query = "SELECT * FROM `ObjValue` WHERE $Res GROUP BY SBJNUM" ; 
     $result = mysqli_query($this->link,$query);
     $aRR=[] ;
  while($row = mysqli_fetch_assoc($result)){
-        $aRR["uid"][]=$row["uid"] ; 
-        $aRR["IMG"][]=$row["IMG"] ; 
+        $aRR["uid"][]=$row["uid"] ;
+        $aRR["IMG"][]=$row["IMG"] ;
         $aRR["SBJNUM"][]=$row["SBJNUM"] ; 
     }
-echo json_encode($aRR); 
+    echo json_encode($aRR); 
+    }
+
+/////////////////////////////////////////////
+public function Last1(){
+    $SqlCol=$this->SqlCol() ; 
+    $postArr=[] ;
+    foreach($SqlCol as $key=>$value){
+       $postArr[$value]=((isset($_POST[$value])) ? implode(",", $_POST[$value] ) : 0);   
+    }
+    $Res="" ; 
+    $caunt=0 ;
+    foreach($postArr as $key=>$value){
+        if($caunt==0){$AND='';}else{$AND='AND';}
+        if(!empty($postArr[$key])){
+            $Res.="$AND ($key in ($value))" ;
+            $caunt++ ; 
+        }
+    }
+    $query = "SELECT * FROM `ObjValue` WHERE $Res GROUP BY SBJNUM" ; 
+    $result = mysqli_query($this->link,$query);
+    $row_set= array();   
+    while($row = mysqli_fetch_assoc($result))
+    {
+        $row_set[] = $row;
+    }
+    echo count($row_set);
 }
+
 /////////////////////////////////////////////
 public function ImageSearch(){
     $SCAT =  ((isset($_POST['SCAT'])) ? $_POST['SCAT'] : 0);
     $WORD =  ((isset($_POST['WORD'])) ?  $_POST['WORD'] : 0);
-    $query = "SELECT * FROM `ObjValue` WHERE $SCAT = '$WORD'  " ; 
+    $query = "SELECT * FROM `ObjValue` WHERE $SCAT = '$WORD' GROUP BY SBJNUM" ; 
     $result = mysqli_query($this->link,$query);
     $aRR=[] ;
      
@@ -83,7 +110,7 @@ public function ImageSearch(){
 public function Search(){
     $SCAT =  ((isset($_POST['SCAT']))  ? $_POST['SCAT']  : 0);
     $WORD =  ((isset($_POST['WORD'])) ?  $_POST['WORD'] : 0);
-    $query = "SELECT * FROM `ObjValue` WHERE $SCAT LIKE '%$WORD%' LIMIT 10" ; 
+    $query = "SELECT * FROM `ObjValue` WHERE $SCAT LIKE '%$WORD%' GROUP BY SBJNUM LIMIT 10 " ; 
     $result = mysqli_query($this->link,$query);
 
     $row_set= array();   
@@ -97,34 +124,22 @@ public function Search(){
 echo json_encode($row_set); 
 }
 ///////////////////////////////////////////////////////
-public function IMAGETest(){
-    $SqlCol=$this->SqlCol() ; 
-    $postArr=[] ;
-    foreach($SqlCol as $key=>$value){
-       $postArr[$value]=((isset($_POST[$value])) ? implode(",", $_POST[$value] ) : 0);   
-    }
-    $Res="" ; 
-    $caunt=0 ;
-    foreach($postArr as $key=>$value){
-        if($caunt==0){$AND='';}else{$AND='AND';}
-        if(!empty($postArr[$key])){
-            $Res.="$AND ($key in ($value))" ;
-            $caunt++ ; 
-        }
-    }
-
-    $query = "SELECT * FROM `ObjValue` WHERE $Res" ; 
-    $result = mysqli_query($this->link,$query);
-    $aRR=[] ;
- while($row = mysqli_fetch_assoc($result)){
-        $aRR["uid"][]=$row["uid"] ; 
-        $aRR["IMG"][]=$row["IMG"] ; 
-        $aRR["SBJNUM"][]=$row["SBJNUM"] ; 
-    }
-    $aRR["SBJNUM"]=array_unique($aRR["SBJNUM"]) ; 
-    echo json_encode($aRR); 
+public function PIC($GetImg){
+$sbj=$GetImg; 
+$query = "SELECT * FROM `ObjValue` WHERE SBJNUM=$sbj" ; 
+$result = mysqli_query($this->link,$query);
+$ROW=[] ;
+while($row = mysqli_fetch_assoc($result)){
+    $ROW[]=$row; 
+ }  
+$JSROW=json_encode($ROW); 
+echo <<<EON
+<script>
+let ObjRow=$JSROW; 
+</script>
+<script src="js/picture.js"></script>
+EON;
 }
 }
-
 $IMG=new IMG ;
 $IMG->setLink($link); 

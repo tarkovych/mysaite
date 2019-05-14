@@ -4,29 +4,6 @@ if(!isset($_GET['IMAGESHOW'])){
 	echo "not faund" ; 
  	exit ; 
  }
-
-
-require_once 'php/connection.php' ; 
-$link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
-mysqli_query($link ,'SET NAMES utf8');
-
-
-if (!$link) {
-    echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
-    echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-} 
-$uid=$_GET['IMAGESHOW'] ; 
-$query = "SELECT * FROM `ObjValue` WHERE uid=$uid" ; 
-$result = mysqli_query($link,$query);
-$ROW=[] ;
- 
- while($row = mysqli_fetch_assoc($result)){
-        $ROW[]=$row; 
- }  
-
- $JSROW=json_encode($ROW); 
 $page_Name=''  ; 
 require_once 'pages/header.php' ; 
 ?>
@@ -48,15 +25,9 @@ require_once 'pages/header.php' ;
 
 <?php require_once 'pages/footerJS.php' ; ?>
 <?php 
-
-echo <<<EON
-<script>
-let ObjRow=$JSROW; 
-</script>
-<script src="js/picture.js"></script>
-EON;
+require_once 'ClassImg.php' ; 
+$IMG->PIC($_GET['IMAGESHOW']) ; 
 ?>
-
 <style>
 .transform{
     transform: rotate(720deg);
@@ -65,10 +36,9 @@ EON;
 <script>
 let proc=90 ; 
 function Transform(){
-    let x = document.getElementById("imageTran").style ; 
-
-   document.getElementById("imageTran").style.transform=`rotate(${proc}deg)` ; 
-   proc+=90 ; 
+let x = document.getElementById("imageTran").style ; 
+document.getElementById("imageTran").style.transform=`rotate(${proc}deg)` ; 
+proc+=90 ; 
 }
 </script>
 </body>
