@@ -1,2 +1,0 @@
-define(["require","exports","tslib","react","deep-integrations/scooter_loader/scooter_loader"],function(e,t,n,r,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=(function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return n.__extends(t,e),t.prototype.render=function(){return r.createElement("div",{className:"int-profile-card-cal-section-loading"},r.createElement(o.ScooterLoader,null))},t})(r.Component);t.SectionLoading=i});
-//# sourceMappingURL=loading_section.min.js-vflPHl4xd.map

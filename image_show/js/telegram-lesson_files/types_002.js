@@ -1,2 +1,0 @@
-define(["require","exports"],function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});(function(e){e.fetchListServices="@@Integration/FetchListServices"})(t.Actions||(t.Actions={}))});
-//# sourceMappingURL=types.min.js-vflYTUCcg.map

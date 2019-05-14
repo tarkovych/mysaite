@@ -1,2 +1,0 @@
-define(["require","exports","tslib","modules/clean/integrations/data/types"],function(e,t,s,i){"use strict";function a(e,a){switch(void 0===e&&(e=t.defaultIntegrationsNamespaceState),a.type){case i.Actions.fetchListServices:var n=a.payload;return s.__assign({},e,{listServices:n});default:return e}}Object.defineProperty(t,"__esModule",{value:!0}),t.defaultIntegrationsNamespaceState={listServices:void 0},t.IntegrationsReducer=a});
-//# sourceMappingURL=reducers.min.js-vflQRshQw.map

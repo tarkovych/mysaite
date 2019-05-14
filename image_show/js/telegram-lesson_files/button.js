@@ -1,2 +1,0 @@
-define(["require","exports","tslib","react"],function(e,t,n,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var o=(function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return n.__extends(t,e),t.prototype.render=function(){return r.createElement("button",{className:"int-profile-card-cal-section-button"},this.props.children)},t})(r.Component);t.SectionButton=o});
-//# sourceMappingURL=button.min.js-vflfl5WJp.map
