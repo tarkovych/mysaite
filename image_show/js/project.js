@@ -51,7 +51,6 @@ class Buld {
 					 </div>` ; 
 			caunt++;
 		}
-		
 		return select ; 
 	}
 	buldInner(id){
@@ -153,17 +152,21 @@ class Buld {
 			}
 			
 		});
-
-		
 				$.post('last1.php',postOld,function(request){
-					document.getElementById('massResult').innerHTML= `
-					<b>
-					<span class="ru">Найдено ${request}  результатов</span>
-					<span class="ua">Знайдено ${request} результатів</span>
-					<span class="en">Found  ${request}   results</span>
-					</b>`;
+						if(!isNaN(request*1)){
+						document.getElementById('massResult').innerHTML= `
+						<b>
+						<span class="ru">Найдено ${request}  результатов</span>
+						<span class="ua">Знайдено ${request} результатів</span>
+						<span class="en">Found  ${request}   results</span>
+						</b>`;
+						window.onload=lopster() ; /////////////////********************************************************************
+					}else{
+					document.getElementById('massResult').innerHTML="ERROR" ; 
+					setTimeout('window.location.reload()',2000) ; 
+					}
 				});
-
+					
 	}	
 		
 }  
@@ -171,6 +174,7 @@ class Buld {
 var buld= new Buld(ObjLabel) ; 
 
 buld.buldInner("tableBuild") ; 
+window.onload=lopster() ; /////////////////******************************************************************************
 ////////////////////////////////BUILDGOOGLE///////////////////
 let Time=["SBJNUM","IDR","IMG"] ; 
 function buildGoogle(mass){
@@ -211,7 +215,7 @@ function SAJAX(){
 			let result ; 
 			try{
 				let arrImg=JSON.parse(request) ; 
-				//localStorage["picture"]=arrImg['uid'] ;
+				
 				result=arrImg["uid"].length ; 
 				}catch(e){
 				result=0 ; 
@@ -222,9 +226,11 @@ function SAJAX(){
 					<span class="ua">Знайдено ${result} результатів</span>
 					<span class="en">Found  	${result}   results</span>
 					</b>`;
+					window.onload=lopster() ; /////////////////********************************************************************		
 		});
 		//////
 	}
+	lopster();
 }
 function RESULT2(){
 	let postId=$("#FormGoogle").serialize() ;
@@ -373,3 +379,4 @@ if(next=='pre'){
 }
 }
 }
+

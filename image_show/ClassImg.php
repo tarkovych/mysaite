@@ -10,7 +10,6 @@ if (!$link) {
     exit;
 } 
 
-
 Class IMG{
 protected $link=0; 
 public function getLink(){
@@ -33,7 +32,6 @@ public function  SqlCol(){
     }
     return $COLUMNS ; 
 }
-
 /////////////////////////*****/IMAGE*****////////////////////////////////////////////////////
 public function IMAGE (){
     $SqlCol=$this->SqlCol() ; 
@@ -50,6 +48,7 @@ public function IMAGE (){
             $caunt++ ; 
         }
     }
+    $Res=empty($Res)?'1=1':$Res ; 
     $query = "SELECT * FROM `ObjValue` WHERE $Res GROUP BY SBJNUM" ; 
     $result = mysqli_query($this->link,$query);
     $aRR=[] ;
@@ -60,7 +59,6 @@ public function IMAGE (){
     }
     echo json_encode($aRR); 
     }
-
 /////////////////////////////////////////////
 public function Last1(){
     $SqlCol=$this->SqlCol() ; 
@@ -77,6 +75,7 @@ public function Last1(){
             $caunt++ ; 
         }
     }
+    $Res=empty($Res)?'1=1':$Res ; 
     $query = "SELECT * FROM `ObjValue` WHERE $Res GROUP BY SBJNUM" ; 
     $result = mysqli_query($this->link,$query);
     $row_set= array();   
@@ -86,7 +85,6 @@ public function Last1(){
     }
     echo count($row_set);
 }
-
 /////////////////////////////////////////////
 public function ImageSearch(){
     $SCAT =  ((isset($_POST['SCAT'])) ? $_POST['SCAT'] : 0);
@@ -94,7 +92,6 @@ public function ImageSearch(){
     $query = "SELECT * FROM `ObjValue` WHERE $SCAT = '$WORD' GROUP BY SBJNUM" ; 
     $result = mysqli_query($this->link,$query);
     $aRR=[] ;
-     
     try {
         while($row = mysqli_fetch_assoc($result)){
             $aRR["uid"][]=$row["uid"] ; 
