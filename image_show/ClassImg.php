@@ -11,7 +11,7 @@ if (!$link) {
 } 
 
 Class IMG{
-protected $link=0; 
+protected $link=0;
 public function getLink(){
     return $this->link;
 }
