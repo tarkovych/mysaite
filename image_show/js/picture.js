@@ -26,25 +26,32 @@ function ret(val,mass){
 
 function TABLE1(arr){
 	let hTable=["<span class='ru'>Название категории</span><span class='ua'>Назва категорії</span><span class='en'>Name of category</span>","<span class='ru'>Имя вопроса</span><span class='ua'>Ім'я питання</span><span class='en'>Question name</span>","<span class='ru'>Категория</span><span class='ua'>Категорія</span><span class='en'>Category</span>","<span class='ru'>Значение категории</span><span class='ua'>Значення категорії</span><span class='en'>Category value</span>"]
-	let table=`<table class="table table-hover table-sm table-bordered" >
-				<tbody>` ; 
+	let 			table=`<table class="table table-hover table-sm table-bordered" >
+							<tbody>` ; 
+					table+=`<tr>`
+			for(i=0 ; i<=ObjRow.length ; i++){
+					table+=`<th scope="col">`;
+		if(i!=0){	table+=`<span class="ru">Количество блюд </span><span class="ua">Кількість страв </span><span class="en">Number of dishes </span>${i}`}	;	
+					table+=`</th>`;
+					}
+					table+=`</tr>`	
 	for(j=0 ; j<arr.length;j++){
-		table+=` <tr>
-					<th scope="col">
-					${hTable[j]}
-					</th>`;			
+  
+					table+=`<tr>
+								<th scope="col">
+								${hTable[j]}
+				 	   		</th>`;			
 		for(i=0 ; i<ObjRow.length ; i++){
-		table+=`<td scope="col">
-				${ ObjLabel[arr[j]]['cat'][ret(ObjRow[i][arr[j]],ObjLabel[arr[j]]['val'])] } 
-				</td>`
+					table+=`<td scope="col">
+								${ ObjLabel[arr[j]]['cat'][ret(ObjRow[i][arr[j]],ObjLabel[arr[j]]['val'])] } 
+							</td>`;
 		}
-		table+=`</tr>`
+					table+=`</tr>`
 	}
-	table+=` </tbody>
-			</table>` ; 
+					table+=` 	</tbody>
+							</table>` ; 
 	document.getElementById("Table1").innerHTML=table ; 			
 }
-
 
 function TABLE2(arr){
 let hTable=["<span class='ru'>Прием пищи</span><span class='ua'>Споживання</span><span class='en'>Meal</span>",
@@ -94,8 +101,8 @@ function TABLE3(arr){
 						</tr>`;
 			}
 		}
-		table+=` </tbody>
-				</table>` ; 
+				table+=` </tbody>
+							</table>` ; 
 		document.getElementById("Table3").innerHTML=table ; 			
 	}
 
@@ -144,5 +151,4 @@ TABLE2(TableArr[1]) ;
 TABLE3(TableArr[2]) ; 
 TABLE4(TableArr[3]) ; 
 
-
-
+window.onload=lopster() ; /////////////////********************************************************************	

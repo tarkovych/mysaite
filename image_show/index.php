@@ -23,14 +23,14 @@ require_once 'pages/header.php' ;
     	<div class="col-xl-4 col-lg-6" >
 <!-- //////////////////////////////new//////////////// -->
 
-							<div class="custom-control custom-switch">
-										<input type="checkbox" class="custom-control-input" id="customSwitch1" >
-										<label class="custom-control-label" for="customSwitch1">
-											<span class="ru">Одиночный поиск</span>
-											<span class="ua">Одиночний пошук</span>
-											<span class="en">Single search</span>
-										</label>
-							</div>
+		<div class="custom-control custom-switch">
+			<input type="checkbox" class="custom-control-input" id="customSwitch1" >
+				<label class="custom-control-label" for="customSwitch1">
+					<span class="ru">Одиночный поиск</span>
+					<span class="ua">Одиночний пошук</span>
+					<span class="en">Single search</span>
+				</label>
+		</div>
 
 <!-- ////////////////////form - gooogle//////////////////////// -->
 
@@ -46,11 +46,11 @@ require_once 'pages/header.php' ;
 									<!-- Example single danger button -->
 									<div class="btn-group">
 																<!-- <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-																<input type="text" class="form-control w-100 dropdown-toggle" id="WORD" name="WORD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																<div class="dropdown-menu" id ="DROP">
+													<input type="text" class="form-control w-100 dropdown-toggle" id="WORD" name="WORD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														<div class="dropdown-menu" id ="DROP">
 																
-																</div>
-															</div>
+													</div>
+											</div>
 															
 									<!-- /////////////////////// -->
 									</div>
@@ -168,6 +168,10 @@ function DropDawn(value){
 	var event = new Event('input');
 	document.getElementById("WORD").dispatchEvent(event) ; 
 }
+
+
+
+
 </script>
 
 

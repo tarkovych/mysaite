@@ -30,41 +30,45 @@
 </nav>
 
 <style>
-  #FLAG_ID {
+#FLAG_ID {
     background-size: 34px;
     background-position: 15px center;
     background-repeat: no-repeat;
     padding: 15px 0 15px 64px;
-  }
+}
 .ru{
-  display:none ; 
+  
 }
 .en{
-  display:none ; 
+  
 }
 .ua{
   
 }
+
 </style>
 
 <script>
 let massFlag=["ua","ru","en"] ; 
 let div_flag=document.getElementById("FLAG_ID") ; 
 div_flag.onclick=function (){
-let Arrflag=div_flag.className.split('-') ; 
-Arrflag[1]==massFlag[0]?div_flag.className="flag-"+massFlag[1]:
-Arrflag[1]==massFlag[1]?div_flag.className="flag-"+massFlag[2]:
-Arrflag[1]==massFlag[2]?div_flag.className="flag-"+massFlag[0]:0 ; 
-lopster() ;
+flagfun() ;
+lopster();
 }
+function flagfun(loc=0){
+let Arrflag=div_flag.className.split('-') ;
+let v=loc=="ru"?0:loc=="en"?1:loc=="ua"?3:0 ; 
+let flag=loc!==0?massFlag[v]:Arrflag[1];
+if(flag==massFlag[0]){div_flag.className="flag-"+massFlag[1]; localStorage['lag']=massFlag[1]; }
+if(flag==massFlag[1]){div_flag.className="flag-"+massFlag[2]; localStorage['lag']=massFlag[2]; }
+if(flag==massFlag[2]){div_flag.className="flag-"+massFlag[0]; localStorage['lag']=massFlag[0]; }
 
+}
 function lopster(){
   for(let i=0 ; i<massFlag.length;i++){
-
   if(div_flag.className=="flag-"+massFlag[i]){
-   
     for(let j=0 ;j<document.getElementsByClassName(massFlag[i]).length; j++){
-      try{
+    try{
         document.getElementsByClassName(massFlag[i])[j].style.display="inline";
       }catch{
         console.log(document.getElementsByClassName(massFlag[i])[j]) ; 
@@ -82,7 +86,14 @@ function lopster(){
   }
 }
 
-window.onload=lopster() ;
+if(localStorage['lag']==undefined){
+  flagfun('ru') ;
+  localStorage['lag']='ru' ; 
+  
+}else{
+  flagfun(localStorage['lag']) ; 
+}
+
 
 
 

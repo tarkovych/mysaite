@@ -50,6 +50,7 @@ public function IMAGE (){
             $caunt++ ; 
         }
     }
+    $Res=empty($Res)?'1=1':$Res ; 
     $query = "SELECT * FROM `ObjValue` WHERE $Res GROUP BY SBJNUM" ; 
     $result = mysqli_query($this->link,$query);
     $aRR=[] ;
@@ -77,6 +78,7 @@ public function Last1(){
             $caunt++ ; 
         }
     }
+    $Res=empty($Res)?'1=1':$Res ; 
     $query = "SELECT * FROM `ObjValue` WHERE $Res GROUP BY SBJNUM" ; 
     $result = mysqli_query($this->link,$query);
     $row_set= array();   
