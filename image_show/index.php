@@ -13,16 +13,11 @@ if (!$link) {
 $page_Name='ГОЛОВНА'  ; 
 require_once 'pages/header.php' ; 
 ?>
-
-
-
 <div class="container-fluid" >
 <p class="text-secondary" id="version">version 1.4</p>
 	<div class="row">
-	
     	<div class="col-xl-4 col-lg-6" >
 <!-- //////////////////////////////new//////////////// -->
-
 		<div class="custom-control custom-switch">
 			<input type="checkbox" class="custom-control-input" id="customSwitch1" >
 				<label class="custom-control-label" for="customSwitch1">
@@ -31,7 +26,6 @@ require_once 'pages/header.php' ;
 					<span class="en">Single search</span>
 				</label>
 		</div>
-
 <!-- ////////////////////form - gooogle//////////////////////// -->
 
 							<form action="" id="FormGoogle" method="post">
@@ -50,18 +44,14 @@ require_once 'pages/header.php' ;
 														<div class="dropdown-menu" id ="DROP">
 																
 													</div>
-											</div>
-															
+											</div>					
 									<!-- /////////////////////// -->
 									</div>
-
 								</div>
 							<div class="row">
 								<div class="col" id="AjaxResult" style="height:50px">
 								</div>
 							</div>
-
-
 							<div class="row">
 								<div class="col">
 											<input 
@@ -72,16 +62,15 @@ require_once 'pages/header.php' ;
 												style="width:200px">
 								</div>
 								<div class="col">
-											<input 
-													type="submit" 
-													class="btn btn-outline-primary " 
-													onclick="" 
-													id="resetBtn" 
-													value="RESET" 
-													style="width:200px">
+										<input 
+											type="submit" 
+											class="btn btn-outline-primary " 
+											onclick="" 
+											id="resetBtn" 
+											value="RESET" 
+											style="width:200px">
 								</div>
-							</div>
-								
+							</div>		
 							</form>
 			<!-- ////////////////////new -->
 <!--///////////////// form - filter /////////////////////////////-->
@@ -111,9 +100,7 @@ require_once 'pages/header.php' ;
 						</div>
 					</div>
 			</div>
-
-				</form>
-				
+				</form>	
 <!--///////////////// form - filter /////////////////////////////-->
 <!--///////////////// image /////////////////////////////-->
 
@@ -129,21 +116,10 @@ require_once 'pages/header.php' ;
 			<!-- *************** -->
 			</div>
 		</div>
-  	</div>
-
-			
-				
+  	</div>			
 </div>
-
-
-	<?php require_once 'pages/footerJS.php' ; ?>
-
-
-
+<?php require_once 'pages/footerJS.php' ; ?>
 <script  src="js/project.js"></script>
-
-
-
 <script>
 document.getElementById("customSwitch1").onclick=function (){CatSwich();}
  
@@ -158,7 +134,6 @@ document.getElementById("FormAction").style.display="" ;
 document.getElementById("FormGoogle").style.display="none" ; 
 }
 }
-
 document.getElementById("SCAT").onchange=function (){
 	var event = new Event('input');
 	document.getElementById("WORD").dispatchEvent(event) ;
@@ -168,9 +143,6 @@ function DropDawn(value){
 	var event = new Event('input');
 	document.getElementById("WORD").dispatchEvent(event) ; 
 }
-
-
-
 
 </script>
 

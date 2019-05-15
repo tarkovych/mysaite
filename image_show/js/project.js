@@ -51,7 +51,6 @@ class Buld {
 					 </div>` ; 
 			caunt++;
 		}
-		
 		return select ; 
 	}
 	buldInner(id){
