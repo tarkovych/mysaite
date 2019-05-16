@@ -380,3 +380,48 @@ if(next=='pre'){
 }
 }
 
+
+
+function ZAPROZAJAX(text="so"){
+//if(text.length>2){
+lang = ["ru" ,"ua","en"] ; 
+table=["C1","C1a","C2","S7x1","S7x1","S7x2","S7x3","S7x4","S7x5","S7x6","S7x7","D1","D2","D3","S2"]  ; 
+table2 = ["IDR","SBJNUM","IMG"] ; 
+let zapros=''; 
+for(let i=0 ; i<table.length ; i++){
+for(let j=0 ; j<lang .length ; j++){
+zapros+=`SELECT ${lang[j]} FROM \`${table[i]}\` WHERE ${table[i]}.${lang[j]} LIKE "%${text}%" 
+				UNION \n` ; 
+	}
+}
+for(let x=0 ; x<table2.length ; x++){
+union=x==0?'':'UNION'
+zapros+=`${union} SELECT ${table2[x]} FROM \`ObjValue\` WHERE ${table2[x]} LIKE "%${text}%"\n		
+`
+}
+zapros+=` LIMIT 20` ; 
+
+$.post('AjaxGoogle.php',{TEXT:zapros},function(request){
+	try{
+		ArrSearch=JSON.parse(request) ; 	
+		let dropList='' ; 
+	//	console.log(ArrSearch) ; 
+		for(i=0 ; i<ArrSearch.length ; i++){
+			for(key in ArrSearch[i]){
+				dropList+=`<li class="dropdown-item"  onclick="DropDawn('${ArrSearch[i][key]}','GOOGLEVALUE')">${ArrSearch[i][key]}</li>` ; 
+			}
+			
+			//console.log(ArrSearch[i]) ;
+			}
+		document.getElementById('DROPGOOLE').innerHTML=dropList ;
+		}catch(e){
+		console.log("NE RABOTAET") ; 
+		console.log(e) ; 
+		console.log(request) ;
+	}	
+});
+}
+//}
+
+
+

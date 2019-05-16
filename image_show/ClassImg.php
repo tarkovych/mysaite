@@ -137,6 +137,16 @@ let ObjRow=$JSROW;
 <script src="js/picture.js"></script>
 EON;
 }
+public function GOOGLE($text){
+$query = $text ; 
+$result = mysqli_query($this->link,$query);
+$row_set= array();   
+while($row = mysqli_fetch_assoc($result))
+{
+$row_set[] = $row;
+}
+echo json_encode($row_set); 
+}
 }
 $IMG=new IMG ;
 $IMG->setLink($link); 

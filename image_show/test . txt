@@ -33,3 +33,14 @@ $Obj= array($C1, $C1a, $C2, $C4,$S7x1,$S7x2,$S7x3,$S7x4,$S7x5,$S7x6,$S7x7, $D2, 
 foreach($Obj as $key=>$value){
 
 }
+
+
+
+
+SELECT ru FROM `C1` WHERE C1.ru LIKE "%б%" 
+UNION
+SELECT ru FROM `C1a` WHERE  C1a.ru LIKE "%б%"
+UNION
+SELECT en FROM `C1` WHERE C1.en LIKE "%б%" 
+UNION
+SELECT en FROM `C1a` WHERE  C1a.en LIKE "%б%"

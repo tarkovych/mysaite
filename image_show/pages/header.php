@@ -17,14 +17,37 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="index.php">
-    <span class="ru">ГЛАВНАЯ</span><span class="ua">ГОЛОВНА</span><span class="en">HOME</span>
-  </a>
-  <a class="navbar-brand" href="program.php" style="display:none">
-    ADMIN
-  </a> 
+<div class="row  w-100" >
+  <div class="col-2">
+    <a class="navbar-brand" href="index.php">
+      <span class="ru">ГЛАВНАЯ</span><span class="ua">ГОЛОВНА</span><span class="en">HOME</span>
+    </a>
+  </div>        
+  <div class="col-2">
+      <div class="flag-ua" id="FLAG_ID" style="cursor:pointer"></div>
+  </div>
+  <!-- //////////////////GOOGLE -->
+  <div class="col-8">
+      <form class="form-inline ">
+            <div class="row w-100">
+              <div class="col-8">
+                    <input id="GOOGLEVALUE" 
+                    oninput="ZAPROZAJAX(this.value)"
+                    class="form-control mr-sm-2  dropdown-toggle w-100" 
+                    type="search" placeholder="Search" aria-label="Search"  
+                    data-toggle="dropdown" aria-haspopup="true" 
+                    aria-expanded="false">
+                    <div class="dropdown-menu" id ="DROPGOOLE"></div>
+              </div>
+              <div class="col-4">
+                  <button class="btn btn-outline-success my-2 my-sm-0" >Search</button>
+              </div>
+          </div>
 
-<div class="flag-ua" id="FLAG_ID" style="cursor:pointer">
+                
+        </form>
+  </div>
+  <!-- //////////////////GOOGLE -->
 </div>
 
 </nav>

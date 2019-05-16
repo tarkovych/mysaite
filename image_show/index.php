@@ -118,6 +118,10 @@ require_once 'pages/header.php' ;
 		</div>
   	</div>			
 </div>
+
+
+<button onclick="zapros()" >START</button>
+
 <?php require_once 'pages/footerJS.php' ; ?>
 <script  src="js/project.js"></script>
 <script>
@@ -134,14 +138,18 @@ document.getElementById("FormAction").style.display="" ;
 document.getElementById("FormGoogle").style.display="none" ; 
 }
 }
+
+
+
 document.getElementById("SCAT").onchange=function (){
 	var event = new Event('input');
 	document.getElementById("WORD").dispatchEvent(event) ;
 }
-function DropDawn(value){
-	document.getElementById("WORD").value=value; 
+
+function DropDawn(value,input="WORD"){
+	document.getElementById(input).value=value; 
 	var event = new Event('input');
-	document.getElementById("WORD").dispatchEvent(event) ; 
+	document.getElementById(input).dispatchEvent(event) ; 
 }
 
 </script>
