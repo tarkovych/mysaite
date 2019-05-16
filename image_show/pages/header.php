@@ -31,7 +31,8 @@
       <form class="form-inline ">
             <div class="row w-100">
               <div class="col-8">
-                    <input id="GOOGLEVALUE" 
+                    <input 
+                    id="GOOGLEVALUE" 
                     oninput="ZAPROZAJAX(this.value)"
                     class="form-control mr-sm-2  dropdown-toggle w-100" 
                     type="search" placeholder="Search" aria-label="Search"  
@@ -40,7 +41,7 @@
                     <div class="dropdown-menu" id ="DROPGOOLE"></div>
               </div>
               <div class="col-4">
-                  <button class="btn btn-outline-success my-2 my-sm-0" >Search</button>
+                  <input type="button" class="btn btn-outline-dark my-2 my-sm-0" value="Search" onclick="ZAPROZAJAX('GOOGLEVALUE','search')">
               </div>
           </div>
 
