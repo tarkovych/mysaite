@@ -1,17 +1,17 @@
 <?php
-require_once 'php/connection.php' ; 
-$link = mysqli_connect($dbhost , $dbusername, $dbpass, $dbname);
-mysqli_query($link ,'SET NAMES utf8');
+require_once 'php/connection.php';
+$link = mysqli_connect($dbhost, $dbusername, $dbpass, $dbname);
+mysqli_query($link, 'SET NAMES utf8');
 if (!$link) {
     echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
     echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
     echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
     exit;
-} 
+}
 
 
-$page_Name='ГОЛОВНА'  ; 
-require_once 'pages/header.php' ; 
+$page_Name = 'ГОЛОВНА';
+require_once 'pages/header.php';
 ?>
 <div class="container-fluid">
     <p class="text-secondary" id="version">version 1.5</p>
@@ -41,7 +41,7 @@ require_once 'pages/header.php' ;
                         <div class="btn-group">
                             <!-- <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
                             <input type="text" class="form-control w-100 dropdown-toggle" autocomplete="off" id="WORD"
-                                name="WORD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   name="WORD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="dropdown-menu" id="DROP">
 
                             </div>
@@ -56,11 +56,11 @@ require_once 'pages/header.php' ;
                 <div class="row">
                     <div class="col">
                         <input type="button" class="btn btn-outline-primary " onclick="RESULT2()" id="searchBtn"
-                            value="SHOW" style="width:200px">
+                               value="SHOW" style="width:200px">
                     </div>
                     <div class="col">
                         <input type="submit" class="btn btn-outline-primary " onclick="" id="resetBtn" value="RESET"
-                            style="width:200px">
+                               style="width:200px">
                     </div>
                 </div>
             </form>
@@ -75,11 +75,11 @@ require_once 'pages/header.php' ;
                 <div class="row">
                     <div class="col ">
                         <input type="button" class="btn btn-outline-primary " onclick="RESULT(0)" id="searchBtn"
-                            value="SHOW" style="width:200px">
+                               value="SHOW" style="width:200px">
                     </div>
                     <div class="col ">
                         <input type="submit" class="btn btn-outline-primary " onclick="" id="resetBtn" value="RESET"
-                            style="width:200px">
+                               style="width:200px">
                     </div>
                 </div>
         </div>
@@ -102,38 +102,38 @@ require_once 'pages/header.php' ;
     </div>
 </div>
 
-<?php require_once 'pages/footerJS.php' ; ?>
+<?php require_once 'pages/footerJS.php'; ?>
 <script src="js/project.js"></script>
 <script>
-document.getElementById("customSwitch1").onclick = function() {
-    CatSwich();
-}
+                            document.getElementById("customSwitch1").onclick = function () {
+                                CatSwich();
+                            }
 
-CatSwich();
+                            CatSwich();
 
-function CatSwich() {
-    let swich = document.getElementById("customSwitch1");
-    if (swich.checked) {
-        document.getElementById("FormAction").style.display = "none";
-        document.getElementById("FormGoogle").style.display = "";
-    } else {
-        document.getElementById("FormAction").style.display = "";
-        document.getElementById("FormGoogle").style.display = "none";
-    }
-}
+                            function CatSwich() {
+                                let swich = document.getElementById("customSwitch1");
+                                if (swich.checked) {
+                                    document.getElementById("FormAction").style.display = "none";
+                                    document.getElementById("FormGoogle").style.display = "";
+                                } else {
+                                    document.getElementById("FormAction").style.display = "";
+                                    document.getElementById("FormGoogle").style.display = "none";
+                                }
+                            }
 
 
 
-document.getElementById("SCAT").onchange = function() {
-    var event = new Event('input');
-    document.getElementById("WORD").dispatchEvent(event);
-}
+                            document.getElementById("SCAT").onchange = function () {
+                                var event = new Event('input');
+                                document.getElementById("WORD").dispatchEvent(event);
+                            }
 
-function DropDawn(value, input = "WORD") {
-    document.getElementById(input).value = value;
-    var event = new Event('input');
-    document.getElementById(input).dispatchEvent(event);
-}
+                            function DropDawn(value, input = "WORD") {
+                                document.getElementById(input).value = value;
+                                var event = new Event('input');
+                                document.getElementById(input).dispatchEvent(event);
+                            }
 </script>
 
 
