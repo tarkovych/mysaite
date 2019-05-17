@@ -31,15 +31,26 @@ $IMG->PIC($_GET['IMAGESHOW']) ;
 <style>
 .transform{
     transform: rotate(720deg);
+    height
 }
 </style>
 <script>
 let proc=90 ; 
+
 function Transform(){
-let x = document.getElementById("imageTran").style ; 
-document.getElementById("imageTran").style.transform=`rotate(${proc}deg)` ; 
+let img=    document.getElementById("divIMG");
+
+//var width = img.clientWidth;
+//var height = img.clientHeight;
+
+img.style.height=`${len}px` ;
+img.style.transform=`rotate(${proc}deg)` ;
 proc+=90 ; 
 }
+
+
+
+
 </script>
 </body>
 </html>

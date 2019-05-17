@@ -11,7 +11,7 @@ if (!$link) {
     echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
     echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
     echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
+                    exit;
 } 
 $C1  =  ((isset($_POST['C1']))  ? implode(",", $_POST['C1'] ) : 0);
 $C1a =  ((isset($_POST['C1a'])) ? implode(",", $_POST['C1a']) : 0);
