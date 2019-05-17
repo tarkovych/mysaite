@@ -27,8 +27,8 @@
       <div class="flag-ua" id="FLAG_ID" style="cursor:pointer ; display:inline"></div>
   </div>
   <!-- //////////////////GOOGLE -->
-  <div class="col-8">
-      <form class="form-inline ">
+  <div class="col-8" >
+      <form class="form-inline " id="FORMOFF">
             <div class="row w-100">
               <div class="col-8">
                     <input 

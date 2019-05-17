@@ -31,7 +31,7 @@ function TABLE1(arr){
 					table+=`<tr>`
 			for(i=0 ; i<=ObjRow.length ; i++){
 					table+=`<th scope="col">`;
-		if(i!=0){	table+=`<span class="ru">Количество блюд </span><span class="ua">Кількість страв </span><span class="en">Number of dishes </span>${i}`}	;	
+		if(i!=0){	table+=`<span class="ru">Блюдо </span><span class="ua">Страва </span><span class="en">Dishe </span>${i}`}	;	
 					table+=`</th>`;
 					}
 					table+=`</tr>`	
@@ -152,3 +152,5 @@ TABLE3(TableArr[2]) ;
 TABLE4(TableArr[3]) ; 
 
 window.onload=lopster() ; /////////////////********************************************************************	
+
+document.getElementById("FORMOFF").style.display="none" ; 
