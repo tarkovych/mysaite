@@ -23,8 +23,8 @@
       <span class="ru">ГЛАВНАЯ</span><span class="ua">ГОЛОВНА</span><span class="en">HOME</span>
     </a>
   </div>        
-  <div class="col-2">
-      <div class="flag-ua" id="FLAG_ID" style="cursor:pointer"></div>
+  <div class="col-2 ">
+      <div class="flag-ua" id="FLAG_ID" style="cursor:pointer ; display:inline"></div>
   </div>
   <!-- //////////////////GOOGLE -->
   <div class="col-8">
@@ -35,13 +35,19 @@
                     id="GOOGLEVALUE" 
                     oninput="ZAPROZAJAX(this.value)"
                     class="form-control mr-sm-2  dropdown-toggle w-100" 
-                    type="search" placeholder="Search" aria-label="Search"  
-                    data-toggle="dropdown" aria-haspopup="true" 
+                    type="search" placeholder="Search" 
+                    aria-label="Search"  
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
                     aria-expanded="false">
                     <div class="dropdown-menu" id ="DROPGOOLE"></div>
               </div>
               <div class="col-4">
-                  <input type="button" class="btn btn-outline-dark my-2 my-sm-0" value="Search" onclick="ZAPROZAJAX('GOOGLEVALUE','search')">
+                  <input type="button" 
+                  class="btn btn-outline-dark my-2 my-sm-0 "  
+                  style="border:solid black 2px ; font-weight:bold"
+                  value="Search" autocomplete="off" 
+                  onclick="ZAPROZAJAX('GOOGLEVALUE','search')">
               </div>
           </div>
 

@@ -14,7 +14,7 @@ $page_Name='ГОЛОВНА'  ;
 require_once 'pages/header.php' ; 
 ?>
 <div class="container-fluid" >
-<p class="text-secondary" id="version">version 1.4</p>
+<p class="text-secondary" id="version">version 1.5</p>
 	<div class="row">
     	<div class="col-xl-4 col-lg-6" >
 <!-- //////////////////////////////new//////////////// -->
@@ -40,7 +40,7 @@ require_once 'pages/header.php' ;
 									<!-- Example single danger button -->
 									<div class="btn-group">
 																<!-- <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-													<input type="text" class="form-control w-100 dropdown-toggle" id="WORD" name="WORD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<input type="text" class="form-control w-100 dropdown-toggle" autocomplete="off" id="WORD" name="WORD" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 														<div class="dropdown-menu" id ="DROP">
 																
 													</div>
@@ -81,7 +81,7 @@ require_once 'pages/header.php' ;
 							<div id="massResult" ></div>
 					</div>
 					<div class="row">
-						<div class="col-6 ">
+						<div class="col ">
 							<input 
 							type="button" 
 							class="btn btn-outline-primary " 
@@ -89,7 +89,7 @@ require_once 'pages/header.php' ;
 							value="SHOW" 
 							style="width:200px">
 						</div>
-						<div class="col-6 ">
+						<div class="col ">
 							<input 
 							type="submit" 
 							class="btn btn-outline-primary " 
@@ -118,9 +118,6 @@ require_once 'pages/header.php' ;
 		</div>
   	</div>			
 </div>
-
-
-<button onclick="zapros()" >START</button>
 
 <?php require_once 'pages/footerJS.php' ; ?>
 <script  src="js/project.js"></script>

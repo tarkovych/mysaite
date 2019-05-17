@@ -17,7 +17,7 @@ class Buld {
 				<td>
 					<input type="checkbox" value="${massVal[i]}" id="${id}_${massVal[i]}" name="${id}[]" onclick="buld.All('${id}',${massVal[i]})">
 				</td>
-				<td><label for="${id}_${massVal[i]}"> ${massLab[i]} 
+				<td><label for="${id}_${massVal[i]}" > ${massLab[i]} 
 				<span id="${id}_${massVal[i]}_cap"> </span>
 				</label></td>
 			</tr>` ; 
@@ -153,18 +153,7 @@ class Buld {
 			
 		});
 				$.post('last1.php',postOld,function(request){
-						if(!isNaN(request*1)){
-						document.getElementById('massResult').innerHTML= `
-						<b>
-						<span class="ru">Найдено ${request}  результатов</span>
-						<span class="ua">Знайдено ${request} результатів</span>
-						<span class="en">Found  ${request}   results</span>
-						</b>`;
-						window.onload=lopster() ; /////////////////********************************************************************
-					}else{
-					document.getElementById('massResult').innerHTML="ERROR" ; 
-					setTimeout('window.location.reload()',2000) ; 
-					}
+					POKAZ('massResult',request);
 				});
 					
 	}	
@@ -220,12 +209,7 @@ function SAJAX(){
 				}catch(e){
 				result=0 ; 
 			}	
-			document.getElementById('AjaxResult').innerHTML= `
-					<b>
-					<span class="ru">Найдено 	${result}  результатов</span>
-					<span class="ua">Знайдено ${result} результатів</span>
-					<span class="en">Found  	${result}   results</span>
-					</b>`;
+			POKAZ('AjaxResult',result);
 					window.onload=lopster() ; /////////////////********************************************************************		
 		});
 		//////
@@ -253,6 +237,7 @@ function RESULT(){
 		try{
 				let arrImg=JSON.parse(request) ; 
 					GRID(arrImg) ;
+				
 		}
 		catch(e){
 				console.log(e) ;
@@ -402,14 +387,13 @@ if(ajax=="ajax"){
 		zapros+=`${union} SELECT ${table2[x]} FROM \`ObjValue\` WHERE ${table2[x]} LIKE "%${text}%"\n		
 		`
 		}
-		zapros+=` LIMIT 20` ;
+		zapros+=` LIMIT 10` ;
 
 
 		$.post('AjaxGoogle.php',{TEXT:zapros},function(request){
 			try{
 				ArrSearch=JSON.parse(request) ; 	
 				let dropList='' ; 
-				console.log(ArrSearch) ; 
 				for(i=0 ; i<ArrSearch.length ; i++){
 					for(key in ArrSearch[i]){
 						dropList+=`<li class="dropdown-item"  onclick="DropDawn('${ArrSearch[i][key]}','GOOGLEVALUE')">${ArrSearch[i][key]}</li>` ; 
@@ -427,46 +411,60 @@ if(ajax=="ajax"){
 ///////////////////////////////////////////////////////////
 }else{
 	///////////////////////////////////////////////////////
-	let objValue=["ObjValue" , ...table] ; 
-	function TableName(mass){
-		t='' ; 
-		for(i=0 ; i<mass.length ; i++){
-			x=i==0?'':','
-			t+=` ${x} \`${mass[i]}\` ` ; 
-		}
-		return t ; 
-	}
+
 	function TableLike(mass,val){
 		t='' ; 
 		for(i=0 ; i<mass.length ; i++){
-			x=i==0?'':'OR'
-			t+=` ${x} (${mass[i]} = ${mass[i]}.id AND (${mass[i]}.ru LIKE '%${val}%' OR ${mass[i]}.ua LIKE '%${val}%' OR  ${mass[i]}.en LIKE '%${val}%')) ` ; 
+			t+=`SELECT SBJNUM,IMG FROM \`ObjValue\`,\`${mass[i]}\` WHERE ${mass[i]}.id=${mass[i]} AND (${mass[i]}.ru LIKE "%${val}%" OR ${mass[i]}.ua LIKE "%${val}%" OR ${mass[i]}.en LIKE "%${val}%" ) GROUP BY SBJNUM UNION \n` ; 
 		}
 		return t ; 
 	}
-	 
-	zapros=`SELECT SBJNUM , IMG FROM ${TableName(objValue)} WHERE ${TableLike(table,text)} OR SBJNUM LIKE '%${text}%' OR IMG LIKE '%${text}%'  OR IDR LIKE '%${text}%' GROUP BY SBJNUM`
-	console.log(zapros) ;
-//	SELECT SBJNUM , IMG FROM `ObjValue`,`C1` WHERE C1=C1.id AND (C1.ru LIKE '%Перша страва%' OR C1.ua LIKE '%Перша страва%' OR C1.en LIKE '%Перша страва%')  GROUP BY SBJNUM
-	// for(let i=0 ; i<table.length ; i++){
-	// 	for(let j=0 ; j<lang .length ; j++){
-	// 	zapros+=`SELECT * FROM \`${table[i]}\` WHERE ${table[i]}.${lang[j]} LIKE "%${text}%" 
-	// 					UNION \n` ; 
-	// 		}
-	// 	}
-	// 	for(let x=0 ; x<table2.length ; x++){
-	// 	union=x==0?'':'UNION'
-	// 	zapros+=`${union} SELECT ${table2[x]} FROM \`ObjValue\` WHERE ${table2[x]} LIKE "%${text}%"\n		
-	// 	`
-	// 	}
-	// 	zapros+=` LIMIT 20` ;
+	zapros+=TableLike(table,text) ; 
+	zapros+= `SELECT SBJNUM , IMG FROM \`ObjValue\` WHERE SBJNUM  LIKE '%${text}%'  GROUP BY SBJNUM UNION \n` ; 
+	zapros+= `SELECT SBJNUM , IMG FROM \`ObjValue\` WHERE IMG  LIKE '%${text}%'  GROUP BY SBJNUM UNION \n` ; 
+	zapros+= `SELECT SBJNUM , IMG FROM \`ObjValue\` WHERE IDR  LIKE '%${text}%'  GROUP BY SBJNUM \n` ; 
+
+	$.post('AjaxGoogle.php',{TEXT:zapros},function(request){
+		try{
+			ArrSearch=JSON.parse(request) ; 	
+			let dropList='' ; 
+			let objImg={"SBJNUM":[] , "IMG":[]}; 
+			
+			for(i=0 ; i<ArrSearch.length ; i++){
+				for(mass in ArrSearch[i]){
+					objImg[mass].push(ArrSearch[i][mass]) ; 
+				}
+			}
+			GRID(objImg) ; 
+			POKAZ('massResult',objImg["IMG"].length);
+			}catch(e){
+			console.log("NE RABOTAET") ; 
+			console.log(e) ; 
+			console.log(request) ;
+		}	
+	});
 ///////////////////////////////////////////////////////////
 }
 
 
 
 }
-//}
+
+function POKAZ(id='massResult',val=0){
+	if(!isNaN(val*1)){
+		document.getElementById(id).innerHTML= `
+		<b>
+		<span class="ru">Найдено ${val}  результатов</span>
+		<span class="ua">Знайдено ${val} результатів</span>
+		<span class="en">Found  ${val}   results</span>
+		</b>`;
+		window.onload=lopster() ; /////////////////********************************************************************
+	}else{
+	document.getElementById(id).innerHTML="ERROR" ; 
+	setTimeout('window.location.reload()',2000) ; 
+	}
+}
+
 
 
 
