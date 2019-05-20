@@ -82,9 +82,11 @@ require_once 'pages/header.php';
                                style="width:200px">
                     </div>
                 </div>
-        </div>
-        </form>
+        
+            </form>
+       
         <!--///////////////// form - filter /////////////////////////////-->
+        </div>   
         <!--///////////////// image /////////////////////////////-->
 
         <div class="col-xl-8 col-lg-6">
