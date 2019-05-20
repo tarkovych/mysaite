@@ -66,5 +66,3 @@ foreach ($ObjKey as $key) {
     $UnArr[$key] = array_unique($aRR[$key]);
 }
 echo json_encode($UnArr);
-
-

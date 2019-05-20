@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,7 +44,6 @@
             <!-- //////////////////GOOGLE -->
         </div>
     </nav>
-
     <style>
     #FLAG_ID {
         background-size: 34px;
@@ -53,14 +51,7 @@
         background-repeat: no-repeat;
         padding: 15px 0 15px 64px;
     }
-
-    .ru {}
-
-    .en {}
-
-    .ua {}
     </style>
-
     <script>
     let massFlag = ["ua", "ru", "en"];
     let div_flag = document.getElementById("FLAG_ID");
@@ -68,7 +59,6 @@
         flagfun();
         lopster();
     }
-
     function flagfun(loc = 0) {
         let Arrflag = div_flag.className.split('-');
         let v = loc == "ru" ? 0 : loc == "en" ? 1 : loc == "ua" ? 3 : 0;
@@ -87,7 +77,6 @@
         }
 
     }
-
     function lopster() {
         for (let i = 0; i < massFlag.length; i++) {
             if (div_flag.className == "flag-" + massFlag[i]) {
@@ -109,7 +98,6 @@
             }
         }
     }
-
     if (localStorage['lag'] == undefined) {
         flagfun('ru');
         localStorage['lag'] = 'ru';

@@ -1,9 +1,5 @@
 <div id="carouselExampleInterval" class="carousel slide text-center mx-auto" data-ride="carousel" style="margin-top:20px"> 
         <div class="carousel-inner mx-auto text-center" id="innerIMG" style="width:90%; height:500px; background-color:silver;">
-        
-
-   <!-- ***************************************** -->
-  
         </div> 
         <a class="carousel-control-prev " href="#carouselExampleInterval" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon " aria-hidden="true"></span>

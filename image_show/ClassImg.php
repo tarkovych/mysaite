@@ -10,7 +10,6 @@ if (!$link) {
     echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
-
 Class IMG {
 
     protected $link = 0;
@@ -37,7 +36,6 @@ Class IMG {
         }
         return $COLUMNS;
     }
-
 /////////////////////////*****/IMAGE/*****////////////////////////////////////////////////////
     public function IMAGE() {
         $SqlCol = $this->SqlCol();
@@ -69,7 +67,6 @@ Class IMG {
         }
         echo json_encode($aRR);
     }
-
 /////////////////////////////////////////////
     public function Last1() {
         $SqlCol = $this->SqlCol();
@@ -99,7 +96,6 @@ Class IMG {
         }
         echo count($row_set);
     }
-
 /////////////////////////////////////////////
     public function ImageSearch() {
         $SCAT = ((isset($_POST['SCAT'])) ? $_POST['SCAT'] : 0);
@@ -118,7 +114,6 @@ Class IMG {
             echo 0;
         }
     }
-
 ///////////////////////////////////////////////////////
     public function Search() {
         $SCAT = ((isset($_POST['SCAT'])) ? $_POST['SCAT'] : 0);
@@ -134,7 +129,6 @@ Class IMG {
 
         echo json_encode($row_set);
     }
-
 ///////////////////////////////////////////////////////
     public function PIC($GetImg) {
         $sbj = $GetImg;
