@@ -22,7 +22,7 @@ class Buld {
             option += `<tr id="${id}_${
                     massVal[i]
                     }_table" style="background-color:#F8F8FF">
-				<td>
+                <td>
 					<input type="checkbox" value="${massVal[i]}" id="${id}_${
                     massVal[i]
                     }" name="${id}[]" onclick="buld.All('${id}',${massVal[i]})">

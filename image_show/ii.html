@@ -32,7 +32,48 @@ document.getElementById("ar").innerHTML=u ;
 alert(MyAge(1992,1))
 </script>
 
+<script>
 
+var polka=`
+        <table valign="top" border="0" cellpadding="0" cellspacing="0" width="100%"  >
+            <tr>
+                <td> 
+                    <center>${image[index]}</center> 
+                </td>
+            </tr>
+            <tr class="fontS">
+                <td>
+                    <center>${label[index]}</center>
+                </td>
+            </tr>
+            <tr>
+                <td class="cena" height="20px">
+                    <center>
+                    <b>${cena[index]}</b>
+                    </center>
+                </td>
+            </tr>
+            <tr id="${colorInindex+1}" height="20px" class="butt">
+                <td>
+                    <label for="P1x${index+1}">
+                    <center> 
+                        <input onclick="colorIn()" 
+                            type="checkbox" value="1" 
+                            id="P1x${index+1}" 
+                            name="P1x_r_${index+1}" 
+                            class="inputcol"> 
+                    </center>
+                    </label>
+                </td>
+            </tr>
+        </table>`;
+
+
+
+
+
+
+</script>
 
 
 
