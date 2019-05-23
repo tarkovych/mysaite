@@ -48,102 +48,7 @@ require_once 'comp/header.php' ;
  }
 
 </style>
-	<script>
-		var text_board;
-		function btn_click() {
 
-
-			document.getElementById("project").innerHTML="";
-			document.getElementById("test").innerHTML="";
-			document.getElementById("qshow").innerHTML="";
-			document.getElementById("admin").innerHTML="";
-			document.getElementById("login_name").innerHTML="";
-			document.getElementById("only_pass").innerHTML="";
-			document.getElementById("modify_pass").innerHTML="";
-
-			var pass_modify=document.getElementById("admin_modify_pass").value+"";
-			var pass_only=document.getElementById("admin_only_pass").value+"";
-			var link_name;
-			var server;
-			if( document.getElementById("server_name").options.selectedIndex == 0 ) {
-				server="http://web.brt.org.ua/";
-				link_name = "Тестовый линки:"
-			}
-			else {
-				server="http://b.ipsos.com.ua/";
-				link_name = "Рабочие линки:"
-			}
-			
-			var nameProject = document.getElementById("project_name").value;
-			var version = document.getElementById("version").value;
-			if( nameProject.length<3 ) {
-				alert("Введите название проекта!");
-				return;
-			}
-			if( version==null ) {
-				alert("Введите версию проекта!");
-				return;
-			}
-			//шапки для лінків
-			var ProjectLink =  "<b>Project link :</b> " ;
-			var TestLink   = "<b>" + "Test link : "        + "</b>" ;
-			var QShowLink  = "<b>" + "Quota show link : "  + "</b>" ;
-			var AdminLink  = "<b>" + "Admin link : "       + "</b>" ;
-			document.getElementById("ver").innerHTML= "<br><b><span style='font-size:20px;' >"+ link_name +"</span></b> <br>Version: "+version;
-			text_board = "<br><b><span style='font-size:24px;' >"+ link_name +"</span></b> <br>Version: "+version;
-			//текст лінків
-			// локация
-			if( document.getElementById("rad_loc").checked==true ) {
-				
-				ProjectLink += server+nameProject;
-				TestLink="<b>" + "Upload link :</b>" + server + nameProject + "/upload";
-				document.getElementById("project").innerHTML=ProjectLink;
-				document.getElementById("test").innerHTML=TestLink;
-				AdminLink  += server + nameProject +"/" + nameProject +"admin.html"+"</br></br>";
-				document.getElementById("admin").innerHTML=AdminLink;
-				document.getElementById("login_name").innerHTML="<b>Login</b> : admin";
-				document.getElementById("modify_pass").innerHTML="<b>Modify Password : </b>" +  pass_modify;
-
-			}
-			// планшет
-			if( document.getElementById("rad_pl").checked==true ) {
-				
-				var arr=nameProject.split("_");
-				nameProject="";
-				for( var i=0; i<arr.length-1; i++ ) {
-					nameProject+=arr[i]+"x";
-				}
-				nameProject+=arr[arr.length-1];
-				ProjectLink += "http://"+nameProject+".sawtoothsoftware.com" + "<br>Пароль: " + pass_only.substr(0,5);
-				AdminLink += "http://"+nameProject+".sawtoothsoftware.com" + "/admin.html";
-				document.getElementById("project").innerHTML=ProjectLink;
-				document.getElementById("admin").innerHTML=AdminLink;
-				document.getElementById("login_name").innerHTML="<b>Login</b> : admin";
-				document.getElementById("only_pass").innerHTML="<b>Only Password : </b> " + pass_only;
-				document.getElementById("modify_pass").innerHTML="<b>Modify Password : </b> "+pass_modify;
-			}
-			// онлайн
-			if( document.getElementById("rad_on").checked==true ) {
-
-				ProjectLink =  "<b>Constract link :</b> " ;
-				TestLink   += server + nameProject + "/cgi-bin/ciwweb.pl?studyname="+nameProject+"&uid=0"+"</br></br>";
-				QShowLink += server + nameProject + "/cgi-bin/ciwweb.pl?studyname="+nameProject+"&uid=qshow"+"</br></br>";
-				AdminLink+= server + nameProject +"/admin.html";
-				ProjectLink+=server + nameProject + "/cgi-bin/ciwweb.pl?studyname="+nameProject+"&uid={VALUE}"+"</br></br>";
-				document.getElementById("project").innerHTML=ProjectLink;
-				document.getElementById("test").innerHTML=TestLink;
-				document.getElementById("qshow").innerHTML=QShowLink;
-				document.getElementById("admin").innerHTML=AdminLink;
-				document.getElementById("login_name").innerHTML="<b>Login</b> : admin";
-				document.getElementById("only_pass").innerHTML=("<b>Only Password : </b>" + pass_only);
-				document.getElementById("modify_pass").innerHTML="<b>Modify Password : </b> " + pass_modify;
-
-
-			}
-		}
-
-		
-</script>
 
 	<div>
 		<label for="project_name">Введите название проекта:</label>
@@ -153,7 +58,7 @@ require_once 'comp/header.php' ;
 		<br>
 		<br>
 		<label for="version">Введите номер версии:</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<input type="number" id="version" name="version" required="" step="1" min="1"  />
+		<input type="number" id="versionPro" name="version" required="" step="1" min="1" value="1">
 		<br>
 		<br>
 	</div>
@@ -207,6 +112,100 @@ require_once 'comp/header.php' ;
 <?php require_once 'comp/footerJS.php' ; ?>
 
 <script>
+		var text_board;
+		function btn_click() {
+
+
+			document.getElementById("project").innerHTML="";
+			document.getElementById("test").innerHTML="";
+			document.getElementById("qshow").innerHTML="";
+			document.getElementById("admin").innerHTML="";
+			document.getElementById("login_name").innerHTML="";
+			document.getElementById("only_pass").innerHTML="";
+			document.getElementById("modify_pass").innerHTML="";
+
+			var pass_modify=document.getElementById("admin_modify_pass").value+"";
+			var pass_only=document.getElementById("admin_only_pass").value+"";
+			var link_name;
+			var server;
+			if( document.getElementById("server_name").options.selectedIndex == 0 ) {
+				server="http://web.brt.org.ua/";
+				link_name = "Тестовый линки:"
+			}
+			else {
+				server="http://b.ipsos.com.ua/";
+				link_name = "Рабочие линки:"
+			}
+			
+			var nameProject = document.getElementById("project_name").value;
+			let versionPro = document.getElementById("versionPro").value;
+			if( nameProject.length<3 ) {
+				alert("Введите название проекта!");
+				return;
+			}
+			if( versionPro==null ) {
+				alert("Введите версию проекта!");
+				return;
+			}
+			//шапки для лінків
+			var ProjectLink =  "<b>Project link :</b> " ;
+			var TestLink   = "<b>" + "Test link : "        + "</b>" ;
+			var QShowLink  = "<b>" + "Quota show link : "  + "</b>" ;
+			var AdminLink  = "<b>" + "Admin link : "       + "</b>" ;
+			document.getElementById("ver").innerHTML= "<br><b><span style='font-size:20px;' >"+ link_name +"</span></b> <br>Version: "+version;
+			text_board = "<br><b><span style='font-size:24px;' >"+ link_name +"</span></b> <br>Version: "+versionPro;
+			//текст лінків
+			// локация
+			if( document.getElementById("rad_loc").checked==true ) {
+				
+				ProjectLink += server+nameProject;
+				TestLink="<b>" + "Upload link :</b>" + server + nameProject + "/upload";
+				document.getElementById("project").innerHTML=ProjectLink;
+				document.getElementById("test").innerHTML=TestLink;
+				AdminLink  += server + nameProject +"/" + nameProject +"admin.html"+"</br></br>";
+				document.getElementById("admin").innerHTML=AdminLink;
+				document.getElementById("login_name").innerHTML="<b>Login</b> : admin";
+				document.getElementById("modify_pass").innerHTML="<b>Modify Password : </b>" +  pass_modify;
+
+			}
+			// планшет
+			if( document.getElementById("rad_pl").checked==true ) {
+				
+				var arr=nameProject.split("_");
+				nameProject="";
+				for( var i=0; i<arr.length-1; i++ ) {
+					nameProject+=arr[i]+"x";
+				}
+				nameProject+=arr[arr.length-1];
+				ProjectLink += "http://"+nameProject+".sawtoothsoftware.com" + "<br>Пароль: " + pass_only.substr(0,5);
+				AdminLink += "http://"+nameProject+".sawtoothsoftware.com" + "/admin.html";
+				document.getElementById("project").innerHTML=ProjectLink;
+				document.getElementById("admin").innerHTML=AdminLink;
+				document.getElementById("login_name").innerHTML="<b>Login</b> : admin";
+				document.getElementById("only_pass").innerHTML="<b>Only Password : </b> " + pass_only;
+				document.getElementById("modify_pass").innerHTML="<b>Modify Password : </b> "+pass_modify;
+			}
+			// онлайн
+			if( document.getElementById("rad_on").checked==true ) {
+
+				ProjectLink =  "<b>Constract link :</b> " ;
+				TestLink   += server + nameProject + "/cgi-bin/ciwweb.pl?studyname="+nameProject+"&uid=0"+"</br></br>";
+				QShowLink += server + nameProject + "/cgi-bin/ciwweb.pl?studyname="+nameProject+"&uid=qshow"+"</br></br>";
+				AdminLink+= server + nameProject +"/admin.html";
+				ProjectLink+=server + nameProject + "/cgi-bin/ciwweb.pl?studyname="+nameProject+"&uid={VALUE}"+"</br></br>";
+				document.getElementById("project").innerHTML=ProjectLink;
+				document.getElementById("test").innerHTML=TestLink;
+				document.getElementById("qshow").innerHTML=QShowLink;
+				document.getElementById("admin").innerHTML=AdminLink;
+				document.getElementById("login_name").innerHTML="<b>Login</b> : admin";
+				document.getElementById("only_pass").innerHTML=("<b>Only Password : </b>" + pass_only);
+				document.getElementById("modify_pass").innerHTML="<b>Modify Password : </b> " + pass_modify;
+
+
+			}
+		}
+
+		
 </script>
 
 
