@@ -8,70 +8,48 @@
 </head>
 <body>
     
-<div id="ar"></div>
-
-<button id="tru">ffff</button>
-
-
-    <script src="js/spisok.js"></script>
-
-<script>
-
-let u =`` ; 
-for(i in ObjLabel["BMI"]["cat"]){
-u+=`${ObjLabel["BMI"]["val"][i]}  ${ObjLabel["BMI"]["cat"][i]} <br>`
-}
-
-
-document.getElementById("ar").innerHTML=u ; 
-
-
-
-
-
-alert(MyAge(1992,1))
+<div id="polka"></div>
 </script>
 
 <script>
 
-var polka=`
-        <table valign="top" border="0" cellpadding="0" cellspacing="0" width="100%"  >
-            <tr>
-                <td> 
-                    <center>${image[index]}</center> 
-                </td>
-            </tr>
-            <tr class="fontS">
-                <td>
-                    <center>${label[index]}</center>
-                </td>
-            </tr>
-            <tr>
-                <td class="cena" height="20px">
-                    <center>
-                    <b>${cena[index]}</b>
-                    </center>
-                </td>
-            </tr>
-            <tr id="${colorInindex+1}" height="20px" class="butt">
-                <td>
-                    <label for="P1x${index+1}">
-                    <center> 
-                        <input onclick="colorIn()" 
-                            type="checkbox" value="1" 
-                            id="P1x${index+1}" 
-                            name="P1x_r_${index+1}" 
-                            class="inputcol"> 
-                    </center>
-                    </label>
-                </td>
-            </tr>
-        </table>`;
+var polka=[
+    ["Бон Аква 0,5л негазированная","Бон Аква 0,5л негазированная","Святой Источник 0,5л негазированная","Святой Источник 0,5л негазированная","Святой Источник 0,5л негазированная","Аква Минерале 0,5л негазированная","Шишкин Лес 0.4л негазированная","Шишкин Лес 0.4л негазированная"],
+    ["Бон Аква 0,5л негазированная","Бон Аква 0,5л негазированная","Святой Источник 0,5л негазированная","Святой Источник 0,5л негазированная","Святой Источник 0,5л],[негазированная","Аква Минерале 0,5л негазированная","Шишкин Лес 1л негазированная","Шишкин Лес 1л негазированная"],
+    ["Нарзан","Рычал-Су","Borjomi PET 0.5 л.","Borjomi PET 0.5 л.","Borjomi PET 0.5 л.","Аква Минерале 0,5л негазированная","Черноголовская 0.5л негаз","Эвиан (Evian)"],
+    ["Ессентуки N17","Ессентуки N4","Новотерская Целебн 0.5л","Новотерская Целебн 0.5л","Архыз / Вита Архыз","Архыз / Вита Архыз","Черноголовская 0.5л негаз","Эвиан (Evian)"]]  ; 
 
+var cena =[
+    ["36,5","36,5","22,9","22,9","22,9","31,1","20,0","20"],
+    ["36,5","36,5","22,9","22,9","22,9","31,1","27,3","27,3"],
+    ["44,8","35,3","69,8","69,8","69,8","31,1","19,5","102,4"],
+    ["37,8","41,9","26,1","26,1","39,6","39,6","19,5","102,4"]
+    ] ; 
+var img =[
+    [151,151,151,151,151,151,151,151,151],
+    [151,151,151,151,151,151,151,151,151],
+    [151,151,151,151,151,151,151,151,151],
+    [151,151,151,151,151,151,151,151,151]
+    ] ; 
 
+function Polka(polka , cena , img , id){
+    table=`<table border="0" cellpadding="0" cellspacing="0" width="100%">`  ; 
+    for(x=0 ; x<polka.length ; x++){
+        table+=`<tr>` ; 
+        for(y=0 ; y<polka[x].length ; y++){
+            table+=`<td>` ; 
+            table+=`<div style="display:block;text-align:center"> <img src="${img[x][y]}.png" height="180"></div>` ; 
+            table+=`<div style="display:block;text-align:center"> ${polka[x][y]} </div>` ; 
+            table+=`<div style="display:block;text-align:center"> ${cena[x][y]} </div>` ; 
+            table+=`</td>` ;
 
-
-
+        } 
+        table+=`</tr>` ;
+    }
+    table+=`</table>` ;
+    document.getElementById(id).innerHTML=table ; 
+}
+Polka(polka , cena , img , "polka") ; 
 
 </script>
 

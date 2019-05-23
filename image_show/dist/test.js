@@ -1,3 +1,6 @@
-"use strict";
+'use strict';
 
-var t = 1 == 0 ? 10 : 101;
+document.getElementById('next_button').onclick = function () {
+    var query = "UPDATE `Counts` SET `visit1`=1 WHERE `uid`=[%uid%]";
+    $.post('https://webmail.brt.org.ua/update.php', { query: query });
+};
