@@ -10,7 +10,7 @@
 $dbhost = "localhost"; // Имя хоста БД
 $dbusername ="root"; // Пользователь БД
 $dbpass = ""; // Пароль к базе
-$dbname = "ImageShow"; // Имя базы
+$dbname = "mailer_db"; // Имя базы
 
 //tASupA8Eke	brt-web
 
