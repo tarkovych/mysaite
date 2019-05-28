@@ -16,7 +16,7 @@
         <input type="text" name="proj_link" id="proj_link" /><br>
         <label for="file">CSV файл </label>
         <input type="file" name="file" id="file" accept=".csv" />
-        <input type="button" value="send" onclick="Update()" />
+        <input type="button" value="send" onclick="insertData()" />
     
     <?php
     require_once "vMailer.php";
@@ -43,7 +43,7 @@
             }
         }
 
-        function Update() {
+        function insertData() {
             today = new Date();
             let options_time = {year:'numeric', month:'2-digit',day: '2-digit', hour:'numeric', minute:'numeric', second:'numeric' };
             let time = today.toLocaleString("ru", options_time).split(/[, :.]/).join("");
@@ -64,6 +64,13 @@
                 }
             });
         }
+        function getTables(){
+            $.post("php/getTable.php",function(data){
+                let arr = JSON.parse(data);
+                console.log(data);
+            });
+        }
+        
     </script>
 
 </body>
