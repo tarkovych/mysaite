@@ -1,8 +1,6 @@
 
 <?php 
-$PagesValue = 0  ; 
-
-
+$PagesValue = 1  ; 
 require_once "comp/navbar.php" ; 
 
 
