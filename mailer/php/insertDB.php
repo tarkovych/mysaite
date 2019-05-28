@@ -1,11 +1,11 @@
 <?php
-require_once("php/connection.php");
+require_once("connection.php");
 $table_sql = "CREATE TABLE `" . $_POST['time'] . "`(
     id INT(10) PRIMARY KEY, 
     uid VARCHAR(30) UNIQUE,
     email VARCHAR(100),
     succ int(1),
-    onsucc int(1),
+    nonsucc int(1),
     overqta int(1)
     )";
 $proj_name = $_POST['proj_name'];
@@ -23,5 +23,5 @@ if (($h = fopen($_FILES['file']['tmp_name'], "r")) !== FALSE) {
         mysqli_query($link, $query);
     }
     fclose($h);
-    move_uploaded_file($_FILES['file']['tmp_name'], "database/csv/".$_FILES["file"]["name"]);
+    move_uploaded_file($_FILES['file']['tmp_name'], "../database/csv/".$_FILES["file"]["name"]);
 }

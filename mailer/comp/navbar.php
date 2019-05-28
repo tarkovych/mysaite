@@ -43,4 +43,7 @@ $Navpages = [
         nav a {
             text-decoration: none
         }
+        nav a:hover {
+            text-decoration: none
+        }
     </style>

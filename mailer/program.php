@@ -1,76 +1,70 @@
-
-<?php 
-$PagesValue = 1  ; 
-require_once "comp/navbar.php" ; 
+<?php
+$PagesValue = 1;
+require_once "comp/navbar.php";
 
 
 ?>
 
+<?php
+//require_once "vMailer.php";
+//require_once "aMailer.php" ;
+
+?>
+<style>
+    .mytable {
+        height: calc(100vh - 120px);
+        overflow-y: scroll;
+    }
+
+    #faketable tbody {
+        visibility: hidden;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="js/getters.js"></script>
+<div class="row">
+    <div class="col-3">
+        <div class="input-group ">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="projects">Проекты:</label>
+            </div>
+            <select onchange="getMails()" class="custom-select" id="projects">
+                <script>
+                    getTables();
+                </script>
+            </select>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <table class="table table-sm table-hover" id="faketable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">uid</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Succ</th>
+                        <th scope="col">NonSucc</th>
+                        <th scope="col">OverQta</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="row mytable">
+            <table class=" table table-sm table-hover" id="tablemails">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
 
 
-
-        <label for="proj_name"> Имя проекта</label>
-        <input type="text" name="proj_name" id="proj_name" /><br>
-        <label for="proj_link"> Линк проекта</label>
-        <input type="text" name="proj_link" id="proj_link" /><br>
-        <label for="file">CSV файл </label>
-        <input type="file" name="file" id="file" accept=".csv" />
-        <input type="button" value="send" onclick="insertData()" />
-    
-    <?php
-    require_once "vMailer.php";
-    //require_once "aMailer.php" ;
-
-    ?>
+    </div>
+</div>
 
 
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <script>
-        function MAILER() {
-            for (let i = 1; i <= 5; i++) {
-                $.post("php/mail.php", {
-                    RU: i
-                }, function(req) {
-                    console.log(req);
-                })
-            }
-        }
-
-        function insertData() {
-            today = new Date();
-            let options_time = {year:'numeric', month:'2-digit',day: '2-digit', hour:'numeric', minute:'numeric', second:'numeric' };
-            let time = today.toLocaleString("ru", options_time).split(/[, :.]/).join("");
-            let file = document.getElementById('file').files[0];
-            let form = new FormData();
-            form.append('proj_name', $('#proj_name').val());
-            form.append('proj_link', $('#proj_link').val());
-            form.append('time', time);
-            form.append('file', file);
-            $.ajax({
-                url: 'aMailer.php',
-                data: form,
-                processData: false,
-                contentType: false,
-                type: 'POST',
-                success: function(data) {
-                    console.log(data);
-                }
-            });
-        }
-        function getTables(){
-            $.post("php/getTable.php",function(data){
-                let arr = JSON.parse(data);
-                console.log(data);
-            });
-        }
-        
-    </script>
 
 </body>
 
