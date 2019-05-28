@@ -1,4 +1,5 @@
 <?php
+require_once("php/connection.php");
 
 $Navpages = [
     "action" => ["index.php", "program.php"],
