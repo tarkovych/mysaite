@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
-<div id="ar"></div>
+
+    <div id="ar"></div>
 
 
 
 
     <script src="js/spisok.js"></script>
 
-<script>
+    <script>
 
-let u =`` ; 
-for(i in ObjLabel["BMI"]["cat"]){
-u+=`${ObjLabel["BMI"]["val"][i]}  ${ObjLabel["BMI"]["cat"][i]} <br>`
-}
+        let u = ``;
+        for (i in ObjLabel["BMI"]["cat"]) {
+            u += `${ObjLabel["BMI"]["val"][i]}  ${ObjLabel["BMI"]["cat"][i]} <br>`
+        }
 
 
-document.getElementById("ar").innerHTML=u ; 
-</script>
+        document.getElementById("ar").innerHTML = u; 
+    </script>
 
 
 
 
 
 </body>
+
 </html>
