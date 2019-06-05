@@ -468,3 +468,12 @@ function POKAZ(id='massResult',val=0){
 
 
 
+// (function (){
+//     document.getElementById("GOOGLEVALUE").addEventListener("keydown",function(e){
+//         if(e.keyCode===13){
+//             e.preventDefault();
+//             document.getElementById("ShowImgBtnClick").click() ; 
+//         }
+//     }) ; 
+// }
+// )()
