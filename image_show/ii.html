@@ -8,36 +8,25 @@
 </head>
 <body>
     
-<div id="polka"></div>
+<div id="ar"></div>
 
 
+
+
+    <script src="js/spisok.js"></script>
+
+<script>
+
+let u =`` ; 
+for(i in ObjLabel["BMI"]["cat"]){
+u+=`${ObjLabel["BMI"]["val"][i]}  ${ObjLabel["BMI"]["cat"][i]} <br>`
+}
+
+
+document.getElementById("ar").innerHTML=u ; 
 </script>
 
 
-<script type="text/javascript">
-window.onload=function () {
-	var myUid=[% uid %];
-	var countSimvol=0;
-	var count=1;
-	var timerId =0;
-	//var myQname='[% QuestionName() %]' + "_el_";
-	if( myUid == 0 && document.getElementById("na").value==0 ){
-	
-	//while(document.getElementById("b"+count)){count++;}	
-		
-		function funcClick( ) {
-			countSimvol++;		
-			document.getElementById("b"+countSimvol).click();
- 			
-			if(document.getElementById("b"+countSimvol)) { clearInterval(timerId);}
-		}
-			timerId=setInterval(funcClick, 200);
-	}
-
-};
-
-
-</script>
 
 
 
