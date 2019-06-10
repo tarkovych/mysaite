@@ -1,0 +1,46 @@
+<table class="table">
+    <tr>
+      <th scope="col"><img src="img/img/1.png"></th>
+    </tr>
+    <tr>
+      <th scope="col">1.png</th>
+    </tr>
+</table>
+
+
+$query = "SHOW COLUMNS FROM `ObjValue`" ; 
+$result = mysqli_query($link,$query);
+$COLUMNS=array() ; 
+while($row = mysqli_fetch_assoc($result)){
+	$COLUMNS[]=$row['Field'] ; 
+}
+if(($key = array_search('IMG',$COLUMNS)) !== FALSE){
+    array_splice($COLUMNS, $key);
+}
+$query = "SHOW COLUMNS FROM `ObjValue`" ; 
+$result = mysqli_query($link,$query);
+$COLUMNS=array() ; 
+while($row = mysqli_fetch_assoc($result)){
+	$COLUMNS[]=$row['Field'] ; 
+}
+print_r($COLUMNS) ; 
+echo "<br>" ; 
+if(($key = array_search('IMG',$COLUMNS)) !== FALSE){
+    array_splice($COLUMNS, $key,1);
+}
+
+$Obj= array($C1, $C1a, $C2, $C4,$S7x1,$S7x2,$S7x3,$S7x4,$S7x5,$S7x6,$S7x7, $D2, $D3, $S2, $D1 ,$GDR, $AGE, $BMI,$IDR) ;
+foreach($Obj as $key=>$value){
+
+}
+
+
+
+
+SELECT ru FROM `C1` WHERE C1.ru LIKE "%б%" 
+UNION
+SELECT ru FROM `C1a` WHERE  C1a.ru LIKE "%б%"
+UNION
+SELECT en FROM `C1` WHERE C1.en LIKE "%б%" 
+UNION
+SELECT en FROM `C1a` WHERE  C1a.en LIKE "%б%"
