@@ -1,0 +1,70 @@
+<div id="table"></div>
+<style>
+    .pad2 {
+        padding: 2px;
+    }
+</style>
+
+<script>
+    function makeTable(x, id) {
+        var table = '<table border="1" cellpadding="0" cellspacing="0" >';
+        for (var i = 1; i <= x; i++) {
+            table += '<tr>';
+            table += '<td class="pad2"><span>' + i + '.</span></td>'
+            table += '<td class="pad2"><input type="text" name="name' + i + '" id="iname' + i + '" > </td>';
+            table += '<td class="pad2"> <input type="file" name="file' + i + '" id="ifile' + i + '" onchange="sendFile('+i+')"><input type="hidden" name="save' + i + '" id="isave' + i + '" value ="xxx' + i + '"> </td>';
+            table += '</tr>';
+        }
+        table += ' </table>';
+        document.getElementById(id).innerHTML = table ; 
+    }
+
+    makeTable(10, "table") ; 
+
+
+
+
+
+
+    function sendFile(iter){
+        alert(iter) ; 
+	var fileInput = document.getElementById('ifile'+iter).files.length;
+	if(fileInput>0){
+	for (var x = 0; x < fileInput; x++) {
+	if(document.getElementById('ifile'+iter).files[x].size<209715200){
+	
+    var formData = new FormData();
+    var request = new XMLHttpRequest();
+	request.upload.onprogress = function(event) {
+		//document.getElementById('upload_div').style.display='none';
+	    //document.getElementById('load-animation').style.display='block';
+  		};
+	request.onload = request.onerror = function(data) {
+	    if (this.status == 200) {
+		//document.getElementById('upload_div').style.display='inline';
+		//document.getElementById('load-animation').style.display='none';
+		//document.getElementById('mark_div').style.display='inline';
+		//document.getElementById('mark').classList.remove("hide");
+		// setTimeout(function(){
+		// if(device.desktop()){
+		// 	document.getElementById('mark_div').style.display='none';$(".js-labelFile").removeClass('has-file').html("Загрузить файл");
+		// }else{document.getElementById('mark_div').style.display='none';$(".js-labelFile").removeClass('has-file').html("Загрузить файл/Сделать фото");}
+		// },1000*2);
+	    } else {
+	      alert("Ошибка загрузки файла: " + this.status);
+	    }
+  	};
+	formData.append("product_code", iter);
+	formData.append("input", "1");
+	formData.append('id', '[%uid%]');
+	formData.append("file[]", document.getElementById('ifile'+iter).files[x]); 	
+	request.open("POST", 'http://b.ipsos.com.ua/myDB/ftpsend.php');
+    request.send(formData);
+	}else{alert("Ошибка отправки. Размер файла "+document.getElementById('ifile'+iter).files[x].name+" превышает 200 МБ. Файл не отправлен.");}
+	}
+}
+}
+
+
+</script>
+
