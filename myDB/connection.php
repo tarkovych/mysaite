@@ -1,10 +1,16 @@
 <?php
 
-$dbhost = "localhost"; // Имя хоста БД
-$dbusername ="ipsos-db"; // Пользователь БД
-$dbpass = "RA2vy42pWF3HRx9S"; // Пароль к базе
-$dbname = "ipsos-db_myDB"; // Имя базы
 
+define("ROOT", "http://web.brt.org.ua/Visit/");
+define("DS", DIRECTORY_SEPARATOR);
+// $dbhost = "localhost"; // Имя хоста БД
+// $dbusername ="ipsos-db"; // Пользователь БД
+// $dbpass = "RA2vy42pWF3HRx9S"; // Пароль к базе
+// $dbname = "ipsos-db_myDB"; // Имя базы
+$dbhost = "localhost"; // Имя хоста БД
+$dbusername ="brt-db"; // Пользователь БД
+$dbpass = "tASupAKek9"; // Пароль к базе
+$dbname = "brt-db_Visit"; // Имя базы
 
 $link = mysqli_connect($dbhost, $dbusername, $dbpass, $dbname);
 ini_set('memory_limit', '1024M');
