@@ -4,11 +4,14 @@ header("Access-Control-Allow-Methods: POST");
 require_once '../connection.php';
 
 
-$uid = $_POST['uid']; 
+$uid =  $_POST['uid']; 
 $iter = $_POST['iter']; 
-$day = $_POST['day'] ; 
+$day =  $_POST['day'] ; 
 $training = $_POST['training'] ;
 $prepare = $_POST['prepare'] ;
+$B1 = $_POST['B1'] ;
+$B2 = $_POST['B2'] ;
+$B6 = $_POST['B6'] ;
 
 if(isset($uid) && isset($iter)){
 
@@ -20,6 +23,15 @@ if(isset($uid) && isset($iter)){
     }
     if(isset($prepare )){
         $query = "UPDATE `visit2` SET `prepare`=$prepare  WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
+    }
+    if(isset($B1 )){
+        $query = "UPDATE `visit2` SET `B1`=$B1  WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
+    }
+    if(isset($B2)){
+        $query = "UPDATE `visit2` SET `B2`=$B2  WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
+    }
+    if(isset($B6)){
+        $query = "UPDATE `visit2` SET `B6`=\"$B6\"  WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
     }
 
 
