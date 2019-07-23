@@ -17,9 +17,9 @@
 </head>
 
 
-<body>
+<body >
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,11 +32,6 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link active hoverNav" href="<?php echo ROOT . 'visit/index.php'?>">Комплиты<span class="sr-only">(current)</span></a>
       </div>
-
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active hoverNav" href="<?php echo ROOT . 'dish/index.php'?>">Блюда<span class="sr-only">(current)</span></a>
-      </div>
-
     </div>
   </nav>
   <div class="mt-3"></div>

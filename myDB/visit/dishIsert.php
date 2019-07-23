@@ -6,6 +6,7 @@ require_once '../connection.php';
 
 $uid =  $_POST['uid']; 
 $iter = $_POST['iter']; 
+$data =  $_POST['data'] ;
 $day =  $_POST['day'] ; 
 $training = $_POST['training'] ;
 $prepare = $_POST['prepare'] ;
@@ -17,6 +18,9 @@ if(isset($uid) && isset($iter)){
 
     if(isset($day)){
         $query = "UPDATE `visit2` SET `day`=$day WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
+    }
+    if(isset($data)){
+        $query = "UPDATE `visit2` SET `data`=\"$data\" WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
     }
     if(isset($training)){
         $query = "UPDATE `visit2` SET `training`=$training WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";

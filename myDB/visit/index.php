@@ -14,6 +14,7 @@ function uidShow($link){
       <th scope="col">uid</th>
       <th scope="col">iter</th>
       <th scope="col">complite</th>
+      <th scope="col">Дата </th>
       <th scope="col">День недели </th>
       <th scope="col">Заполнение</th>
       <th scope="col">Ситуация</th>
@@ -34,6 +35,7 @@ $TableList = [
       while ($row = mysqli_fetch_assoc($result)) {
         $id=$row['id'] ;
         $uid=$row['uid'] ; 
+        $data=$row['data'] ;
         $iter=$row['iter'] ; 
         $complite=$row['complite'] ; 
         $trainind=$TableList["training"][$row['training']-1] ; 
@@ -56,6 +58,7 @@ $TableList = [
                 <td>$uid</td>
                 <td>$iter</td>
                 <td class="$color">$complite</td>
+                <td>$data</td>
                 <td>$day</td>
                 <td class="$color3">$trainind</td>
                 <td class="$color2">$prepare</td>

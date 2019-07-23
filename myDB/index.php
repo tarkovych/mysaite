@@ -21,6 +21,7 @@ function uidShow($link){
       <th scope="col">uid</th>
       <th scope="col">Имя</th>
       <th scope="col">Телефон</th>
+      <th scope="col">Дата</th>
     </tr>
   </thead>
   <tbody>
@@ -29,7 +30,8 @@ EON;
         $id=$row['id'] ;
         $uid=$row['uid'] ; 
         $name=$row['name'] ; 
-        $telephone=$row['telephone'] ; 
+        $telephone=$row['telephone'] ;
+        $data=$row['data'] ; 
           $COLUMNS.= <<<EON
           
               <tr>
@@ -37,6 +39,7 @@ EON;
                 <td>$uid</td>
                 <td>$name</td>
                 <td>$telephone</td>
+                <td>$data</td>
               </tr>
           
 EON;
