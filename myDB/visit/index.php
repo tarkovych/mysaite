@@ -40,7 +40,8 @@ $TableList = [
         $day=$TableList["day"][$row['day']-1] ; 
         $prepare=$TableList["prepare"][$row['prepare']-1] ; 
         $B2=$row['B2'] ; 
-        $B6=$row['B6'] ; 
+        $B6=str_replace("<b>/</b>", "</br>",$row['B6']);  
+
         $B1lab=$TableList["B1lab"][$row['B1']-1] ; 
         $color = $complite?"table-success":"" ; 
         $color2 = $row['prepare']==1?"table-success":"table-warning" ;
@@ -75,7 +76,7 @@ require_once "../comp/nav.php" ;
 ////////////////////////
 ?>
 
-<div class="container">
+<div class="container-fluid">
 <?php
   echo uidShow($link) ; 
    ?>
