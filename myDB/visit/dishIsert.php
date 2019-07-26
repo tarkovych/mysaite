@@ -13,6 +13,8 @@ $prepare = $_POST['prepare'] ;
 $B1 = $_POST['B1'] ;
 $B2 = $_POST['B2'] ;
 $B6 = $_POST['B6'] ;
+$B6iter = $_POST['B6iter'] ;
+$B6path = $_POST['B6path'] ;
 
 if(isset($uid) && isset($iter)){
 
@@ -37,6 +39,12 @@ if(isset($uid) && isset($iter)){
     if(isset($B6)){
         $query = "UPDATE `visit2` SET `B6`=\"$B6\"  WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
     }
+    if(isset($B6iter)){
+        $query = "UPDATE `visit2` SET `B6iter`=\"$B6iter\"  WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
+    }
+    if(isset($B6path)){
+        $query = "UPDATE `visit2` SET `B6path`=\"$B6path\"  WHERE `uid`=\"$uid\" AND `iter`=\"$iter\" ";
+    }
 
 
     if($result = mysqli_query($link, $query)){
@@ -49,6 +57,7 @@ if(isset($uid) && isset($iter)){
 
 <?php
 
+//`B6bl`,`B6path`
 
 //$query = "INSERT INTO `visit1`(`uid`, `name`, `telephone`) VALUES (\"$uid\",\"$name\",\"$telephone\")";
 //if(mysqli_query($link, $query)){

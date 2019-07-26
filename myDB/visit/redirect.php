@@ -17,7 +17,7 @@ $iter2=$iter+1 ;
         $query1 = "INSERT INTO `visit2`(`uid`, `iter`, `complite`) VALUES (\"$uid\",\"$iter2\",0)";
         if(mysqli_query($link, $query1)){
             echo "INSERT TRUE <br>" ;
-             header("Location:http://web.brt.org.ua/Visit/visit/visit2.php?uid=$uid"); 
+             header("Location:https://web.brt.org.ua/Visit/visit/visit2.php?uid=$uid"); 
            }else {
             echo "INSERT FALSE <br>" ;
            }
