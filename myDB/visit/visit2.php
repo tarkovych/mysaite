@@ -21,7 +21,7 @@ if (isset($uid)) {
         $query1 = "INSERT INTO `visit2`(`uid`, `iter`, `complite`) VALUES (\"$uid\",\"1\",\"0\")";
         if (mysqli_query($link, $query1)) {
             echo "1";
-            header("Location:http://web.brt.org.ua/diary_2019/cgi-bin/ciwweb.pl?studyname=diary_2019&uid=$uid&iter=1");
+            header("Location:https://web.brt.org.ua/diary_2019/cgi-bin/ciwweb.pl?studyname=diary_2019&uid=$uid&iter=1");
         } else {
             echo "0";
         }
@@ -32,7 +32,7 @@ if (isset($uid)) {
                 $iter = $firstCol["iter"][$key];
             }
         }
-        header("Location:http://web.brt.org.ua/diary_2019/cgi-bin/ciwweb.pl?studyname=diary_2019&uid=$uid&iter=$iter");
+        header("Location:https://web.brt.org.ua/diary_2019/cgi-bin/ciwweb.pl?studyname=diary_2019&uid=$uid&iter=$iter");
     }
 }
 

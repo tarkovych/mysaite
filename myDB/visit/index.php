@@ -16,8 +16,8 @@ function uidShow($link){
       <th scope="col">complite</th>
       <th scope="col">Дата </th>
       <th scope="col">День недели </th>
-      <th scope="col">Заполнение</th>
-      <th scope="col">Ситуация</th>
+      <th scope="col">Заполнение(OP0)</th>
+      <th scope="col">Ситуация(B0)</th>
       <th scope="col">B1</th>
       <th scope="col">B2</th>
       <th scope="col">B6</th>
@@ -42,8 +42,9 @@ $TableList = [
         $day=$TableList["day"][$row['day']-1] ; 
         $prepare=$TableList["prepare"][$row['prepare']-1] ; 
         $B2=$row['B2'] ; 
-        $B6=str_replace("<b>/</b>", "</br>",$row['B6']);  
-
+        $B6=$row['B6'];  
+        $B6iter=$row['B6iter']; 
+        $B6path=$row['B6path'];
         $B1lab=$TableList["B1lab"][$row['B1']-1] ; 
         $color = $complite?"table-success":"" ; 
         $color2 = $row['prepare']==1?"table-success":"table-warning" ;
@@ -51,6 +52,21 @@ $TableList = [
         $color4 = $row['B1']==2||$row['B1']==5||$row['B1']==8?"table-success":"table-warning" ;
         $color5 = $row['B2']>5?"table-warning":"table-success" ; 
          
+//////////////////////////////////////////        ///////////////////
+        $uiditer= $uid."_".$iter ;
+        $linc = "";
+        if(!empty($B6) && !empty($B6iter)){
+          $arrB6= explode("<b>/</b>",$B6) ; 
+          $arrB6iter=explode("/",$B6iter) ;
+         // $arrB6path= split("{#}",$B6path) ;
+          for($i=0 ; $i<(count($arrB6)-1) ; $i++){
+              $linc.="<a href ='http://b.ipsos.com.ua/myDB/ScanDir.php?B6iter=".$arrB6iter[$i]."&uid=".$uid."&iter=".$iter."&data=".$data."' target='_blank' style='color:#191970'>".$arrB6iter[$i].".".$arrB6[$i]."</a></br>";
+               }
+        }else{
+          $linc= "NoN"; 
+        }
+ 
+/////////////////////////////////////////       ////////////////////
           $COLUMNS.= <<<EON
           
               <tr>
@@ -64,7 +80,7 @@ $TableList = [
                 <td class="$color2">$prepare</td>
                 <td class="$color4">$B1lab</td>
                 <td class="$color5">$B2</td>
-                <td >$B6</td>
+                <td id="Image_$uiditer">$linc</td>
               </tr>
           
 EON;

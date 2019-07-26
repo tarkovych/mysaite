@@ -1,7 +1,7 @@
 <?php
 
 
-define("ROOT", "http://web.brt.org.ua/Visit/");
+define("ROOT", "https://web.brt.org.ua/Visit/");
 define("DS", DIRECTORY_SEPARATOR);
 // $dbhost = "localhost"; // Имя хоста БД
 // $dbusername ="ipsos-db"; // Пользователь БД
