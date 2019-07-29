@@ -125,6 +125,27 @@ $('#dtOrderExample').DataTable({
 $('.dataTables_length').addClass('bs-select');
 });
 
+
+setTimeout('true5()' , 500) ; 
+
+
+
+function true5() {
+  document.getElementsByTagName("select")[0].onchange = function (){
+    localStorage["SelectValue"] = document.getElementsByTagName("select")[0].value ; 
+  }
+  if(localStorage["SelectValue"]){
+    document.getElementsByTagName("select")[0].value=localStorage["SelectValue"] ; 
+    document.getElementsByTagName("select")[0].change ; 
+
+    var event = new Event('change');
+		document.getElementsByTagName("select")[0].dispatchEvent(event);
+   
+  }
+  
+}
+
+
 </script>
 
 <?php 
