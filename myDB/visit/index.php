@@ -1,16 +1,32 @@
 <?php 
 ///////////////
 require_once '../connection.php';
-
+?>
+<link href="../css/addons/datatables.min.css" rel="stylesheet">
+<style>
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+</style>
+<?php
 ////////////////
 function uidShow($link){
       $query = "SELECT * FROM `visit2` WHERE 1 ORDER BY uid  , iter; ";
       $result = mysqli_query($link, $query);
       $COLUMNS = <<<EON
-      <table class="table table-sm table-striped table-bordered table-hover">
+      <table class="table table-sm table-striped table-bordered table-hover" id="dtOrderExample">
   <thead class="table-dark">
     <tr>
-      <th scope="col">№</th>
+      <th scope="col" class="th-sm" >№</th>
       <th scope="col">uid</th>
       <th scope="col">iter</th>
       <th scope="col">complite</th>
@@ -20,7 +36,7 @@ function uidShow($link){
       <th scope="col">Ситуация(B0)</th>
       <th scope="col">B1</th>
       <th scope="col">B2</th>
-      <th scope="col">B6</th>
+      <th scope="col">B6-K1</th>
     </tr>
   </thead>
   <tbody>
@@ -100,6 +116,16 @@ require_once "../comp/nav.php" ;
   echo uidShow($link) ; 
    ?>
 </div>
+<script type="text/javascript" src="../js/addons/datatables.min.js"></script>
+<script>
+$(document).ready(function () {
+$('#dtOrderExample').DataTable({
+"order": [[ 3, "desc" ]]
+});
+$('.dataTables_length').addClass('bs-select');
+});
+
+</script>
 
 <?php 
 //////////////////
