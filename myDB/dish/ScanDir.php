@@ -10,10 +10,10 @@ $upload_files = scandir($path);
 $picture ='' ; 
 foreach ($upload_files as $filename) {
     if ($filename !== "." && $filename !== ".." && GETimagesize($path . DS . $filename) > 0) {
-        $picture .= '<div class="text-center" style = "width:600px">';
-        $picture .= '<img src="' . SERV . DS . $path . $filename . '" style="max-width:100%";/>';
+        $picture .= '<center><div class="text-center" style = "width:600px">';
+        $picture .= '<img src="' . SERV . DS . $path . $filename . '" style="max-width:100% ; text-align:center" />';
         $picture .= '<center>'. $filename .'</center>';
-        $picture .= '</div>';
+        $picture .= '</div></center>';
 
     }
 }
