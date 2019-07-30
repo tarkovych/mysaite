@@ -24,22 +24,22 @@ function uidShow($link){
       $result = mysqli_query($link, $query);
       $COLUMNS = <<<EON
       <table class="table table-sm table-striped table-bordered table-hover" id="dtOrderExample">
-  <thead class="table-dark">
-    <tr>
-      <th scope="col" class="th-sm" >№</th>
-      <th scope="col">uid</th>
-      <th scope="col">iter</th>
-      <th scope="col">complite</th>
-      <th scope="col">Дата </th>
-      <th scope="col">День недели </th>
-      <th scope="col">Заполнение(OP0)</th>
-      <th scope="col">Ситуация(B0)</th>
-      <th scope="col">B1</th>
-      <th scope="col">B2</th>
-      <th scope="col">B6-K1</th>
-    </tr>
-  </thead>
-  <tbody>
+        <thead class="table-dark">
+          <tr>
+            <th scope="col" class="th-sm" >№</th>
+            <th scope="col">uid</th>
+            <th scope="col">iter</th>
+            <th scope="col">complite</th>
+            <th scope="col">Дата </th>
+            <th scope="col">День недели </th>
+            <th scope="col">Заполнение(OP0)</th>
+            <th scope="col">Ситуация(B0)</th>
+            <th scope="col">B1</th>
+            <th scope="col">B2</th>
+            <th scope="col">B6-K1</th>
+          </tr>
+        </thead>
+        <tbody>
 EON;
 $TableList = [
   "day"=>["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"] , 
@@ -67,7 +67,7 @@ $TableList = [
         $color3 = $row['training']==2?"table-success":"table-warning" ; 
         $color4 = $row['B1']==2||$row['B1']==5||$row['B1']==8?"table-success":"table-warning" ;
         $color5 = $row['B2']>5?"table-warning":"table-success" ; 
-         
+         $color6 = "" ; 
 //////////////////////////////////////////        ///////////////////
         $uiditer= $uid."_".$iter ;
         $linc = "";
@@ -76,15 +76,15 @@ $TableList = [
           $arrB6iter=explode("/",$B6iter) ;
          // $arrB6path= split("{#}",$B6path) ;
           for($i=0 ; $i<(count($arrB6)-1) ; $i++){
-              $linc.="<a href ='http://b.ipsos.com.ua/myDB/ScanDir.php?B6iter=".$arrB6iter[$i]."&uid=".$uid."&iter=".$iter."&data=".$data."' target='_blank' style='color:#191970'>".$arrB6iter[$i].".".$arrB6[$i]."</a></br>";
+              $linc.="<u><a href ='http://b.ipsos.com.ua/myDB/ScanDir.php?B6iter=".$arrB6iter[$i]."&uid=".$uid."&iter=".$iter."&data=".$data."' target='_blank' style='color:#191970'>".$arrB6iter[$i].".".$arrB6[$i]."</a></u></br>";
                }
         }else{
           $linc= "NoN"; 
+          $color6 = "table-danger" ; 
         }
  
 /////////////////////////////////////////       ////////////////////
           $COLUMNS.= <<<EON
-          
               <tr>
                 <th scope="row">$id</th>
                 <td>$uid</td>
@@ -96,7 +96,7 @@ $TableList = [
                 <td class="$color2">$prepare</td>
                 <td class="$color4">$B1lab</td>
                 <td class="$color5">$B2</td>
-                <td id="Image_$uiditer">$linc</td>
+                <td class = "$color6" id="Image_$uiditer">$linc</td>
               </tr>
           
 EON;
