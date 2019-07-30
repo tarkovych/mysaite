@@ -39,11 +39,11 @@ define("DS2", DIRECTORY_SEPARATOR);
     <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
 
       <div class="navbar-nav">
-        <a class="nav-item nav-link active hoverNav" href="<?php echo ROOT . 'index.php'?>">Респонденты<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active hoverNav" href="<?php echo ROOT . 'index.php'?>">Визит 1 <span class="sr-only">(current)</span></a>
       </div>
 
       <div class="navbar-nav">
-        <a class="nav-item nav-link active hoverNav" href="<?php echo ROOT . 'visit/index.php'?>">Комплиты<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active hoverNav" href="<?php echo ROOT . 'visit/index.php'?>">Дневник <span class="sr-only">(current)</span></a>
       </div>
     </div>
   </nav>
