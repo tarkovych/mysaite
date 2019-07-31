@@ -1,6 +1,6 @@
 <?php
 define("DS", DIRECTORY_SEPARATOR);
-define("SERV", "http://b.ipsos.com.ua/myDB");
+define("SERV", "http://b.ipsos.com.ua/DPicture");
 $uid =      isset($_GET['uid']) ? $_GET['uid'] : 0;
 $iter =     isset($_GET['iter']) ? $_GET['iter'] : 0;
 $B6iter =    isset($_GET['B6iter']) ? $_GET['B6iter'] : 0;
@@ -43,7 +43,7 @@ foreach ($upload_files as $filename) {
         <a class="nav-item nav-link active hoverNav" href="<?php echo ROOT . 'index.php' ?>">Респонденты<span class="sr-only">(current)</span></a>
       </div>-->
       <div class="navbar-nav">
-        <a class="nav-item nav-link active hoverNav" href="https://web.brt.org.ua/Visit/visit/index.php">Дневник<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active hoverNav" href="https://b.ipsos.com.ua/Visit//visit/index.php">Дневник<span class="sr-only">(current)</span></a>
       </div>
     </div>
   </nav>
