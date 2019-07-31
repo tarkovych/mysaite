@@ -1,6 +1,12 @@
 http://web.brt.org.ua/IG9_MenuCheck_19/login.html
-http://web.brt.org.ua/Visit/visit/visit2.php?uid={value}
 
 
+
+https://b.ipsos.com.ua/Visit/direct.php?uid={value}
+
+
+https://b.ipsos.com.ua/IG9_MenuCheck_19/cgi-bin/ciwweb.pl?studyname=IG9_MenuCheck_19&uid=VALUE
 
 accept="image/*;capture=camera"
+
+https://b.ipsos.com.ua/Visit/visit/redirect.php?uid=[% uid %]&status=1

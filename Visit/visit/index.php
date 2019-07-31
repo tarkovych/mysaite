@@ -23,10 +23,10 @@ function uidShow($link){
       $query = "SELECT * FROM `visit2` WHERE 1 ORDER BY uid  , iter; ";
       $result = mysqli_query($link, $query);
       $COLUMNS = <<<EON
-      <table class="table table-sm table-striped table-bordered table-hover" id="dtOrderExample">
+      <table class="table table-sm table-striped table-bordered table-hover table-responsive-lg" id="dtOrderExample">
         <thead class="table-dark">
           <tr>
-            <th scope="col" class="th-sm" >№</th>
+            <th scope="col">№</th>
             <th scope="col">uid</th>
             <th scope="col">iter</th>
             <th scope="col">complite</th>
@@ -47,9 +47,9 @@ $TableList = [
   "prepare"=>["Прием пищи","Приготовление еды"],
   "B1lab"=>["1.Перед завтраком / сразу после того, как проснулся (лась)","2.Завтрак","3.Второй завтрак","4.Перекус в первой половине дня / между завтраком и обедом","5.Обед","6.Между обедом и ужином / Полдник","7.Перекус перед ужином","8.Ужин","9.Перекус после ужина","10.Перед тем, как лечь спать / На ночь","11.Ночной перекус / после того как лег спать / встал (а) ночью, чтобы перекусить"] 
 ]  ; 
-
+$caunt=0 ;
       while ($row = mysqli_fetch_assoc($result)) {
-        $id=$row['id'] ;
+        $id= ++$caunt ;//$row['id'] ;
         $uid=$row['uid'] ; 
         $data=$row['data'] ;
         $iter=$row['iter'] ; 
@@ -76,8 +76,9 @@ $TableList = [
           $arrB6iter=explode("/",$B6iter) ;
          // $arrB6path= split("{#}",$B6path) ;
           for($i=0 ; $i<(count($arrB6)-1) ; $i++){
-              $linc.="<u><a href ='http://b.ipsos.com.ua/myDB/ScanDir.php?B6iter=".$arrB6iter[$i]."&uid=".$uid."&iter=".$iter."&data=".$data."' target='_blank' style='color:#191970'>".$arrB6iter[$i].".".$arrB6[$i]."</a></u></br>";
-               }
+              $linc.="<u><a href ='http://b.ipsos.com.ua/DPicture/ScanDir.php?B6iter=".$arrB6iter[$i]."&uid=".$uid."&iter=".$iter."&data=".$data."' target='_blank' style='color:#191970'>".$arrB6iter[$i].".".$arrB6[$i]."</a></u></br>";
+               $color6="table-info";
+            }
         }else{
           $linc= "NoN"; 
           $color6 = "table-danger" ; 
@@ -86,17 +87,17 @@ $TableList = [
 /////////////////////////////////////////       ////////////////////
           $COLUMNS.= <<<EON
               <tr>
-                <th scope="row">$id</th>
-                <td>$uid</td>
-                <td>$iter</td>
+                <th >$id</th>
+                <td >$uid</td>
+                <td >$iter</td>
                 <td class="$color">$complite</td>
-                <td>$data</td>
-                <td>$day</td>
+                <td >$data</td>
+                <td >$day</td>
                 <td class="$color3">$trainind</td>
                 <td class="$color2">$prepare</td>
                 <td class="$color4">$B1lab</td>
                 <td class="$color5">$B2</td>
-                <td class = "$color6" id="Image_$uiditer">$linc</td>
+                <td class="$color6" id="Image_$uiditer">$linc</td>
               </tr>
           
 EON;
@@ -111,7 +112,7 @@ require_once "../comp/nav.php" ;
 ////////////////////////
 ?>
 
-<div class="container-fluid">
+<div class="container">
 <?php
   echo uidShow($link) ; 
    ?>
