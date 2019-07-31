@@ -56,16 +56,16 @@ function visit1($uid, $link)
     if (count($firstCol) == 0) {
         $query1 = "INSERT INTO `visit1`(`uid`,`state`) VALUES (\"$uid\",\"0\")";
         if (mysqli_query($link, $query1)) {
-            return true;
+            return TRUE;
         } else {
             echo "eror";
             exit;
         }
     } else {
         if ($firstCol["state"][0]==1) {
-            return false;
+            return FALSE;
         } else {
-            return true;
+            return TRUE;
         }
     }
 }
