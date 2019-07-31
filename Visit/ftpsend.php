@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: POST");
 
 define("DS", DIRECTORY_SEPARATOR);
-$TempName= "myDB" ; 
+$TempName= "DPicture" ; 
 
 $ftp_server    = 'b.ipsos.com.ua';
 $ftp_port    = 22;
