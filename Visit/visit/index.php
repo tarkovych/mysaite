@@ -76,7 +76,7 @@ $caunt=0 ;
           $arrB6iter=explode("/",$B6iter) ;
          // $arrB6path= split("{#}",$B6path) ;
           for($i=0 ; $i<(count($arrB6)-1) ; $i++){
-              $linc.="<u><a href ='http://b.ipsos.com.ua/DPicture/ScanDir.php?B6iter=".$arrB6iter[$i]."&uid=".$uid."&iter=".$iter."&data=".$data."' target='_blank' style='color:#191970'>".$arrB6iter[$i].".".$arrB6[$i]."</a></u></br>";
+              $linc.="<u><a href ='http://b.ipsos.com.ua/DPicture/ScanDir.php?B6iter=".$arrB6iter[$i]."&uid=".$uid."&iter=".$iter."&data=".$data."&B6=".$arrB6[$i]."' target='_blank' style='color:#191970'>".$arrB6iter[$i].".".$arrB6[$i]."</a></u></br>";
                $color6="table-info";
             }
         }else{
@@ -84,7 +84,7 @@ $caunt=0 ;
           $color6 = "table-danger" ; 
         }
  
-/////////////////////////////////////////       ////////////////////
+/////////////////////////////////////////////////////////////
           $COLUMNS.= <<<EON
               <tr>
                 <th >$id</th>
