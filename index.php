@@ -33,4 +33,15 @@ class Test2 extends Test {
 
 $test = new Test2 ; 
 $test->root2() ; 
-$test->root(); 
+$test->root();
+
+$x=2 ;
+$y=5 ;
+
+$r = $x+$y ;
+?>
+<script>
+    var x=33 ;
+    var y = x*x ;
+
+</script>
