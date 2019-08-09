@@ -1,4 +1,7 @@
 <?php
+
+define("ROOT", getcwd());
+define("DS", DIRECTORY_SEPARATOR);
 require "application/lib/Dev.php";
 
 use application\core\Router ; 
