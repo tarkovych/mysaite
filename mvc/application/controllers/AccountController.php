@@ -7,10 +7,10 @@ class AccountController extends Controller
 
     public function loginAction()
     {
-        echo "ENTER";
+        $this->view->render("HOME");
     }
     public function registerAction()
     {
-        echo "REGISTR";
+        $this->view->render("HOME");
     }
 }

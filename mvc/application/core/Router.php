@@ -23,8 +23,10 @@ class Router
     public function match()
     {
 
-        $url = trim($_SERVER['REQUEST_URI'], "/mvc");
+        $url = trim($_SERVER['REQUEST_URI'],'/mvc');
+        //$url = $_SERVER['REMOTE_ADDR'];
         foreach ($this->routes as $route => $params) {
+           // echo $url."<br>";
             if (preg_match($route, $url, $matches)) {
                 $this->params = $params;
                 return TRUE;

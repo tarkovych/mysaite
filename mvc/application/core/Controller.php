@@ -1,10 +1,16 @@
 <?php
 namespace application\core ; 
+
+use application\core\View ; 
+
+
 abstract class Controller {
     public $route ; 
+    public $view;
     public function __construct($route){
-        var_dump($route) ; 
-        $this->rourte =$route ; 
+        $this->route =$route ; 
+        $this->view = new View ($route); 
+      
     }
-
+    
 }
