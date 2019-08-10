@@ -1,6 +1,8 @@
 <form action="">
 <p>LOGIN</p>
-    <p>login</p>
+    <p>
+    <input type="text">
+    </p>
     <p>
         <input type="text">
     </p>

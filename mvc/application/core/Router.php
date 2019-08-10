@@ -2,6 +2,8 @@
 
 namespace application\core;
 
+use application\core\View;
+
 class Router
 {
     protected $routes = [];
@@ -23,10 +25,10 @@ class Router
     public function match()
     {
 
-        $url = trim($_SERVER['REQUEST_URI'],'/mvc');
+        $url = trim($_SERVER['REQUEST_URI'], '/mvc');
         //$url = $_SERVER['REMOTE_ADDR'];
         foreach ($this->routes as $route => $params) {
-           // echo $url."<br>";
+            // echo $url."<br>";
             if (preg_match($route, $url, $matches)) {
                 $this->params = $params;
                 return TRUE;
@@ -43,17 +45,17 @@ class Router
             if (class_exists($path)) {
                 $action = $this->params['action'] . "Action";
                 if (method_exists($path, $action)) {
-                    $controller  = new $path($this->params) ; 
-                    
-                    $controller->$action() ; 
+                    $controller  = new $path($this->params);
+
+                    $controller->$action();
                 } else {
-                    echo "ACTION NOT FOUD<br>" . $action;
+                    View::errorCode(404);
                 }
             } else {
-                echo "CONTROLLER NOT FOUD<br>" . $path;
+                View::errorCode(404);
             };
         } else {
-            echo "NOT FOUND 404";
+            View::errorCode(404);
         }
     }
 }
