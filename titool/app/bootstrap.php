@@ -1,14 +1,14 @@
 <?php 
 session_start();
-include ROOT . '/app/etc/config.php'; 
-include ROOT . '/app/core/DB.php';
-include ROOT . '/app/core/Model.php';
+include ROOT .DS.'app'.DS.'etc'.DS.'config.php'; 
+include ROOT .DS.'app'.DS.'core'.DS.'DB.php';
+include ROOT .DS.'app'.DS.'core'.DS.'Model.php';
 function myAutoloader($class_name) {   
-    include ROOT . '/app/models/' . ucfirst($class_name) . '.php'; 
+    include ROOT . DS.'app'.DS.'models'.DS.ucfirst($class_name) . '.php'; 
 }
 spl_autoload_register("myAutoloader");
-include ROOT . '/app/core/Helper.php';
-include ROOT . '/app/core/Controller.php';
-include ROOT . '/app/core/Route.php';
+include ROOT .DS.'app'.DS.'core'.DS.'Helper.php';
+include ROOT .DS.'app'.DS.'core'.DS.'Controller.php';
+include ROOT .DS.'app'.DS.'core'.DS.'Route.php';
 
 Route::Start(); 

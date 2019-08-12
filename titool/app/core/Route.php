@@ -28,6 +28,7 @@ class Route
      */
     public static function getBasePath()
     {
+        
         $base_path = substr(ROOT, strlen($_SERVER['DOCUMENT_ROOT']));
         if (DS !== '/') {
             $base_path = str_replace(DS,'/', $base_path);
