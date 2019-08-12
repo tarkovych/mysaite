@@ -68,11 +68,11 @@ class Route
             $controller_name = ucfirst(self::$controller) .'Controller';
             $action_name = self::$action . 'Action';
             
-            if(file_exists(ROOT . '/app/controllers/'.$controller_name.'.php')) {
-                include ROOT . '/app/controllers/'.$controller_name.'.php';
+            if(file_exists(ROOT .DS.'app'.DS.'controllers'.DS.''.$controller_name.'.php')) {
+                include ROOT . DS.'app'.DS.'controllers'.DS.$controller_name.'.php';
             }
             else {
-                include ROOT . '/app/controllers/ErrorController.php';
+                include ROOT .DS.'app'.DS.'controllers'.DS.'ErrorController.php';
                 $controller_name = 'ErrorController';
             }
 

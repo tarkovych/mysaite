@@ -21,8 +21,8 @@ class Helper
     public static function getMenu()
     {
         return [
-            ["name"=>"HOME" , "path"=>"/" , "title"=>"HOME"] , 
-            ["name"=>"AgeTool" , "path"=>"/tool/age/" , "title"=>"AgeTool"] ,
+            ["name"=>"HOME" , "path"=>DS , "title"=>"HOME"] , 
+            ["name"=>"AgeTool" , "path"=>DS.'tool'.DS.'age'.DS , "title"=>"AgeTool"] ,
     ];
     }
 

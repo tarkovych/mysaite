@@ -1,0 +1,20 @@
+.myInput {
+    border: solid black 1px;
+    font-size: 18px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.myTextArea {
+    height: 150px!important;
+}
+
+.myButton {
+    border: solid black 2px;
+    font-size: 18px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 18px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
